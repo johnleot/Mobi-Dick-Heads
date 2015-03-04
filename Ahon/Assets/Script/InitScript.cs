@@ -20,6 +20,7 @@ public class InitScript : MonoBehaviour {
 	void Awake()
 	{
 		// some code to check/fetch user information (database querying)
+		DontDestroyOnLoad (gameObject);
 		Invoke ("LoadMain", 3);
 	}	
 }
