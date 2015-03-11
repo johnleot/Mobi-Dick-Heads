@@ -4,10 +4,11 @@ using UnityEngine.UI;
 
 public class CountdownWipe : MonoBehaviour
 {
-	float calamityTimeRemaining = 5.0f; //eta of calamity is fetched from database
-	float calamityTimeToComplete = 10.0f; // calamity duration is fetched from database
+	public float calamityTimeRemaining; //eta of calamity is fetched from database
+	public float calamityTimeToComplete; // calamity duration is fetched from database
 	public Image calamity;
 	public Image duration;
+	public Text over;
 
 	void Update ()
 	{
@@ -25,7 +26,7 @@ public class CountdownWipe : MonoBehaviour
 			}
 			else
 			{
-				GUI.Label(new Rect(100,100,200,100), "Game Over");
+				over.text = "Game Over";
 			}
 		}
 	}
