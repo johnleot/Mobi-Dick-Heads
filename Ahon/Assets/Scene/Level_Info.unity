@@ -356,11 +356,16 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 494040, guid: d79a88e307919fd48a8f16715a209a25, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d79a88e307919fd48a8f16715a209a25, type: 2}
   m_IsPrefabParent: 0
+--- !u!20 &860883084
+Camera:
+  m_PrefabParentObject: {fileID: 2024440, guid: d79a88e307919fd48a8f16715a209a25,
+    type: 2}
+  m_PrefabInternal: {fileID: 860883083}
 --- !u!1 &1014217813
 GameObject:
   m_ObjectHideFlags: 0
@@ -393,7 +398,7 @@ RectTransform:
   - {fileID: 424352326}
   - {fileID: 13546779}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -445,7 +450,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 2
   m_RenderMode: 1
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 860883084}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -591,7 +596,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!1 &1817731702
 GameObject:
   m_ObjectHideFlags: 0
