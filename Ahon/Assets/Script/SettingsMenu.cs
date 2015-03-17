@@ -59,6 +59,7 @@ public class SettingsMenu : MonoBehaviour
 					GUI.Label (new Rect (5, 80, 100, 35), "Sound Effects");
 				GUILayout.BeginVertical ();
 					musicValue = GUI.HorizontalSlider (new Rect (50, 60, 145, 30), musicValue, 0.0f, musicMax);
+					AudioListener.volume = musicValue;
 					onOff = GUI.Toolbar (new Rect (100, 85, 95, 20), onOff, onOffStrings);
 				GUILayout.EndVertical ();
 				GUILayout.EndHorizontal ();
