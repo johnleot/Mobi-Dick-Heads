@@ -15,3 +15,5 @@ EditorBuildSettings:
     path: Assets/Scene/Level_Info.unity
   - enabled: 1
     path: Assets/Scene/Game_Level.unity
+  - enabled: 1
+    path: Assets/Scene/LevelSelection.unity
