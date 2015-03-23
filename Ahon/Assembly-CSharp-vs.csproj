@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{0D018AC9-FAE0-BD4B-0447-936752C0DAE0}</ProjectGuid>
+	<ProjectGuid>{09A36ADD-FDCB-AA16-799D-92287859FD45}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -71,13 +71,13 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="Mono.Data.Sqlite">
- <HintPath>C:/Users/Kana Antonio/Documents/Work Files/Ahon/AHON Project/03222015/Ahon_03222015/Assets/Plugins/Mono.Data.Sqlite.dll</HintPath>
+ <HintPath>C:/Users/Elisa/Ahon/Ahon/Assets/Plugins/Mono.Data.Sqlite.dll</HintPath>
  </Reference>
  <Reference Include="Mono.Data.SqliteClient">
- <HintPath>C:/Users/Kana Antonio/Documents/Work Files/Ahon/AHON Project/03222015/Ahon_03222015/Assets/Plugins/Mono.Data.SqliteClient.dll</HintPath>
+ <HintPath>C:/Users/Elisa/Ahon/Ahon/Assets/Plugins/Mono.Data.SqliteClient.dll</HintPath>
  </Reference>
  <Reference Include="System.Data">
- <HintPath>C:/Users/Kana Antonio/Documents/Work Files/Ahon/AHON Project/03222015/Ahon_03222015/Assets/Plugins/System.Data.dll</HintPath>
+ <HintPath>C:/Users/Elisa/Ahon/Ahon/Assets/Plugins/System.Data.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
