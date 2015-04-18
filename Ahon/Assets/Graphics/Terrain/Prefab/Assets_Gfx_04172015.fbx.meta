@@ -1,0 +1,164 @@
+fileFormatVersion: 2
+guid: d1fb22917dde9e8488528d877e5064e2
+timeCreated: 1429278173
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: '1_House _1_50 '
+    100002: 1_House-1_100
+    100004: 1_House_1 _30
+    100006: 2_House _100
+    100008: 2_House _30
+    100010: 2_House _50
+    100012: //RootNode
+    100014: Barangay Hall.001
+    100016: Barangay Hall.005
+    100018: Barangay Hall.006
+    100020: CityHall
+    100022: Cocomut_2
+    100024: Coconut_1
+    100026: Concrete House_1
+    100028: Concrete House_2
+    100030: Corn_1
+    100032: Lamp
+    100034: Roof
+    100036: Tree_1
+    100038: Tree_2
+    100040: Tree_3
+    400000: '1_House _1_50 '
+    400002: 1_House-1_100
+    400004: 1_House_1 _30
+    400006: 2_House _100
+    400008: 2_House _30
+    400010: 2_House _50
+    400012: //RootNode
+    400014: Barangay Hall.001
+    400016: Barangay Hall.005
+    400018: Barangay Hall.006
+    400020: CityHall
+    400022: Cocomut_2
+    400024: Coconut_1
+    400026: Concrete House_1
+    400028: Concrete House_2
+    400030: Corn_1
+    400032: Lamp
+    400034: Roof
+    400036: Tree_1
+    400038: Tree_2
+    400040: Tree_3
+    2300000: '1_House _1_50 '
+    2300002: 1_House-1_100
+    2300004: 1_House_1 _30
+    2300006: 2_House _100
+    2300008: 2_House _30
+    2300010: 2_House _50
+    2300012: Barangay Hall.001
+    2300014: Barangay Hall.005
+    2300016: Barangay Hall.006
+    2300018: CityHall
+    2300020: Cocomut_2
+    2300022: Coconut_1
+    2300024: Concrete House_1
+    2300026: Concrete House_2
+    2300028: Corn_1
+    2300030: Roof
+    2300032: Tree_1
+    2300034: Tree_2
+    2300036: Tree_3
+    3300000: '1_House _1_50 '
+    3300002: 1_House-1_100
+    3300004: 1_House_1 _30
+    3300006: 2_House _100
+    3300008: 2_House _30
+    3300010: 2_House _50
+    3300012: Barangay Hall.001
+    3300014: Barangay Hall.005
+    3300016: Barangay Hall.006
+    3300018: CityHall
+    3300020: Cocomut_2
+    3300022: Coconut_1
+    3300024: Concrete House_1
+    3300026: Concrete House_2
+    3300028: Corn_1
+    3300030: Roof
+    3300032: Tree_1
+    3300034: Tree_2
+    3300036: Tree_3
+    4300000: Barangay Hall.006
+    4300002: Barangay Hall.005
+    4300004: Barangay Hall.001
+    4300006: 2_House _50
+    4300008: 2_House _100
+    4300010: Roof
+    4300012: 2_House _30
+    4300014: Coconut_1
+    4300016: Tree_2
+    4300018: Concrete House_1
+    4300020: 1_House-1_100
+    4300022: 1_House_1 _30
+    4300024: '1_House _1_50 '
+    4300026: Corn_1
+    4300028: Tree_1
+    4300030: Tree_3
+    4300032: Cocomut_2
+    4300034: CityHall
+    4300036: Concrete House_2
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
