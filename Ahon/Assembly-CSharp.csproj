@@ -46,14 +46,8 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Graphics\Water (Pro Only)\Scripts\Displace.cs" />
-     <Compile Include="Assets\Graphics\Water (Pro Only)\Scripts\GerstnerDisplace.cs" />
-     <Compile Include="Assets\Graphics\Water (Pro Only)\Scripts\MeshContainer.cs" />
-     <Compile Include="Assets\Graphics\Water (Pro Only)\Scripts\PlanarReflection.cs" />
-     <Compile Include="Assets\Graphics\Water (Pro Only)\Scripts\SpecularLighting.cs" />
-     <Compile Include="Assets\Graphics\Water (Pro Only)\Scripts\Water.cs" />
-     <Compile Include="Assets\Graphics\Water (Pro Only)\Scripts\WaterBase.cs" />
-     <Compile Include="Assets\Graphics\Water (Pro Only)\Scripts\WaterTile.cs" />
+     <Compile Include="Assets\Graphics\Terrain\WaterPlus\Scripts\FlowmapAnimator.cs" />
+     <Compile Include="Assets\Graphics\Terrain\WaterPlus\Scripts\WaterPlusScript.cs" />
      <Compile Include="Assets\Scripts\Behaviour\CalamityTimer.cs" />
      <Compile Include="Assets\Scripts\Behaviour\Gameplay.cs" />
      <Compile Include="Assets\Scripts\Behaviour\LevelIntroduction.cs" />
@@ -78,11 +72,14 @@
      <Compile Include="Assets\Scripts\DataSource\UserManager.cs" />
      <Compile Include="Assets\Scripts\InitScript.cs" />
      <Compile Include="Assets\Scripts\VideoLoaderScript.cs" />
-     <None Include="Assets\Graphics\Water (Pro Only)\Shaders\FXWaterV4Simple.shader" />
-     <None Include="Assets\Graphics\Terrain\Terrain_Textures\Read Me.txt" />
-     <None Include="Assets\Graphics\Water (Pro Only)\Shaders\FXWaterPro.shader" />
-     <None Include="Assets\Graphics\Water (Pro Only)\Shaders\WaterInclude.cginc" />
-     <None Include="Assets\Graphics\Water (Pro Only)\Shaders\FXWaterV4Pro.shader" />
+     <None Include="Assets\Graphics\Terrain\WaterPlus\Shaders\WaterPlus_Mobile_HQ_VertColor.shader" />
+     <None Include="Assets\Graphics\Terrain\WaterPlus\Shaders\WaterPlus_Mobile_NoSpec.shader" />
+     <None Include="Assets\Graphics\Terrain\WaterPlus\Shaders\WaterPlus_Mobile_Lite.shader" />
+     <None Include="Assets\Graphics\Terrain\WaterPlus\Shaders\WaterPlus_Mobile_Shadows.shader" />
+     <None Include="Assets\Graphics\Terrain\WaterPlus\Shaders\WaterPlus_Mobile_Opaque.shader" />
+     <None Include="Assets\Graphics\Terrain\WaterPlus\Shaders\WaterPlusInclude.cginc" />
+     <None Include="Assets\Graphics\Terrain\WaterPlus\Shaders\WaterPlus_Mobile_HQ.shader" />
+     <None Include="Assets\Graphics\Terrain\WaterPlus\Shaders\WaterPlus_Mobile.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
