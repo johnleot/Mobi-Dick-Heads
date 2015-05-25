@@ -81,10 +81,10 @@ public class TouchControl : MonoBehaviour {
 					{
 						
 						Vector2 delta = touches[0].deltaPosition;
-						float positionX = delta.x * moveSensitivityX * Time.deltaTime;
+						float positionX = delta.x * moveSensitivityX * Time.fixedDeltaTime;
 						positionX = invertMoveX ? positionX : positionX * -1;
 						
-						float positionY = delta.y * moveSensitivityY * Time.deltaTime;
+						float positionY = delta.y * moveSensitivityY * Time.fixedDeltaTime;
 						positionY = invertMoveY ? positionY : positionY * -1;
 						
 						_camera.transform.position += new Vector3(positionX, positionY, -positionX);
