@@ -37,12 +37,12 @@ public class TouchControl : MonoBehaviour {
 			Touch[] touches = Input.touches;
 			
 			Plane horPlane = new Plane(Vector3.up, -1.0f);
-			
-			Ray ray = _camera.ScreenPointToRay(touches[0].position);
-			RaycastHit hit;
+
 			
 			if(touches.Length > 0)
 			{
+				Ray ray = _camera.ScreenPointToRay(touches[0].position);
+				RaycastHit hit;
 				
 				if(Physics.Raycast(ray, out hit) && hit.collider.tag == "Draggable")
 				{
@@ -63,10 +63,16 @@ public class TouchControl : MonoBehaviour {
 						if(pickedObject != null)
 						{
 							float distance1 = 0f;
+							float height = Terrain.activeTerrain.SampleHeight(pickedObject.position)
+								+ Terrain.activeTerrain.transform.position.y;
+
+							/**/
 							if (horPlane.Raycast(ray, out distance1))
 							{
 								pickedObject.transform.position = ray.GetPoint(distance1);
+								pickedObject.transform.position = new Vector3(pickedObject.position.x, height, pickedObject.position.z);
 							}
+
 						}
 					}
 					else if (touches[0].phase == TouchPhase.Ended)
