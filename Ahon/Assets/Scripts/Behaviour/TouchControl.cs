@@ -20,7 +20,7 @@ public class TouchControl : MonoBehaviour {
 	
 	private float maxPickingDistance = 1000;
 	//private Vector3 startPos;
-	private Transform pickedObject = null;
+	public Transform pickedObject = null;
 	private bool colliding = false;
 	
 	void Start () {
@@ -35,9 +35,20 @@ public class TouchControl : MonoBehaviour {
 			moveSensitivityY = _camera.orthographicSize / 5.0f;
 			
 			Touch[] touches = Input.touches;
-			
-			Plane horPlane = new Plane(Vector3.up, -1.0f);
 
+			Plane horPlane;
+			if(pickedObject) 
+			{
+				float height = Terrain.activeTerrain.SampleHeight(pickedObject.position) + 2.25f;
+				Debug.Log ("Terrain y Position = " + Terrain.activeTerrain.transform.position.y);
+				Debug.Log ("pickedObject.position.y = " + pickedObject.position.y);
+				Debug.Log ("Height = " + height);
+				horPlane = new Plane(Vector3.up, -height);
+			}
+			else
+			{
+				horPlane = new Plane(Vector3.up, -10.0f);
+			}
 			
 			if(touches.Length > 0)
 			{
@@ -63,14 +74,14 @@ public class TouchControl : MonoBehaviour {
 						if(pickedObject != null)
 						{
 							float distance1 = 0f;
-							float height = Terrain.activeTerrain.SampleHeight(pickedObject.position)
-								+ Terrain.activeTerrain.transform.position.y;
+							//float height = Terrain.activeTerrain.SampleHeight(pickedObject.position)
+							//	+ Terrain.activeTerrain.transform.position.y;
 
 							/**/
 							if (horPlane.Raycast(ray, out distance1))
 							{
 								pickedObject.transform.position = ray.GetPoint(distance1);
-								pickedObject.transform.position = new Vector3(pickedObject.position.x, height, pickedObject.position.z);
+								//pickedObject.transform.position = new Vector3(pickedObject.position.x, height, pickedObject.position.z);
 							}
 
 						}
