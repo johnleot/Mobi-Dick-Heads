@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\Graphics\Terrain\WaterPlus\Scripts\FlowmapAnimator.cs" />
      <Compile Include="Assets\Graphics\Terrain\WaterPlus\Scripts\WaterPlusScript.cs" />
+     <Compile Include="Assets\Scripts\AstarAI.cs" />
      <Compile Include="Assets\Scripts\Behaviour\CalamityTimer.cs" />
      <Compile Include="Assets\Scripts\Behaviour\CollisionDetect.cs" />
      <Compile Include="Assets\Scripts\Behaviour\Draggable.cs" />
@@ -77,12 +78,20 @@
      <Compile Include="Assets\Scripts\VideoLoaderScript.cs" />
      <None Include="Assets\Graphics\Terrain\WaterPlus\Shaders\WaterPlus_Mobile_HQ_VertColor.shader" />
      <None Include="Assets\Graphics\Terrain\WaterPlus\Shaders\WaterPlus_Mobile_NoSpec.shader" />
+     <None Include="Assets\AstarPathfindingEditor\Editor\EditorAssets\Materials\Navmesh2.shader" />
+     <None Include="Assets\Plugins\AstarPathfindingProject\Plugins\DotNetZip\License.txt" />
      <None Include="Assets\Graphics\Terrain\WaterPlus\Shaders\WaterPlus_Mobile_Lite.shader" />
      <None Include="Assets\Graphics\Terrain\WaterPlus\Shaders\WaterPlus_Mobile_Shadows.shader" />
      <None Include="Assets\Graphics\Terrain\WaterPlus\Shaders\WaterPlus_Mobile_Opaque.shader" />
+     <None Include="Assets\Plugins\AstarPathfindingProject\Plugins\dependencies.txt" />
      <None Include="Assets\Graphics\Terrain\WaterPlus\Shaders\WaterPlusInclude.cginc" />
+     <None Include="Assets\Plugins\AstarPathfindingProject\Readme_upgrading.txt" />
+     <None Include="Assets\Plugins\AstarPathfindingProject\Readme.txt" />
      <None Include="Assets\Graphics\Terrain\WaterPlus\Shaders\WaterPlus_Mobile_HQ.shader" />
+     <None Include="Assets\Plugins\AstarPathfindingProject\Plugins\JsonFx\License.txt" />
+     <None Include="Assets\Plugins\AstarPathfindingProject\Plugins\JsonFx\Readme.txt" />
      <None Include="Assets\Graphics\Terrain\WaterPlus\Shaders\WaterPlus_Mobile.shader" />
+     <None Include="Assets\Plugins\AstarPathfindingProject\link.xml" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
@@ -95,9 +104,19 @@
  <Reference Include="System.Data">
  <HintPath>C:/Users/John/Repositories/Mobi-Dick-Heads/Ahon/Assets/Plugins/System.Data.dll</HintPath>
  </Reference>
+ <Reference Include="Pathfinding.Ionic.Zip.Reduced">
+ <HintPath>C:/Users/John/Repositories/Mobi-Dick-Heads/Ahon/Assets/Plugins/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
+ </Reference>
+ <Reference Include="Pathfinding.JsonFx">
+ <HintPath>C:/Users/John/Repositories/Mobi-Dick-Heads/Ahon/Assets/Plugins/AstarPathfindingProject/Plugins/JsonFx/Pathfinding.JsonFx.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iossupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
  </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{C040578B-E34A-417C-B069-F98DA539264B}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
