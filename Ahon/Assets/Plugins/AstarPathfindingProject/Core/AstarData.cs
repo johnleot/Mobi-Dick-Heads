@@ -1,4 +1,5 @@
-//#define ASTAR_FAST_NO_EXCEPTIONS //@SHOWINEDITOR Needs to be enabled for the iPhone build setting Fast But No Exceptions to work.
+#define ASTAR_FAST_NO_EXCEPTIONS 
+//@SHOWINEDITOR Needs to be enabled for the iPhone build setting Fast But No Exceptions to work.
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;

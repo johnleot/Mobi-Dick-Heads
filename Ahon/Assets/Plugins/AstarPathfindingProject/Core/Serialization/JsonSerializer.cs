@@ -1,5 +1,5 @@
 //#define ASTARDEBUG
-//#define ASTAR_FAST_NO_EXCEPTIONS
+#define ASTAR_FAST_NO_EXCEPTIONS
 //#define ASTAR_NO_JSON //@SHOWINEDITOR Strips out usage of the JsonFx library. Slightly lower build size but reduces backwards and forwards compatibility of saving graph settings. Only works properly with the NavmeshGraph right now. You can remove the Pathfinding.JsonFx.dll file if you enable this.
 //#define ASTAR_NO_ZIP
 using System;
