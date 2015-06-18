@@ -16,15 +16,22 @@ public class TouchControl : MonoBehaviour {
 	
 	public Camera _camera = null;
 	private float horizontalExtent, verticalExtent;
-	private float minX, maxX, minY, maxY;
+	private float minX, maxX, minY, maxY, minZ, maxZ;
 	
 	private float maxPickingDistance = 1000;
 	//private Vector3 startPos;
 	public Transform pickedObject = null;
 	private bool colliding = false;
+	private Vector3 cameraInitialPosition;
 	
 	void Start () {
-		maxZoom = (mapWidth > mapHeight)? 0.5f * mapHeight : 0.5f * (mapWidth / _camera.aspect);
+		cameraInitialPosition = _camera.transform.position;
+		maxZoom = 0.5f * (mapWidth / _camera.aspect);
+
+		if (mapWidth > mapHeight)
+			maxZoom = 0.5f * mapHeight;
+		Debug.Log ("MaxZOOM : " + maxZoom);
+		//maxZoom = (mapWidth > mapHeight)? 0.5f * mapHeight : 0.5f * (mapWidth / _camera.aspect);
 		CalculateMapBounds ();
 	}
 	
@@ -40,9 +47,10 @@ public class TouchControl : MonoBehaviour {
 			if(pickedObject) 
 			{
 				float height = Terrain.activeTerrain.SampleHeight(pickedObject.position) + 2.25f;
-				Debug.Log ("Terrain y Position = " + Terrain.activeTerrain.transform.position.y);
-				Debug.Log ("pickedObject.position.y = " + pickedObject.position.y);
-				Debug.Log ("Height = " + height);
+				//Debug for TerrainObjects elevation.
+				//Debug.Log ("Terrain y Position = " + Terrain.activeTerrain.transform.position.y);
+				//Debug.Log ("pickedObject.position.y = " + pickedObject.position.y);
+				//Debug.Log ("Height = " + height);
 				horPlane = new Plane(Vector3.up, -height);
 			}
 			else
@@ -130,6 +138,8 @@ public class TouchControl : MonoBehaviour {
 					_camera.orthographicSize = Mathf.Clamp(_camera.orthographicSize, minZoom, maxZoom); //- 0.001f;
 					
 					_camera.transform.position -= _camera.transform.TransformDirection((touchOne.position + touchTwo.position - cameraViewSize) * _camera.orthographicSize / cameraViewSize.y);
+
+					CalculateMapBounds();
 				}
 			}
 		}
@@ -142,7 +152,26 @@ public class TouchControl : MonoBehaviour {
 		minX = horizontalExtent - mapWidth / 2.0f;
 		maxX = mapWidth / 2.0f - horizontalExtent;
 		minY = verticalExtent - mapHeight / 2.0f;
-		maxY = mapHeight / 2.0f - verticalExtent;	
+		maxY = mapHeight / 2.0f - verticalExtent;
+
+		minZ = horizontalExtent - mapWidth / 2.0f;
+		maxZ = mapWidth / 2.0f - horizontalExtent;
+
+		minX += cameraInitialPosition.x;
+		maxX += cameraInitialPosition.x;
+		minY += cameraInitialPosition.y;
+		maxY += cameraInitialPosition.y;
+		minZ += cameraInitialPosition.z;
+		maxZ += cameraInitialPosition.z;
+
+
+		//Print MaxHeight, MaxWidth;
+		Debug.Log ("VerticalExtent" + verticalExtent);
+		Debug.Log ("HorizontalExtent" + horizontalExtent);
+		Debug.Log ("minX" + minX);
+		Debug.Log ("maxX" + maxX);
+		Debug.Log ("minY" + minY);
+		Debug.Log ("maxY" + maxY);
 	}
 	
 	void LateUpdate()
@@ -150,15 +179,8 @@ public class TouchControl : MonoBehaviour {
 		Vector3 limitedCameraPosition = _camera.transform.position;
 		limitedCameraPosition.x = Mathf.Clamp (limitedCameraPosition.x, minX, maxX);
 		limitedCameraPosition.y = Mathf.Clamp (limitedCameraPosition.y, minY, maxY);
+		limitedCameraPosition.z = Mathf.Clamp (limitedCameraPosition.z, minZ, maxZ);
 		_camera.transform.position = limitedCameraPosition;
-	}
-	
-	void OnTriggerEnter(Collider other)
-	{
-		if(other)
-		{
-			colliding = true;
-		}
 	}
 }
 
