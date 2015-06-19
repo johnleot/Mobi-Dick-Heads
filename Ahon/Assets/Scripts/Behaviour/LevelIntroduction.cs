@@ -9,6 +9,11 @@ namespace Assets.Scripts.Behaviour
 {
     public class LevelIntroduction : MonoBehaviour
     {
+		public Slider loadingBar;
+		public GameObject loadingImage;
+
+		private AsyncOperation async;
+
         void Start()
         {
             Text location;
@@ -28,7 +33,9 @@ namespace Assets.Scripts.Behaviour
         public GameObject infoWindow;
         public void OnClickPlay()
         {
-            Application.LoadLevel("Game_Level");
+			loadingImage.SetActive (true);
+            //Application.LoadLevel("Game_Level");
+			StartCoroutine(loadLevelBehind("Game_Level"));
         }
 
         public void OnClickCancel()
@@ -46,5 +53,15 @@ namespace Assets.Scripts.Behaviour
             if (!infoWindow.activeInHierarchy)
                 infoWindow.SetActive(true);
         }
+
+		IEnumerator loadLevelBehind(string level)
+		{
+			async = Application.LoadLevelAsync (level);
+			while(!async.isDone)
+			{
+				loadingBar.value = async.progress;
+				yield return null;
+			}
+		}
     }
 }
