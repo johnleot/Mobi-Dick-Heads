@@ -44,6 +44,8 @@ namespace Assets.Scripts.Behaviour
             position.text = user.PositionName;
             resource.text = resources[0].Name;
             tools.text = solutions[0].Name;
+
+            Debug.Log("Calamity - " + calamity.text);
         }
 
         // Update is called once per frame
