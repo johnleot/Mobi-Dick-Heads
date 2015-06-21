@@ -20,7 +20,7 @@ namespace Assets.Scripts.Behaviour
 		private GameObject ResultsWindow;
 		
 		void Awake(){
-			ResultsWindow = GameObject.FindGameObjectWithTag ("ResultsWindow");
+			//ResultsWindow = GameObject.FindGameObjectWithTag ("ResultsWindow");
 		}
 		void Start()
 		{
@@ -32,7 +32,7 @@ namespace Assets.Scripts.Behaviour
 			calamityTimeRemaining = firstCalamity.TimeOfArrival;
 			calamityTimeToComplete = firstCalamity.Duration;
 			
-			ResultsWindow.SetActive (false);
+			//ResultsWindow.SetActive (false);
 			//instantiate calamity
 			
 		}
@@ -53,9 +53,11 @@ namespace Assets.Scripts.Behaviour
 				else
 				{
 					over.text = "Game Over";
+					transform.FindChild("ResultsWindow").gameObject.SetActive(true);
+					/*
 					if(!ResultsWindow.activeInHierarchy){
 						ResultsWindow.SetActive(true);
-					}
+					}*/
 				}
 			}
 		}

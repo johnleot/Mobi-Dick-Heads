@@ -19,7 +19,8 @@ namespace Assets.Scripts.Behaviour
 		private Boolean isPaused;
 
 		void Awake(){
-			PauseWindow = GameObject.FindGameObjectWithTag ("PauseWindow");
+			//PauseWindow = GameObject.FindGameObjectWithTag ("PauseWindow");
+			PauseWindow = transform.FindChild ("PauseWindow").gameObject as GameObject;
 		}
 		 
 		void Start(){
