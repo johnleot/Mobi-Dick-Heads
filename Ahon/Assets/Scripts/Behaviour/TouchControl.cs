@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Assets.Scripts.Behaviour;
 
 public class TouchControl : MonoBehaviour {
 	
@@ -13,18 +14,28 @@ public class TouchControl : MonoBehaviour {
 	public bool invertMoveY = false;
 	public float mapWidth = 40.0f;
 	public float mapHeight = 40.0f;
-	
 	public Camera _camera = null;
+	public Transform pickedObject = null;
 	private float horizontalExtent, verticalExtent;
 	private float minX, maxX, minY, maxY, minZ, maxZ;
-	
 	private float maxPickingDistance = 1000;
-	//private Vector3 startPos;
-	public Transform pickedObject = null;
-	private bool colliding = false;
 	private Vector3 cameraInitialPosition;
+
+	private Gameplay gameplay;
 	
+	private bool  longPressDetected;
+	private bool  newTouch;
+	private float touchTime;
+
+	public GameObject gui;
+
 	void Start () {
+		gameplay = gui.GetComponent<Gameplay> ();
+		if (gameplay) {
+			Debug.Log ("Success Getting gameplay !");
+		} else {
+			Debug.Log ("Failed getting gamplay instance. ");
+		}
 		cameraInitialPosition = _camera.transform.position;
 		maxZoom = 0.5f * (mapWidth / _camera.aspect);
 
@@ -69,6 +80,7 @@ public class TouchControl : MonoBehaviour {
 					{
 						if(Physics.Raycast(ray, out hit, maxPickingDistance))
 						{
+							touchTime = Time.time;
 							pickedObject = hit.transform;
 							//startPos = touches[0].position;
 						}
@@ -82,14 +94,9 @@ public class TouchControl : MonoBehaviour {
 						if(pickedObject != null)
 						{
 							float distance1 = 0f;
-							//float height = Terrain.activeTerrain.SampleHeight(pickedObject.position)
-							//	+ Terrain.activeTerrain.transform.position.y;
-
-							/**/
 							if (horPlane.Raycast(ray, out distance1))
 							{
 								pickedObject.transform.position = ray.GetPoint(distance1);
-								//pickedObject.transform.position = new Vector3(pickedObject.position.x, height, pickedObject.position.z);
 							}
 
 						}
@@ -99,12 +106,19 @@ public class TouchControl : MonoBehaviour {
 						// check if position is not overlap with other object
 						pickedObject = null;
 					}
+					else if(touches[0].phase == TouchPhase.Stationary)
+					{
+						if(pickedObject && (Time.time - touchTime) > 1)
+						{
+							gameplay.setPlayerScore(10);
+							Destroy (pickedObject.gameObject);
+						}
+					}
 				}
 				else
 				{
 					if(touches[0].phase == TouchPhase.Moved)
 					{
-						
 						Vector2 delta = touches[0].deltaPosition;
 						float positionX = delta.x * moveSensitivityX * Time.fixedDeltaTime;
 						positionX = invertMoveX ? positionX : positionX * -1;
@@ -164,7 +178,6 @@ public class TouchControl : MonoBehaviour {
 		minZ += cameraInitialPosition.z;
 		maxZ += cameraInitialPosition.z;
 
-
 		//Print MaxHeight, MaxWidth;
 		Debug.Log ("VerticalExtent" + verticalExtent);
 		Debug.Log ("HorizontalExtent" + horizontalExtent);
@@ -182,25 +195,11 @@ public class TouchControl : MonoBehaviour {
 		limitedCameraPosition.z = Mathf.Clamp (limitedCameraPosition.z, minZ, maxZ);
 		_camera.transform.position = limitedCameraPosition;
 	}
+	
+	void destroyObject()
+	{
+		gameplay.setPlayerScore(10);
+		Destroy(gameObject);
+	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

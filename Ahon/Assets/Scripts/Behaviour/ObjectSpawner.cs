@@ -23,8 +23,6 @@ public class ObjectSpawner : MonoBehaviour
 		
 		Quaternion rot = Quaternion.identity;
 		thePrefab = Instantiate(Resources.Load("PrefabToInstantiate/GameResource"),new Vector3(110,28,146),Quaternion.Euler(270,236,0)) as GameObject;
-		thePrefab.AddComponent<ObjectHandler>();
-		thePrefab.AddComponent<Draggable> ();
 	}
 }
 

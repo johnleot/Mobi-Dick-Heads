@@ -8,7 +8,11 @@ using Assets.Scripts.DataSource;
 namespace Assets.Scripts.Behaviour
 {
     public class Gameplay : MonoBehaviour
-    {
+	{
+		public Slider natureResponseBar;
+		public Slider peopleResponseBar;
+		public Slider playerHealthBar;
+
 		Text calamity;
 		Text position;
 		Text resource;
@@ -23,6 +27,7 @@ namespace Assets.Scripts.Behaviour
 		private Gameplay gamePlay;
 		private string playerName;		//Player name
 		private string activeLevel;		//Player's current level
+
 		private int playerHealth;		//Player's current health
 		private int peopleResponse;		//People's satisfaction score
 		private int natureResponse;		//Nature score
@@ -68,6 +73,9 @@ namespace Assets.Scripts.Behaviour
         // Update is called once per frame
         void Update()
         {
+			//playerHealthBar.value = (float)(getPlayerHealth () / 100);
+			natureResponseBar.value = (float)(getNatureResponse() / 100);
+			peopleResponseBar.value = (float)(getPeopleResponse() / 100);
 			scores.text = getPlayerScore ().ToString();
         }
 		public string getPlayerName()
@@ -113,6 +121,7 @@ namespace Assets.Scripts.Behaviour
 		public void setPlayerScore(int playerScore)
 		{
 			score += playerScore;
+			playerHealthBar.value = (float)(score / 100);
 		}
     }
 }

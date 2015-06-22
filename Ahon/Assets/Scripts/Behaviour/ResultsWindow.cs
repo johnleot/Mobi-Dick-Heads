@@ -8,6 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 using UnityEngine;
+using UnityEngine.UI;
 using System;
 using System.Collections;
 
@@ -15,6 +16,14 @@ namespace Assets.Scripts.Behaviour
 {
 	public class ResultsWindow:MonoBehaviour
 	{
+		public GameObject resultWindow;
+		private Text text;
+
+		void Start()
+		{
+			text = resultWindow.GetComponent<Text> ();
+		}
+
 		public ResultsWindow ()
 		{
 		}
