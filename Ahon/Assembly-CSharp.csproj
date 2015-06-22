@@ -1,120 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-	<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-	<ProductVersion>10.0.20506</ProductVersion>
-	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{09A36ADD-FDCB-AA16-799D-92287859FD45}</ProjectGuid>
-	<OutputType>Library</OutputType>
-	<AppDesignerFolder>Properties</AppDesignerFolder>
-	<RootNamespace></RootNamespace>
-	<AssemblyName>Assembly-CSharp</AssemblyName>
-	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
-	<FileAlignment>512</FileAlignment>
-	<BaseDirectory>Assets</BaseDirectory>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{09A36ADD-FDCB-AA16-799D-92287859FD45}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <BaseDirectory>Assets</BaseDirectory>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-	<DebugSymbols>true</DebugSymbols>
-	<DebugType>full</DebugType>
-	<Optimize>false</Optimize>
-	<OutputPath>Temp\bin\Debug\</OutputPath>
-	<DefineConstants>DEBUG;TRACE;UNITY_5_0_1;UNITY_5_0;UNITY_5;ENABLE_LICENSE_RENAME;ENABLE_NEW_BUGREPORTER;ENABLE_2D_PHYSICS;ENABLE_4_6_FEATURES;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_NEW_HIERARCHY;ENABLE_PHYSICS;ENABLE_PHYSICS_PHYSX3;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_AUDIOMIXER_SUSPEND;ENABLE_NONPRO;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_SUBSTANCE;ENABLE_TEXTUREID_MAP;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_MONO;DEVELOPMENT_BUILD;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE;UNITY_PRO_LICENSE</DefineConstants>
-	<ErrorReport>prompt</ErrorReport>
-	<WarningLevel>4</WarningLevel>
-	<NoWarn>0169</NoWarn>
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>Temp\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_0_1;UNITY_5_0;UNITY_5;ENABLE_LICENSE_RENAME;ENABLE_NEW_BUGREPORTER;ENABLE_2D_PHYSICS;ENABLE_4_6_FEATURES;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_NEW_HIERARCHY;ENABLE_PHYSICS;ENABLE_PHYSICS_PHYSX3;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_AUDIOMIXER_SUSPEND;ENABLE_NONPRO;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_SUBSTANCE;ENABLE_TEXTUREID_MAP;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_MONO;DEVELOPMENT_BUILD;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE;UNITY_PRO_LICENSE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0169</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-	<DebugType>pdbonly</DebugType>
-	<Optimize>true</Optimize>
-	<OutputPath>Temp\bin\Release\</OutputPath>
-	<DefineConstants>TRACE</DefineConstants>
-	<ErrorReport>prompt</ErrorReport>
-	<WarningLevel>4</WarningLevel>
-	<NoWarn>0169</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>Temp\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0169</NoWarn>
   </PropertyGroup>
   <ItemGroup>
-	<Reference Include="System" />
-    <Reference Include="System.XML" />
-	<Reference Include="System.Core" />
-	<Reference Include="System.Xml.Linq" />
-	<Reference Include="UnityEngine">
-	  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
-	</Reference>
-	<Reference Include="UnityEditor">
-	  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
-	</Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="UnityEngine">
+      <HintPath>C:\Program Files\Unity\Editor\Data\Managed\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor">
+      <HintPath>C:\Program Files\Unity\Editor\Data\Managed\UnityEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Graphics\Terrain\WaterPlus\Scripts\FlowmapAnimator.cs" />
-     <Compile Include="Assets\Graphics\Terrain\WaterPlus\Scripts\WaterPlusScript.cs" />
-     <Compile Include="Assets\Scripts\AstarAI.cs" />
-     <Compile Include="Assets\Scripts\Behaviour\CalamityTimer.cs" />
-     <Compile Include="Assets\Scripts\Behaviour\CollisionDetect.cs" />
-     <Compile Include="Assets\Scripts\Behaviour\Draggable.cs" />
-     <Compile Include="Assets\Scripts\Behaviour\Gameplay.cs" />
-     <Compile Include="Assets\Scripts\Behaviour\LevelIntroduction.cs" />
-     <Compile Include="Assets\Scripts\Behaviour\LevelSelection.cs" />
-     <Compile Include="Assets\Scripts\Behaviour\MainMenu.cs" />
-     <Compile Include="Assets\Scripts\Behaviour\PauseGame.cs" />
-     <Compile Include="Assets\Scripts\Behaviour\ResultsWindow.cs" />
-     <Compile Include="Assets\Scripts\Behaviour\Settings.cs" />
-     <Compile Include="Assets\Scripts\Behaviour\TouchControl.cs" />
-     <Compile Include="Assets\Scripts\CameraAspectController.cs" />
-     <Compile Include="Assets\Scripts\Classes\Calamity.cs" />
-     <Compile Include="Assets\Scripts\Classes\Level.cs" />
-     <Compile Include="Assets\Scripts\Classes\Location.cs" />
-     <Compile Include="Assets\Scripts\Classes\Resource.cs" />
-     <Compile Include="Assets\Scripts\Classes\Solution.cs" />
-     <Compile Include="Assets\Scripts\Classes\User.cs" />
-     <Compile Include="Assets\Scripts\DataSource\CalamityManager.cs" />
-     <Compile Include="Assets\Scripts\DataSource\Connection.cs" />
-     <Compile Include="Assets\Scripts\DataSource\LevelManager.cs" />
-     <Compile Include="Assets\Scripts\DataSource\LocationManager.cs" />
-     <Compile Include="Assets\Scripts\DataSource\ResourceManager.cs" />
-     <Compile Include="Assets\Scripts\DataSource\SolutionManager.cs" />
-     <Compile Include="Assets\Scripts\DataSource\UserManager.cs" />
-     <Compile Include="Assets\Scripts\InitScript.cs" />
-     <Compile Include="Assets\Scripts\VideoLoaderScript.cs" />
-     <None Include="Assets\Graphics\Terrain\WaterPlus\Shaders\WaterPlus_Mobile_HQ_VertColor.shader" />
-     <None Include="Assets\Graphics\Terrain\WaterPlus\Shaders\WaterPlus_Mobile_NoSpec.shader" />
-     <None Include="Assets\AstarPathfindingEditor\Editor\EditorAssets\Materials\Navmesh2.shader" />
-     <None Include="Assets\Plugins\AstarPathfindingProject\Plugins\DotNetZip\License.txt" />
-     <None Include="Assets\Graphics\Terrain\WaterPlus\Shaders\WaterPlus_Mobile_Lite.shader" />
-     <None Include="Assets\Graphics\Terrain\WaterPlus\Shaders\WaterPlus_Mobile_Shadows.shader" />
-     <None Include="Assets\Graphics\Terrain\WaterPlus\Shaders\WaterPlus_Mobile_Opaque.shader" />
-     <None Include="Assets\Plugins\AstarPathfindingProject\Plugins\dependencies.txt" />
-     <None Include="Assets\Graphics\Terrain\WaterPlus\Shaders\WaterPlusInclude.cginc" />
-     <None Include="Assets\Resources\AhonScripts.txt" />
-     <None Include="Assets\Plugins\AstarPathfindingProject\Readme_upgrading.txt" />
-     <None Include="Assets\Plugins\AstarPathfindingProject\Readme.txt" />
-     <None Include="Assets\Graphics\Terrain\WaterPlus\Shaders\WaterPlus_Mobile_HQ.shader" />
-     <None Include="Assets\Plugins\AstarPathfindingProject\Plugins\JsonFx\License.txt" />
-     <None Include="Assets\Plugins\AstarPathfindingProject\Plugins\JsonFx\Readme.txt" />
-     <None Include="Assets\Graphics\Terrain\WaterPlus\Shaders\WaterPlus_Mobile.shader" />
-     <None Include="Assets\Plugins\AstarPathfindingProject\link.xml" />
- <Reference Include="UnityEngine.UI">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
- </Reference>
- <Reference Include="Mono.Data.Sqlite">
- <HintPath>C:/Users/John/Repositories/Mobi-Dick-Heads/Ahon/Assets/Plugins/Mono.Data.Sqlite.dll</HintPath>
- </Reference>
- <Reference Include="System.Data">
- <HintPath>C:/Users/John/Repositories/Mobi-Dick-Heads/Ahon/Assets/Plugins/System.Data.dll</HintPath>
- </Reference>
- <Reference Include="Pathfinding.Ionic.Zip.Reduced">
- <HintPath>C:/Users/John/Repositories/Mobi-Dick-Heads/Ahon/Assets/Plugins/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
- </Reference>
- <Reference Include="Pathfinding.JsonFx">
- <HintPath>C:/Users/John/Repositories/Mobi-Dick-Heads/Ahon/Assets/Plugins/AstarPathfindingProject/Plugins/JsonFx/Pathfinding.JsonFx.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.iOS.Extensions.Xcode">
- <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iossupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
- </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{C040578B-E34A-417C-B069-F98DA539264B}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
+    <Compile Include="Assets\Graphics\Terrain\WaterPlus\Scripts\FlowmapAnimator.cs" />
+    <Compile Include="Assets\Graphics\Terrain\WaterPlus\Scripts\WaterPlusScript.cs" />
+    <Compile Include="Assets\Scripts\AstarAI.cs" />
+    <Compile Include="Assets\Scripts\Behaviour\CalamityTimer.cs" />
+    <Compile Include="Assets\Scripts\Behaviour\CollisionDetect.cs" />
+    <Compile Include="Assets\Scripts\Behaviour\Draggable.cs" />
+    <Compile Include="Assets\Scripts\Behaviour\Gameplay.cs" />
+    <Compile Include="Assets\Scripts\Behaviour\LevelIntroduction.cs" />
+    <Compile Include="Assets\Scripts\Behaviour\LevelSelection.cs" />
+    <Compile Include="Assets\Scripts\Behaviour\MainMenu.cs" />
+    <Compile Include="Assets\Scripts\Behaviour\PauseGame.cs" />
+    <Compile Include="Assets\Scripts\Behaviour\ResultsWindow.cs" />
+    <Compile Include="Assets\Scripts\Behaviour\Settings.cs" />
+    <Compile Include="Assets\Scripts\Behaviour\TouchControl.cs" />
+    <Compile Include="Assets\Scripts\CameraAspectController.cs" />
+    <Compile Include="Assets\Scripts\Classes\Calamity.cs" />
+    <Compile Include="Assets\Scripts\Classes\Level.cs" />
+    <Compile Include="Assets\Scripts\Classes\Location.cs" />
+    <Compile Include="Assets\Scripts\Classes\Resource.cs" />
+    <Compile Include="Assets\Scripts\Classes\Solution.cs" />
+    <Compile Include="Assets\Scripts\Classes\User.cs" />
+    <Compile Include="Assets\Scripts\DataSource\CalamityManager.cs" />
+    <Compile Include="Assets\Scripts\DataSource\Connection.cs" />
+    <Compile Include="Assets\Scripts\DataSource\LevelManager.cs" />
+    <Compile Include="Assets\Scripts\DataSource\LocationManager.cs" />
+    <Compile Include="Assets\Scripts\DataSource\ResourceManager.cs" />
+    <Compile Include="Assets\Scripts\DataSource\SolutionManager.cs" />
+    <Compile Include="Assets\Scripts\DataSource\UserManager.cs" />
+    <Compile Include="Assets\Scripts\InitScript.cs" />
+    <Compile Include="Assets\Scripts\VideoLoaderScript.cs" />
+    <None Include="Assets\Graphics\Terrain\WaterPlus\Shaders\WaterPlus_Mobile_HQ_VertColor.shader" />
+    <None Include="Assets\Graphics\Terrain\WaterPlus\Shaders\WaterPlus_Mobile_NoSpec.shader" />
+    <None Include="Assets\AstarPathfindingEditor\Editor\EditorAssets\Materials\Navmesh2.shader" />
+    <None Include="Assets\Plugins\AstarPathfindingProject\Plugins\DotNetZip\License.txt" />
+    <None Include="Assets\Graphics\Terrain\WaterPlus\Shaders\WaterPlus_Mobile_Lite.shader" />
+    <None Include="Assets\Graphics\Terrain\WaterPlus\Shaders\WaterPlus_Mobile_Shadows.shader" />
+    <None Include="Assets\Graphics\Terrain\WaterPlus\Shaders\WaterPlus_Mobile_Opaque.shader" />
+    <None Include="Assets\Plugins\AstarPathfindingProject\Plugins\dependencies.txt" />
+    <None Include="Assets\Graphics\Terrain\WaterPlus\Shaders\WaterPlusInclude.cginc" />
+    <None Include="Assets\Resources\AhonScripts.txt" />
+    <None Include="Assets\Plugins\AstarPathfindingProject\Readme_upgrading.txt" />
+    <None Include="Assets\Plugins\AstarPathfindingProject\Readme.txt" />
+    <None Include="Assets\Graphics\Terrain\WaterPlus\Shaders\WaterPlus_Mobile_HQ.shader" />
+    <None Include="Assets\Plugins\AstarPathfindingProject\Plugins\JsonFx\License.txt" />
+    <None Include="Assets\Plugins\AstarPathfindingProject\Plugins\JsonFx\Readme.txt" />
+    <None Include="Assets\Graphics\Terrain\WaterPlus\Shaders\WaterPlus_Mobile.shader" />
+    <None Include="Assets\Plugins\AstarPathfindingProject\link.xml" />
+    <Reference Include="UnityEngine.UI">
+      <HintPath>C:\Program Files\Unity\Editor\Data\UnityExtensions\Unity\GUISystem\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Data.Sqlite">
+      <HintPath>C:/Users/John/Repositories/Mobi-Dick-Heads/Ahon/Assets/Plugins/Mono.Data.Sqlite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data">
+      <HintPath>C:/Users/John/Repositories/Mobi-Dick-Heads/Ahon/Assets/Plugins/System.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Pathfinding.Ionic.Zip.Reduced">
+      <HintPath>C:/Users/John/Repositories/Mobi-Dick-Heads/Ahon/Assets/Plugins/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
+    </Reference>
+    <Reference Include="Pathfinding.JsonFx">
+      <HintPath>C:/Users/John/Repositories/Mobi-Dick-Heads/Ahon/Assets/Plugins/AstarPathfindingProject/Plugins/JsonFx/Pathfinding.JsonFx.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+      <HintPath>C:\Program Files\Unity\Editor\Data\PlaybackEngines\iossupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+    </Reference>
+    <Compile Include="Assets\Scripts\Behaviour\ResourceSlidingMenu.cs" />
+    <Compile Include="Assets\Scripts\Behaviour\ToolsSlidingMenu.cs" />
+    <Compile Include="Assets\Scripts\Behaviour\ObjectHandler.cs" />
+    <Compile Include="Assets\Scripts\Behaviour\ObjectSpawner.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -124,5 +123,4 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  
 </Project>
