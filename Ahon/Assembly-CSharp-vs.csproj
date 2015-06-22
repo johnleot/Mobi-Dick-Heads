@@ -56,9 +56,13 @@
      <Compile Include="Assets\Scripts\Behaviour\LevelIntroduction.cs" />
      <Compile Include="Assets\Scripts\Behaviour\LevelSelection.cs" />
      <Compile Include="Assets\Scripts\Behaviour\MainMenu.cs" />
+     <Compile Include="Assets\Scripts\Behaviour\ObjectHandler.cs" />
+     <Compile Include="Assets\Scripts\Behaviour\ObjectSpawner.cs" />
      <Compile Include="Assets\Scripts\Behaviour\PauseGame.cs" />
+     <Compile Include="Assets\Scripts\Behaviour\ResourceSlidingMenu.cs" />
      <Compile Include="Assets\Scripts\Behaviour\ResultsWindow.cs" />
      <Compile Include="Assets\Scripts\Behaviour\Settings.cs" />
+     <Compile Include="Assets\Scripts\Behaviour\ToolsSlidingMenu.cs" />
      <Compile Include="Assets\Scripts\Behaviour\TouchControl.cs" />
      <Compile Include="Assets\Scripts\CameraAspectController.cs" />
      <Compile Include="Assets\Scripts\Classes\Calamity.cs" />
