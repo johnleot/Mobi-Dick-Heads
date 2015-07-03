@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Assets.Scripts.Behaviour;
+using UnityEngine.EventSystems;
+using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class TouchControl : MonoBehaviour {
 	
@@ -27,7 +30,9 @@ public class TouchControl : MonoBehaviour {
 	private bool  newTouch;
 	private float touchTime;
 
-	public GameObject gui;
+	public GameObject gui; // for accessing Gameplay Script
+
+	private ObjectHandler objectHandler_;
 
 	void Start () {
 		gameplay = gui.GetComponent<Gameplay> ();
@@ -41,71 +46,75 @@ public class TouchControl : MonoBehaviour {
 
 		if (mapWidth > mapHeight)
 			maxZoom = 0.5f * mapHeight;
-		Debug.Log ("MaxZOOM : " + maxZoom);
-		//maxZoom = (mapWidth > mapHeight)? 0.5f * mapHeight : 0.5f * (mapWidth / _camera.aspect);
+		//Debug.Log ("MaxZOOM : " + maxZoom);
 		CalculateMapBounds ();
 	}
 	
 	void FixedUpdate () {
-		if(updateZoomSensitivity)
-		{
+		if (updateZoomSensitivity) {
 			moveSensitivityX = _camera.orthographicSize / 5.0f;
 			moveSensitivityY = _camera.orthographicSize / 5.0f;
-			
+		
 			Touch[] touches = Input.touches;
 
 			Plane horPlane;
-			if(pickedObject) 
-			{
-				float height = Terrain.activeTerrain.SampleHeight(pickedObject.position) + 2.25f;
+			if (pickedObject) {
+				float height = Terrain.activeTerrain.SampleHeight (pickedObject.position) + 2.25f;
 				//Debug for TerrainObjects elevation.
 				//Debug.Log ("Terrain y Position = " + Terrain.activeTerrain.transform.position.y);
 				//Debug.Log ("pickedObject.position.y = " + pickedObject.position.y);
 				//Debug.Log ("Height = " + height);
-				horPlane = new Plane(Vector3.up, -height);
+				horPlane = new Plane (Vector3.up, -height);
+			} else {
+				horPlane = new Plane (Vector3.up, -10.0f);
 			}
-			else
-			{
-				horPlane = new Plane(Vector3.up, -10.0f);
-			}
-			
-			if(touches.Length > 0)
-			{
-				Ray ray = _camera.ScreenPointToRay(touches[0].position);
+		
+			if (touches.Length > 0) {
+				Ray ray = _camera.ScreenPointToRay (touches [0].position);
 				RaycastHit hit;
-				
-				if(Physics.Raycast(ray, out hit) && hit.collider.tag == "Draggable")
+			
+				if(!IsPointerOverUIObject(touches[0].position))
 				{
-					if(touches[0].phase == TouchPhase.Began)
-					{
-						if(Physics.Raycast(ray, out hit, maxPickingDistance))
-						{
-							touchTime = Time.time;
-							pickedObject = hit.transform;
-							//startPos = touches[0].position;
-						}
-						else
-						{
-							pickedObject = null;
-						}
-					}
-					else if (touches[0].phase ==  TouchPhase.Moved)
-					{
-						if(pickedObject != null)
-						{
-							float distance1 = 0f;
-							if (horPlane.Raycast(ray, out distance1))
-							{
-								pickedObject.transform.position = ray.GetPoint(distance1);
-							}
+					if (Physics.Raycast (ray, out hit) && hit.collider.tag == "Draggable") {
+						if (touches [0].phase == TouchPhase.Began) {
+							if (Physics.Raycast (ray, out hit, maxPickingDistance)) {
+								if (pickedObject) {
+									if (hit.transform.gameObject == pickedObject.gameObject ||
+										hit.transform.gameObject != pickedObject.gameObject) {
+										deselectGameObject ();
+									}
+								}
 
+								touchTime = Time.time;
+								pickedObject = hit.transform;
+								/**/
+								if (selectedObjectHasObjectHandler ()) {
+									objectHandler_ = pickedObject.GetComponent<ObjectHandler> ();
+									if (objectHandler_.objectType_ != ObjectHandler.objectType.empty) {
+										objectHandler_.showObjectGUI ();
+									}
+								}
+								//startPos = touches[0].position;
+							} else {
+								deselectGameObject ();
+								pickedObject = null;
+							}
+						} else if (touches [0].phase == TouchPhase.Moved) {
+							if (pickedObject != null) {
+								float distance1 = 0f;
+								if (horPlane.Raycast (ray, out distance1)) {
+									pickedObject.transform.position = ray.GetPoint (distance1);
+								}
+
+								if (selectedObjectHasObjectHandler ()) {
+									//objectHandler_.hideObjectGUI();
+								}
+							}
+						} else if (touches [0].phase == TouchPhase.Ended) {
+							// check if position is not overlap with other object
+							//pickedObject = null;
 						}
-					}
-					else if (touches[0].phase == TouchPhase.Ended)
-					{
-						// check if position is not overlap with other object
-						pickedObject = null;
-					}
+						/*
 					else if(touches[0].phase == TouchPhase.Stationary)
 					{
 						if(pickedObject && (Time.time - touchTime) > 1)
@@ -113,47 +122,46 @@ public class TouchControl : MonoBehaviour {
 							gameplay.setPlayerScore(10);
 							Destroy (pickedObject.gameObject);
 						}
-					}
-				}
-				else
-				{
-					if(touches[0].phase == TouchPhase.Moved)
-					{
-						Vector2 delta = touches[0].deltaPosition;
-						float positionX = delta.x * moveSensitivityX * Time.fixedDeltaTime;
-						positionX = invertMoveX ? positionX : positionX * -1;
-						
-						float positionY = delta.y * moveSensitivityY * Time.fixedDeltaTime;
-						positionY = invertMoveY ? positionY : positionY * -1;
-						
-						_camera.transform.position += new Vector3(positionX, positionY, -positionX);
-						
-					}
-				}
-				
-				if(touches.Length == 2)
-				{
-					Vector2 cameraViewSize = new Vector2 (_camera.pixelWidth, _camera.pixelHeight);
-					
-					Touch touchOne = touches[0];
-					Touch touchTwo = touches[1];
-					
-					Vector2 touchOnePrevPos = touchOne.position - touchOne.deltaPosition;
-					Vector2 touchTwoPrevPos = touchTwo.position - touchTwo.deltaPosition;
-					
-					float prevTouchDeltaMag = (touchOnePrevPos - touchTwoPrevPos).magnitude;
-					float touchDeltaMag = (touchOne.position - touchTwo.position).magnitude;
-					
-					float deltaMagDiff = prevTouchDeltaMag - touchDeltaMag;
-					
-					_camera.transform.position += _camera.transform.TransformDirection((touchOnePrevPos + touchTwoPrevPos - cameraViewSize) * _camera.orthographicSize / cameraViewSize.y);
-					
-					_camera.orthographicSize += deltaMagDiff * orthoZoomspeed;
-					_camera.orthographicSize = Mathf.Clamp(_camera.orthographicSize, minZoom, maxZoom); //- 0.001f;
-					
-					_camera.transform.position -= _camera.transform.TransformDirection((touchOne.position + touchTwo.position - cameraViewSize) * _camera.orthographicSize / cameraViewSize.y);
+					}*/
+					} else {
+						deselectGameObject ();
 
-					CalculateMapBounds();
+						if (touches [0].phase == TouchPhase.Moved) {
+							Vector2 delta = touches [0].deltaPosition;
+							float positionX = delta.x * moveSensitivityX * Time.fixedDeltaTime;
+							positionX = invertMoveX ? positionX : positionX * -1;
+						
+							float positionY = delta.y * moveSensitivityY * Time.fixedDeltaTime;
+							positionY = invertMoveY ? positionY : positionY * -1;
+						
+							_camera.transform.position += new Vector3 (positionX, positionY, -positionX);
+						
+						}
+					}
+				
+					if (touches.Length == 2) {
+						Vector2 cameraViewSize = new Vector2 (_camera.pixelWidth, _camera.pixelHeight);
+					
+						Touch touchOne = touches [0];
+						Touch touchTwo = touches [1];
+					
+						Vector2 touchOnePrevPos = touchOne.position - touchOne.deltaPosition;
+						Vector2 touchTwoPrevPos = touchTwo.position - touchTwo.deltaPosition;
+					
+						float prevTouchDeltaMag = (touchOnePrevPos - touchTwoPrevPos).magnitude;
+						float touchDeltaMag = (touchOne.position - touchTwo.position).magnitude;
+					
+						float deltaMagDiff = prevTouchDeltaMag - touchDeltaMag;
+					
+						_camera.transform.position += _camera.transform.TransformDirection ((touchOnePrevPos + touchTwoPrevPos - cameraViewSize) * _camera.orthographicSize / cameraViewSize.y);
+					
+						_camera.orthographicSize += deltaMagDiff * orthoZoomspeed;
+						_camera.orthographicSize = Mathf.Clamp (_camera.orthographicSize, minZoom, maxZoom); //- 0.001f;
+					
+						_camera.transform.position -= _camera.transform.TransformDirection ((touchOne.position + touchTwo.position - cameraViewSize) * _camera.orthographicSize / cameraViewSize.y);
+
+						CalculateMapBounds ();
+					}
 				}
 			}
 		}
@@ -179,12 +187,14 @@ public class TouchControl : MonoBehaviour {
 		maxZ += cameraInitialPosition.z;
 
 		//Print MaxHeight, MaxWidth;
+		/*
 		Debug.Log ("VerticalExtent" + verticalExtent);
 		Debug.Log ("HorizontalExtent" + horizontalExtent);
 		Debug.Log ("minX" + minX);
 		Debug.Log ("maxX" + maxX);
 		Debug.Log ("minY" + minY);
 		Debug.Log ("maxY" + maxY);
+		*/
 	}
 	
 	void LateUpdate()
@@ -200,6 +210,65 @@ public class TouchControl : MonoBehaviour {
 	{
 		gameplay.setPlayerScore(10);
 		Destroy(gameObject);
+	}
+
+	bool selectedObjectHasObjectHandler()
+	{
+		return pickedObject.gameObject.GetComponent<ObjectHandler> ();
+	}
+
+	void deselectGameObject()
+	{
+		if(pickedObject)
+		{
+			if(selectedObjectHasObjectHandler())
+			{
+				objectHandler_ = pickedObject.GetComponent<ObjectHandler>();
+				if(objectHandler_.objectType_ != ObjectHandler.objectType.empty)
+				{
+					objectHandler_.removeObjectGUI();
+				}
+			}
+			pickedObject = null;
+		}
+	}
+
+	bool IsPointerOverGameObject( int fingerId )
+	{
+		EventSystem eventSystem = EventSystem.current;
+		return ( eventSystem.IsPointerOverGameObject( fingerId )
+		        && eventSystem.currentSelectedGameObject != null );
+	}
+
+	/// <summary>
+	/// Cast a ray to test if Input.mousePosition is over any UI object in EventSystem.current. This is a replacement
+	/// for IsPointerOverGameObject() which does not work on Android in 4.6.0f3
+	/// </summary>
+	private bool IsPointerOverUIObject(Vector2 touchPosition) {
+		// Referencing this code for GraphicRaycaster https://gist.github.com/stramit/ead7ca1f432f3c0f181f
+		// the ray cast appears to require only eventData.position.
+		PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
+		eventDataCurrentPosition.position = touchPosition;
+		
+		List<RaycastResult> results = new List<RaycastResult>();
+		EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+		return results.Count > 0;
+	}
+	
+	/// <summary>
+	/// Cast a ray to test if screenPosition is over any UI object in canvas. This is a replacement
+	/// for IsPointerOverGameObject() which does not work on Android in 4.6.0f3
+	/// </summary>
+	private bool IsPointerOverUIObject(Canvas canvas, Vector2 screenPosition) {
+		// Referencing this code for GraphicRaycaster https://gist.github.com/stramit/ead7ca1f432f3c0f181f
+		// the ray cast appears to require only eventData.position.
+		PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
+		eventDataCurrentPosition.position = screenPosition;
+		
+		GraphicRaycaster uiRaycaster = canvas.gameObject.GetComponent<GraphicRaycaster>();
+		List<RaycastResult> results = new List<RaycastResult>();
+		uiRaycaster.Raycast(eventDataCurrentPosition, results);
+		return results.Count > 0;
 	}
 }
 

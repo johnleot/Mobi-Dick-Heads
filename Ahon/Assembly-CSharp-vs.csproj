@@ -66,8 +66,12 @@
      <Compile Include="Assets\Scripts\Behaviour\TouchControl.cs" />
      <Compile Include="Assets\Scripts\CameraAspectController.cs" />
      <Compile Include="Assets\Scripts\Classes\Calamity.cs" />
+     <Compile Include="Assets\Scripts\Classes\IObject.cs" />
      <Compile Include="Assets\Scripts\Classes\Level.cs" />
      <Compile Include="Assets\Scripts\Classes\Location.cs" />
+     <Compile Include="Assets\Scripts\Classes\NipaHut.cs" />
+     <Compile Include="Assets\Scripts\Classes\ObjectFactory.cs" />
+     <Compile Include="Assets\Scripts\Classes\Pabahay.cs" />
      <Compile Include="Assets\Scripts\Classes\Resource.cs" />
      <Compile Include="Assets\Scripts\Classes\Solution.cs" />
      <Compile Include="Assets\Scripts\Classes\User.cs" />
