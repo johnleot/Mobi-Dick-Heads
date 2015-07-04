@@ -74,6 +74,7 @@
      <Compile Include="Assets\Scripts\Classes\Pabahay.cs" />
      <Compile Include="Assets\Scripts\Classes\Resource.cs" />
      <Compile Include="Assets\Scripts\Classes\Solution.cs" />
+     <Compile Include="Assets\Scripts\Classes\SoundManager.cs" />
      <Compile Include="Assets\Scripts\Classes\User.cs" />
      <Compile Include="Assets\Scripts\DataSource\CalamityManager.cs" />
      <Compile Include="Assets\Scripts\DataSource\Connection.cs" />
