@@ -62,6 +62,7 @@
      <Compile Include="Assets\Scripts\Behaviour\ResourceSlidingMenu.cs" />
      <Compile Include="Assets\Scripts\Behaviour\ResultsWindow.cs" />
      <Compile Include="Assets\Scripts\Behaviour\Settings.cs" />
+     <Compile Include="Assets\Scripts\Behaviour\SoundManager.cs" />
      <Compile Include="Assets\Scripts\Behaviour\ToolsSlidingMenu.cs" />
      <Compile Include="Assets\Scripts\Behaviour\TouchControl.cs" />
      <Compile Include="Assets\Scripts\CameraAspectController.cs" />
@@ -74,7 +75,6 @@
      <Compile Include="Assets\Scripts\Classes\Pabahay.cs" />
      <Compile Include="Assets\Scripts\Classes\Resource.cs" />
      <Compile Include="Assets\Scripts\Classes\Solution.cs" />
-     <Compile Include="Assets\Scripts\Classes\SoundManager.cs" />
      <Compile Include="Assets\Scripts\Classes\User.cs" />
      <Compile Include="Assets\Scripts\DataSource\CalamityManager.cs" />
      <Compile Include="Assets\Scripts\DataSource\Connection.cs" />
