@@ -18,6 +18,8 @@ namespace Assets.Scripts.Behaviour
 		public Calamity[] calamities;
 		
 		private GameObject ResultsWindow;
+
+		public AudioClip gameOverSound;
 		
 		void Awake(){
 			//ResultsWindow = GameObject.FindGameObjectWithTag ("ResultsWindow");
@@ -53,6 +55,8 @@ namespace Assets.Scripts.Behaviour
 				else
 				{
 					over.text = "Game Over";
+					SoundManager.instance.PlaySingle(gameOverSound);
+					SoundManager.instance.bgMusic.Stop();
 					transform.FindChild("ResultsWindow").gameObject.SetActive(true);
 					/*
 					if(!ResultsWindow.activeInHierarchy){
