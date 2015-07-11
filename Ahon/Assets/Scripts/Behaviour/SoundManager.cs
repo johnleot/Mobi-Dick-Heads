@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-namespace Assets.Scripts.Classes 
+namespace Assets.Scripts.Behaviour
 {
 	public class SoundManager : MonoBehaviour
 	{
@@ -31,13 +31,13 @@ namespace Assets.Scripts.Classes
 			soundFX.Play ();
 		}
 	
-		public void RandomizeFX (params AudioClip [] clips)
+		public void RandomizeFX (params AudioClip[] clips)
 		{
 			int randomIndex = Random.Range (0, clips.Length);
 			float randomPitch = Random.Range (lowPitch, highPitch);
 	
 			soundFX.pitch = randomPitch;
-			soundFX.clip = clips [randomIndex];
+			soundFX.clip = clips[randomIndex];
 	
 			soundFX.Play ();
 	

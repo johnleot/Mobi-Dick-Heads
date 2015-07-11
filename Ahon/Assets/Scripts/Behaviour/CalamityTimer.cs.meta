@@ -1,10 +1,14 @@
 fileFormatVersion: 2
 guid: ab1c88ed3972df84c84a6e2ef9a5c536
-timeCreated: 1427031972
+timeCreated: 1436369049
 licenseType: Pro
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - calamity: {instanceID: 0}
+  - duration: {instanceID: 0}
+  - over: {instanceID: 0}
+  - gameOverSound: {fileID: 8300000, guid: 8cb55b5cdc376044fa66bee505d1a9b3, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
