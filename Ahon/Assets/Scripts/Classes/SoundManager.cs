@@ -10,7 +10,7 @@ namespace Assets.Scripts.Classes
 		public static SoundManager instance = null;
 	
 		public float lowPitch = .95f;
-		public float highPitch = 1.05f:
+		public float highPitch = 1.05f;
 	
 		// Use this for initialization
 		void Awake ()

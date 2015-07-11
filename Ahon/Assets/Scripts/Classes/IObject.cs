@@ -1,9 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public interface IObject {
+public abstract class IObject: MonoBehaviour {
+	
+	protected GameObject MainUI;
+	protected GameObject objectBtnHolder_;
+	
+	protected string title_;
+	protected string contentText_;
+	protected int someInt;
 
-	void showUI();
-	void hideUI();
-	void removeUI();
+	public abstract void showUI();
+	public abstract void hideUI();
+	public abstract void removeUI();
 }

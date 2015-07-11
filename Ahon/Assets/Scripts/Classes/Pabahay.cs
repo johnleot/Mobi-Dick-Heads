@@ -4,68 +4,95 @@ using UnityEngine.Events;
 using System.Collections;
 using Assets.Scripts.Behaviour;
 
-public class Pabahay :MonoBehaviour, IObject {
+public class Pabahay : IObject {
 
+	//UI
 	private GameObject infoBtnGO_;
-	private GameObject panel;
+	private GameObject relocateBtnGO_;
 
-	private GameObject MainUI;
-
-	private string title_ = "Pabahay";
-	private string contentText_ = "Pabahy: The quick brown fox jumps over the lazy dog.";
-
-	void Start()
+	void Awake()
 	{
 		MainUI = GameObject.FindWithTag ("MainUI");
 		if (MainUI == null)
 			Debug.Log ("Cant find MAIN UI.");
+				
+		title_ = "Pabahay";
+		contentText_ = "Pabahy: The quick brown fox jumps over the lazy dog.";
 	}
 
-	public void showUI()
+	override public void showUI()
 	{
-		panel = Instantiate(Resources.Load ("Level1/ObjectUIPanel")) as GameObject;
-		infoBtnGO_ = Instantiate(Resources.Load ("Level1/ObjectUIButton")) as GameObject;
-		panel.transform.SetParent (MainUI.transform, false);
-		infoBtnGO_.transform.SetParent (panel.transform, true);
-		Text buttonText = (Text)infoBtnGO_.transform.FindChild("Text").GetComponent<Text>();
-		buttonText.text = gameObject.ToString();
+		objectBtnHolder_ = Instantiate(Resources.Load ("Level1/ObjectUIPanel")) as GameObject;
+		objectBtnHolder_.transform.SetParent (MainUI.transform, false);
 
-		panel.gameObject.SetActive (true);
-		infoBtnGO_.gameObject.SetActive (true);
-		Debug.Log ("Showing Pabahay UI..." + gameObject);
-
-		Button infoBtn_ = infoBtnGO_.GetComponent<Button> ();
-		infoBtn_.onClick.RemoveAllListeners();
-		infoBtn_.onClick.AddListener (() => showInfoWindow());
+		generateInfoButton ();
+		generateRelocateButton ();
 	}
 
-	public void hideUI()
+	void generateInfoButton()
 	{
-		panel.gameObject.SetActive (false);
+		if (!infoBtnGO_) {
+			infoBtnGO_ = Instantiate(Resources.Load ("Level1/ObjectUIButton")) as GameObject;
+			infoBtnGO_.transform.SetParent (objectBtnHolder_.transform, true);
+
+			Text buttonText = (Text)infoBtnGO_.transform.FindChild("Text").GetComponent<Text>();
+			buttonText.text = gameObject.ToString(); //change this to image.
+			
+			objectBtnHolder_.gameObject.SetActive (true);
+			infoBtnGO_.gameObject.SetActive (true);
+			Debug.Log ("Showing Pabahay UI..." + gameObject);
+			
+			Button infoBtn_ = infoBtnGO_.GetComponent<Button> ();
+			infoBtn_.onClick.RemoveAllListeners();
+			infoBtn_.onClick.AddListener (() => showInfoWindow());
+		}
+	}
+
+	void generateRelocateButton()
+	{
+		if (!relocateBtnGO_) {
+			relocateBtnGO_ = Instantiate(Resources.Load ("Level1/ObjectUIButton")) as GameObject;
+			relocateBtnGO_.transform.SetParent (objectBtnHolder_.transform, true);
+			
+			Text buttonText = (Text)relocateBtnGO_.transform.FindChild("Text").GetComponent<Text>();
+			buttonText.text = "Relocate"; //change this to image.
+			
+			objectBtnHolder_.gameObject.SetActive (true);
+			relocateBtnGO_.gameObject.SetActive (true);
+			
+			Button relocateBtn_ = infoBtnGO_.GetComponent<Button> ();
+			//relocateBtn_.onClick.RemoveAllListeners();
+			//relocateBtn_.onClick.AddListener (() => showInfoWindow());
+		}
+	}
+
+	override public void hideUI()
+	{
+		objectBtnHolder_.gameObject.SetActive (false);
 		infoBtnGO_.gameObject.SetActive (false);
 		Debug.Log ("Hiding Pabahay UI..." + gameObject);
 	}
 
-	public void removeUI()
+	override public void removeUI()
 	{
-		if (panel) 
+		if (objectBtnHolder_) 
 		{
-			Destroy (panel);
+			Destroy (objectBtnHolder_);
 			Destroy (infoBtnGO_);
 		}
 
 		Debug.Log ("Deleting Pabahy UI...");
 	}
 
-	private void showInfoWindow()
+	void showInfoWindow()
 	{
+		GameObject modalPanel = MainUI.transform.FindChild("ModalPanel").gameObject;
+		GameObject infoWindow = modalPanel.transform.FindChild("InfoWindow").gameObject;
 
-		GameObject modalPanel = Instantiate(Resources.Load("ModalPanel")) as GameObject;
-		GameObject infoWindow = Instantiate(Resources.Load("InfoWindow")) as GameObject;
+		modalPanel.gameObject.SetActive (true);
+		infoWindow.gameObject.SetActive (true);
 
-		modalPanel.transform.SetParent(MainUI.transform, false);
-		infoWindow.transform.SetParent(modalPanel.transform, false);
-
+		//populate
 		Text title = infoWindow.transform.FindChild ("Header").transform.FindChild ("Title").GetComponent<Text> ();
 		Image image =  infoWindow.transform.FindChild("Content").transform.FindChild("Image").GetComponent<Image>();
 		Text contentText = infoWindow.transform.FindChild("Content").transform.FindChild("ContentText").GetComponent<Text>();
@@ -74,6 +101,7 @@ public class Pabahay :MonoBehaviour, IObject {
 		image.sprite = Resources.Load("Pabahay",typeof(Sprite)) as Sprite;
 		contentText.text = contentText_.ToString ();
 
+		//adding eventListener to a button
 		Button exitBtn = infoWindow.transform.FindChild ("Header").FindChild("ExitButton").GetComponent<Button> ();
 		exitBtn.onClick.RemoveAllListeners ();
 		exitBtn.onClick.AddListener(() => exit(exitBtn.transform));
@@ -82,9 +110,11 @@ public class Pabahay :MonoBehaviour, IObject {
 		modalPanel.GetComponent<Button> ().onClick.AddListener (() => exit(exitBtn.transform));
 	}
 
-	void exit(Transform btntransform)
+	void exit(Transform btnTransform)
 	{
-		Debug.Log ("ObjectTO close: " + btntransform.parent.parent.parent.gameObject);
-		Destroy (btntransform.parent.parent.parent.gameObject);
+		//Debug.Log ("ObjectTO close: " + btntransform.parent.parent.parent.gameObject);
+		//Destroy (btntransform.parent.parent.parent.gameObject);
+		btnTransform.parent.parent.gameObject.SetActive (false);
+		btnTransform.parent.parent.parent.gameObject.SetActive (false);
 	}
 }
