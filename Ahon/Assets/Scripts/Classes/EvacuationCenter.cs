@@ -4,7 +4,7 @@ using UnityEngine.Events;
 using System.Collections;
 using Assets.Scripts.Behaviour;
 
-public class NipaHut : IObject {
+public class EvacuationCenter : IObject {
 	
 	private GameObject infoBtnGO_;
 	UnityEngine.UI.Text text1;
@@ -14,8 +14,8 @@ public class NipaHut : IObject {
 		if (MainUI == null)
 			Debug.Log ("Cant find MAIN UI.");
 		
-		title_ = "NipaHut";
-		contentText_ = "NipaHut: The quick brown fox jumps over the lazy dog.";
+		title_ = "Evacuation Center";
+		contentText_ = "EvacuationCenter: The quick brown fox jumps over the lazy dog.";
 	}
 	
 	override public void showUI()
@@ -29,8 +29,8 @@ public class NipaHut : IObject {
 		
 		objectBtnHolder_.gameObject.SetActive (true);
 		infoBtnGO_.gameObject.SetActive (true);
-		Debug.Log ("Showing NipaHut UI..." + gameObject);
-
+		Debug.Log ("Showing EvacuationCenter UI..." + gameObject);
+		
 		Button infoBtn_ = infoBtnGO_.GetComponent<Button> ();
 		infoBtn_.onClick.RemoveAllListeners();
 		infoBtn_.onClick.AddListener (() => showInfoWindow());
@@ -40,7 +40,7 @@ public class NipaHut : IObject {
 	{
 		objectBtnHolder_.gameObject.SetActive (false);
 		infoBtnGO_.gameObject.SetActive (false);
-		Debug.Log ("Hiding NipaHut UI..." + gameObject);
+		Debug.Log ("Hiding EvacuationCenter UI..." + gameObject);
 	}
 	
 	override public void removeUI()
@@ -51,7 +51,7 @@ public class NipaHut : IObject {
 			Destroy (infoBtnGO_);
 		}
 		
-		Debug.Log ("Deleting NipaHut UI...");
+		Debug.Log ("Deleting EvacuationCenter UI...");
 	}
 	
 	void showInfoWindow()
@@ -62,19 +62,19 @@ public class NipaHut : IObject {
 		
 		modalPanel.gameObject.SetActive (true);
 		infoWindow.gameObject.SetActive (true);
-
+		
 		Text title = infoWindow.transform.FindChild ("Header").transform.FindChild ("Title").GetComponent<Text> ();
 		Image image =  infoWindow.transform.FindChild("Content").transform.FindChild("Image").GetComponent<Image>();
 		Text contentText = infoWindow.transform.FindChild("Content").transform.FindChild("ContentText").GetComponent<Text>();
 		
 		title.text = title_.ToString();
-		image.sprite = Resources.Load("g610455",typeof(Sprite)) as Sprite;
+		image.sprite = Resources.Load("1_Evacuation_300x230",typeof(Sprite)) as Sprite;
 		contentText.text = contentText_.ToString ();
 		
 		Button exitBtn = infoWindow.transform.FindChild ("Header").FindChild("ExitButton").GetComponent<Button> ();
 		exitBtn.onClick.RemoveAllListeners ();
 		exitBtn.onClick.AddListener(() => exit(exitBtn.transform));
-
+		
 		modalPanel.GetComponent<Button> ().onClick.RemoveAllListeners ();
 		modalPanel.GetComponent<Button> ().onClick.AddListener (() => exit(exitBtn.transform));
 	}
