@@ -9,9 +9,13 @@ public class Pabahay : IObject {
 	//UI
 	private GameObject infoBtnGO_;
 	private GameObject relocateBtnGO_;
+	GameObject okBtnGO_;
+	GameObject cancelBtnGO_;
+	ObjectHandler objectHandler_;
 
 	void Awake()
 	{
+		objectHandler_ = gameObject.GetComponent<ObjectHandler>();
 		MainUI = GameObject.FindWithTag ("MainUI");
 		if (MainUI == null)
 			Debug.Log ("Cant find MAIN UI.");
@@ -20,10 +24,10 @@ public class Pabahay : IObject {
 		contentText_ = "Pabahy: The quick brown fox jumps over the lazy dog.";
 	}
 
-	override public void showUI()
+	override public void insertUI()
 	{
-		objectBtnHolder_ = Instantiate(Resources.Load ("Level1/ObjectUIPanel")) as GameObject;
-		objectBtnHolder_.transform.SetParent (MainUI.transform, false);
+		objectBtnHolder_ = MainUI.transform.FindChild ("ObjectUIPanel").gameObject;
+		objectBtnHolder_.SetActive (true);
 
 		generateInfoButton ();
 		generateRelocateButton ();
@@ -60,9 +64,9 @@ public class Pabahay : IObject {
 			objectBtnHolder_.gameObject.SetActive (true);
 			relocateBtnGO_.gameObject.SetActive (true);
 			
-			Button relocateBtn_ = infoBtnGO_.GetComponent<Button> ();
-			//relocateBtn_.onClick.RemoveAllListeners();
-			//relocateBtn_.onClick.AddListener (() => showInfoWindow());
+			Button relocateBtn_ = relocateBtnGO_.GetComponent<Button> ();
+			relocateBtn_.onClick.RemoveAllListeners();
+			relocateBtn_.onClick.AddListener (() => enableRelocate());
 		}
 	}
 
@@ -72,14 +76,22 @@ public class Pabahay : IObject {
 		infoBtnGO_.gameObject.SetActive (false);
 		Debug.Log ("Hiding Pabahay UI..." + gameObject);
 	}
+	
+	public override void showUI ()
+	{
+		objectBtnHolder_.gameObject.SetActive (true);
+		Debug.Log ("Hiding Pabahay UI..." + gameObject);
+	}
 
 	override public void removeUI()
 	{
 		if (objectBtnHolder_) 
 		{
-			Destroy (objectBtnHolder_);
 			Destroy (infoBtnGO_);
+			Destroy (relocateBtnGO_);
+			objectBtnHolder_.SetActive(false);
 		}
+
 
 		Debug.Log ("Deleting Pabahy UI...");
 	}
@@ -116,5 +128,51 @@ public class Pabahay : IObject {
 		//Destroy (btntransform.parent.parent.parent.gameObject);
 		btnTransform.parent.parent.gameObject.SetActive (false);
 		btnTransform.parent.parent.parent.gameObject.SetActive (false);
+	}
+
+	void enableRelocate()
+	{
+		gameObject.tag = "Draggable";
+
+		//removeUI ();
+		// create ok and cancel button
+
+		okBtnGO_ = Instantiate (Resources.Load ("Level1/ObjectUIButton")) as GameObject;
+		okBtnGO_.transform.SetParent (objectBtnHolder_.transform, true);
+		Text buttonText1 = (Text)okBtnGO_.transform.FindChild("Text").GetComponent<Text>();
+		buttonText1.text = "OK"; //change this to image.
+
+		cancelBtnGO_ = Instantiate (Resources.Load ("Level1/ObjectUIButton")) as GameObject;
+		cancelBtnGO_.transform.SetParent (objectBtnHolder_.transform, true);
+		Text buttonText2 = (Text)cancelBtnGO_.transform.FindChild("Text").GetComponent<Text>();
+		buttonText2.text = "X"; //change this to image.
+
+		Button okBtn = okBtnGO_.GetComponent<Button>();
+		okBtn.onClick.RemoveAllListeners ();
+		okBtn.onClick.AddListener (() => okRelocate());
+
+		Button cancelBtn = cancelBtnGO_.GetComponent<Button> ();
+		cancelBtn.onClick.RemoveAllListeners ();
+		cancelBtn.onClick.AddListener (() => cancelRelocate());
+	}
+
+	void okRelocate()
+	{
+		if (objectHandler_.Colliding) {
+			objectHandler_.resetPosition();
+		}
+		objectHandler_.OriginalPosition = gameObject.transform.position;
+
+		gameObject.tag = "Building";
+		Destroy (okBtnGO_);
+		Destroy (cancelBtnGO_);
+	}
+
+	void cancelRelocate()
+	{
+		objectHandler_.resetPosition ();
+		gameObject.tag = "Building";
+		Destroy (okBtnGO_);
+		Destroy (cancelBtnGO_);
 	}
 }

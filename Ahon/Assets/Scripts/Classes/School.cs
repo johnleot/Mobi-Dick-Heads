@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using System.Collections;
@@ -18,7 +18,7 @@ public class School : IObject {
 		contentText_ = "School: The quick brown fox jumps over the lazy dog.";
 	}
 	
-	override public void showUI()
+	override public void insertUI()
 	{
 		objectBtnHolder_ = Instantiate(Resources.Load ("Level1/ObjectUIPanel")) as GameObject;
 		infoBtnGO_ = Instantiate (Resources.Load ("Level1/ObjectUIButton")) as GameObject;
@@ -43,6 +43,12 @@ public class School : IObject {
 		Debug.Log ("Hiding School UI..." + gameObject);
 	}
 	
+	public override void showUI ()
+	{
+		objectBtnHolder_.gameObject.SetActive (true);
+		Debug.Log ("Hiding School UI..." + gameObject);
+	}
+
 	override public void removeUI()
 	{
 		if (objectBtnHolder_) 

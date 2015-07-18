@@ -19,9 +19,15 @@ public class ObjectHandler : MonoBehaviour
 
 	public ObjectHandler.objectType objectType_;
 	private bool colliding = false;
+	private Vector3 originalPosition;
 	private bool selected = false;
 
 	private IObject object_;
+
+	void Awake()
+	{
+		originalPosition = gameObject.transform.position;
+	}
 
 	void Start()
 	{
@@ -44,7 +50,7 @@ public class ObjectHandler : MonoBehaviour
 
 	void OnTriggerEnter(Collider other)
 	{
-		if (other.gameObject.tag == "Obstacle" || other.gameObject.tag == "Draggable") 
+		if (other.gameObject.tag == "Obstacle" || other.gameObject.tag == "Untagged") 
 		{
 			colliding = true;
 		}
@@ -52,15 +58,23 @@ public class ObjectHandler : MonoBehaviour
 	
 	void OnTriggerExit(Collider other)
 	{
-		if(other.gameObject.tag == "Obstacle" || other.gameObject.tag == "Draggable")
+		if(other.gameObject.tag == "Obstacle" || other.gameObject.tag == "Untagged")
 		{
 			colliding = false;
 		}
 	}
 
-	public void showObjectGUI()
+	public void insertObjectGUI()
 	{
 		if(object_ != null)
+		{
+			object_.insertUI();
+		}
+	}
+	
+	public void showObjectGUI()
+	{
+		if (object_ != null) 
 		{
 			object_.showUI();
 		}
@@ -90,6 +104,31 @@ public class ObjectHandler : MonoBehaviour
 	public void deselectObject()
 	{
 		selected = false;
+	}
+
+	
+	public bool Colliding {
+		get {
+			return colliding;
+		}
+		set {
+			colliding = value;
+		}
+	}
+
+	public void resetPosition ()
+	{
+		//throw new System.NotImplementedException ();
+		gameObject.transform.position = originalPosition;
+	}
+
+	public Vector3 OriginalPosition {
+		get {
+			return originalPosition;
+		}
+		set {
+			originalPosition = value;
+		}
 	}
 }
 

@@ -30,7 +30,7 @@ public class TouchControl : MonoBehaviour {
 	private bool  newTouch;
 	private float touchTime;
 
-	public GameObject gui; // for accessing Gameplay Script
+	public GameObject gui; // use for accessing Gameplay Script
 
 	private ObjectHandler objectHandler_;
 
@@ -75,56 +75,65 @@ public class TouchControl : MonoBehaviour {
 			
 				if(!IsPointerOverUIObject(touches[0].position))
 				{
-					if (Physics.Raycast (ray, out hit) && hit.collider.tag == "Draggable") {
-						if (touches [0].phase == TouchPhase.Began) {
-							if (Physics.Raycast (ray, out hit, maxPickingDistance)) {
-								if (pickedObject) {
-									if (hit.transform.gameObject == pickedObject.gameObject ||
-										hit.transform.gameObject != pickedObject.gameObject) {
-										deselectGameObject ();
-									}
-								}
-
+					if (Physics.Raycast (ray, out hit) && hit.collider.tag == "Building")
+					{
+						if (Physics.Raycast (ray, out hit, maxPickingDistance)) {
+							if (!pickedObject) 
+							{
 								touchTime = Time.time;
 								pickedObject = hit.transform;
-								/**/
-								if (selectedObjectHasObjectHandler ()) {
-									objectHandler_ = pickedObject.GetComponent<ObjectHandler> ();
-									if (objectHandler_.objectType_ != ObjectHandler.objectType.empty) {
-										objectHandler_.showObjectGUI ();
+								selectGameObject ();
+							}
+							else
+							{
+								if (hit.transform.gameObject == pickedObject.gameObject ||
+								    hit.transform.gameObject != pickedObject.gameObject) 
+								{
+									deselectGameObject ();
+								}
+							}
+							
+						} else {
+							deselectGameObject ();
+							pickedObject = null;
+						}
+					}
+					else if (Physics.Raycast (ray, out hit) && hit.collider.tag == "Draggable") {
+						if (touches [0].phase == TouchPhase.Began) {
+							if (Physics.Raycast (ray, out hit, maxPickingDistance)) {
+
+								pickedObject = hit.transform;
+								if(isSelectedObjectHasObjectHandler())
+								{
+									objectHandler_ = pickedObject.GetComponent<ObjectHandler>();
+									if(objectHandler_.objectType_ != ObjectHandler.objectType.empty)
+									{
+										objectHandler_.OriginalPosition = pickedObject.transform.position;
 									}
 								}
-								//startPos = touches[0].position;
+								//selectGameObject ();
+
 							} else {
-								deselectGameObject ();
+								//deselectGameObject ();
 								pickedObject = null;
 							}
 						} else if (touches [0].phase == TouchPhase.Moved) {
 							if (pickedObject != null) {
+
+								//hideSelectedObjetUI (pickedObject);
+
 								float distance1 = 0f;
 								if (horPlane.Raycast (ray, out distance1)) {
 									pickedObject.transform.position = ray.GetPoint (distance1);
 								}
-
-								if (selectedObjectHasObjectHandler ()) {
-									//objectHandler_.hideObjectGUI();
-								}
 							}
 						} else if (touches [0].phase == TouchPhase.Ended) {
+							//showSelectedObjectUI ();
 							// check if position is not overlap with other object
 							//pickedObject = null;
 						}
-						/*
-					else if(touches[0].phase == TouchPhase.Stationary)
-					{
-						if(pickedObject && (Time.time - touchTime) > 1)
-						{
-							gameplay.setPlayerScore(10);
-							Destroy (pickedObject.gameObject);
-						}
-					}*/
-					} else {
-						deselectGameObject ();
+					} 
+					else {
 
 						if (touches [0].phase == TouchPhase.Moved) {
 							Vector2 delta = touches [0].deltaPosition;
@@ -135,7 +144,6 @@ public class TouchControl : MonoBehaviour {
 							positionY = invertMoveY ? positionY : positionY * -1;
 						
 							_camera.transform.position += new Vector3 (positionX, positionY, -positionX);
-						
 						}
 					}
 				
@@ -163,6 +171,16 @@ public class TouchControl : MonoBehaviour {
 						CalculateMapBounds ();
 					}
 				}
+			}
+		}
+	}
+
+	void selectGameObject ()
+	{
+		if (isSelectedObjectHasObjectHandler ()) {
+			objectHandler_ = pickedObject.GetComponent<ObjectHandler> ();
+			if (objectHandler_.objectType_ != ObjectHandler.objectType.empty) {
+				objectHandler_.insertObjectGUI ();
 			}
 		}
 	}
@@ -212,16 +230,21 @@ public class TouchControl : MonoBehaviour {
 		Destroy(gameObject);
 	}
 
-	bool selectedObjectHasObjectHandler()
+	bool isSelectedObjectHasObjectHandler()
 	{
 		return pickedObject.gameObject.GetComponent<ObjectHandler> ();
 	}
 
+	bool isSelectedObjectHasObjectHandler(Transform selectedObject)
+	{
+		return selectedObject.gameObject.GetComponent<ObjectHandler> ();
+	}
+	
 	void deselectGameObject()
 	{
 		if(pickedObject)
 		{
-			if(selectedObjectHasObjectHandler())
+			if(isSelectedObjectHasObjectHandler())
 			{
 				objectHandler_ = pickedObject.GetComponent<ObjectHandler>();
 				if(objectHandler_.objectType_ != ObjectHandler.objectType.empty)
@@ -233,13 +256,49 @@ public class TouchControl : MonoBehaviour {
 		}
 	}
 
-	private bool IsPointerOverUIObject(Vector2 touchPosition) {
+	void deselectGameObject(Transform object_)
+	{
+		if(object_)
+		{
+			if(isSelectedObjectHasObjectHandler())
+			{
+				objectHandler_ = object_.GetComponent<ObjectHandler>();
+				if(objectHandler_.objectType_ != ObjectHandler.objectType.empty)
+				{
+					objectHandler_.removeObjectGUI();
+				}
+			}
+			object_ = null;
+		}
+	}
+
+	bool IsPointerOverUIObject(Vector2 touchPosition) {
 		PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
 		eventDataCurrentPosition.position = touchPosition;
 		
 		List<RaycastResult> results = new List<RaycastResult>();
 		EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
 		return results.Count > 0;
+	}
+
+	void hideSelectedObjetUI (Transform object_)
+	{
+		if (isSelectedObjectHasObjectHandler (object_)) {
+			objectHandler_ = object_.GetComponent<ObjectHandler> ();
+			if (objectHandler_.objectType_ != ObjectHandler.objectType.empty) {
+				objectHandler_.hideObjectGUI ();
+			}
+		}
+	}
+
+	void showSelectedObjectUI ()
+	{
+		if (isSelectedObjectHasObjectHandler ()) {
+			objectHandler_ = pickedObject.GetComponent<ObjectHandler> ();
+			if (objectHandler_.objectType_ != ObjectHandler.objectType.empty) {
+				objectHandler_.showObjectGUI ();
+			}
+		}
 	}
 }
 

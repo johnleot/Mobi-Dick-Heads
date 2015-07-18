@@ -18,7 +18,7 @@ public class NipaHut : IObject {
 		contentText_ = "NipaHut: The quick brown fox jumps over the lazy dog.";
 	}
 	
-	override public void showUI()
+	override public void insertUI()
 	{
 		objectBtnHolder_ = Instantiate(Resources.Load ("Level1/ObjectUIPanel")) as GameObject;
 		infoBtnGO_ = Instantiate (Resources.Load ("Level1/ObjectUIButton")) as GameObject;
@@ -39,7 +39,12 @@ public class NipaHut : IObject {
 	override public void hideUI()
 	{
 		objectBtnHolder_.gameObject.SetActive (false);
-		infoBtnGO_.gameObject.SetActive (false);
+		Debug.Log ("Hiding NipaHut UI..." + gameObject);
+	}
+
+	public override void showUI ()
+	{
+		objectBtnHolder_.gameObject.SetActive (true);
 		Debug.Log ("Hiding NipaHut UI..." + gameObject);
 	}
 	
