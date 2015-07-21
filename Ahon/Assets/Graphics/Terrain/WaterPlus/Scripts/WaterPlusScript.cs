@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 
 using System.Collections.Generic;
+using System.Threading;
 
 public enum WaterMovementType {
 	directional = 0,
@@ -96,7 +97,9 @@ public class WaterPlusScript : MonoBehaviour {
 		
 		//yAnimationValue = 0.0f;
 		//initialTransformY = transform.position.y - tideAmplitude;
-		
+
+        Debug.Log("Increasing Y-Axis");
+
 		waterCenter = GetComponent<Renderer>().bounds.center;
 		
 		if (movementType == WaterMovementType.directional)
@@ -291,7 +294,7 @@ public class WaterPlusScript : MonoBehaviour {
 		float causticsYOffset = (float) ( (causticsAnimationFrame % 16) / 4 ) * .25f;
 		float causticsXOffset = (float) ( (causticsAnimationFrame % 16) % 4 ) * .25f;
 		
-		
+
 		Vector4 causticsAnimation = new Vector4(causticsXOffset, causticsYOffset, 0.25f, 0.25f);
 		Vector4 causticsAnimationColorChannel;
 		
@@ -337,14 +340,30 @@ public class WaterPlusScript : MonoBehaviour {
 			}
 		}
 		
-		
-		
+
+
 		//float refractiveIndex = 1.333f;
-		
+
 		//float fresnel0 = (1.0f - refractiveIndex) * (1.0f - refractiveIndex) / ( (1.0f + refractiveIndex) );
 		
 		//waterMaterial.SetFloat("_fresnel0", fresnel0);
 	}
+
+    public void InvokeFlooding(float amount){
+        Vector3 yAxis = this.transform.position;
+       // amount = 7 / amount;
+
+        //while (yAxis.y < 7)
+        //{
+           // yAxis = this.transform.position;
+            //Debug.Log("yAxis - " + yAxis);
+            yAxis.y += amount;
+            //Debug.Log("yAxis.y - " + yAxis.y);
+            transform.position = yAxis;
+            Debug.Log("amount - "+ amount +"; yAxis - " + yAxis.y);
+            //Thread.Sleep(1000);
+        //}        
+    }
 	
 	/*int framesCounted = 0;
 	float totalDeltaTime = 0.0f;
