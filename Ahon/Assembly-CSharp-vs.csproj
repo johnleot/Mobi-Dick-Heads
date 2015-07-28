@@ -61,6 +61,7 @@
      <Compile Include="Assets\Scripts\Behaviour\PauseGame.cs" />
      <Compile Include="Assets\Scripts\Behaviour\ResourceSlidingMenu.cs" />
      <Compile Include="Assets\Scripts\Behaviour\ResultsWindow.cs" />
+     <Compile Include="Assets\Scripts\Behaviour\ScoringSystem.cs" />
      <Compile Include="Assets\Scripts\Behaviour\Settings.cs" />
      <Compile Include="Assets\Scripts\Behaviour\SoundManager.cs" />
      <Compile Include="Assets\Scripts\Behaviour\ToolsSlidingMenu.cs" />
