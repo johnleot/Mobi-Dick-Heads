@@ -23,7 +23,7 @@ public class EvacuationCenter : IObject {
 		objectBtnHolder_ = Instantiate(Resources.Load ("Level1/ObjectUIPanel")) as GameObject;
 		infoBtnGO_ = Instantiate (Resources.Load ("Level1/ObjectUIButton")) as GameObject;
 		objectBtnHolder_.transform.SetParent (MainUI.transform, false);
-		infoBtnGO_.transform.SetParent (objectBtnHolder_.transform, true);
+		infoBtnGO_.transform.SetParent (objectBtnHolder_.transform, false);
 		Text buttonText = (Text)infoBtnGO_.transform.FindChild("Text").GetComponent<Text>();
 		buttonText.text = gameObject.ToString();
 		
