@@ -24,6 +24,12 @@ namespace Assets.Scripts.Behaviour
             }
         }
 
+		void Update()
+		{
+			if (Input.GetKeyDown (KeyCode.Escape))
+				showExitConfirmationWindow ();
+		}
+
         void LoadCinematicsScreen()
         {
             Application.LoadLevel("Cinematics");
@@ -38,5 +44,23 @@ namespace Assets.Scripts.Behaviour
         {
             Application.LoadLevel("FacebookScreen");
         }
+
+		public void ExitGame()
+		{
+			Application.Quit ();
+		}
+
+		public void HideExitConfirmationWindow()
+		{
+			gameObject.transform.FindChild ("ModalPanel").gameObject.SetActive (false);
+		}
+
+		void showExitConfirmationWindow()
+		{
+			gameObject.transform.FindChild ("ModalPanel").gameObject.SetActive (true);
+		}
+
+
+
     }
 }

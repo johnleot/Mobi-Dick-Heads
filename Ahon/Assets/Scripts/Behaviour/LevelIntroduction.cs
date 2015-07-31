@@ -40,7 +40,7 @@ namespace Assets.Scripts.Behaviour
 
         public void OnClickCancel()
         {
-            Application.LoadLevel("Main");
+            Application.LoadLevel("LevelSelection");
         }
 
         public void CloseInfoWindow()

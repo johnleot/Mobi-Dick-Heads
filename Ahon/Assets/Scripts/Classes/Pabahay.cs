@@ -37,7 +37,7 @@ public class Pabahay : IObject {
 	{
 		if (!infoBtnGO_) {
 			infoBtnGO_ = Instantiate(Resources.Load ("Level1/ObjectUIButton")) as GameObject;
-			infoBtnGO_.transform.SetParent (objectBtnHolder_.transform, true);
+			infoBtnGO_.transform.SetParent (objectBtnHolder_.transform, false);
 
 			Text buttonText = (Text)infoBtnGO_.transform.FindChild("Text").GetComponent<Text>();
 			buttonText.text = gameObject.ToString(); //change this to image.
@@ -56,7 +56,7 @@ public class Pabahay : IObject {
 	{
 		if (!relocateBtnGO_) {
 			relocateBtnGO_ = Instantiate(Resources.Load ("Level1/ObjectUIButton")) as GameObject;
-			relocateBtnGO_.transform.SetParent (objectBtnHolder_.transform, true);
+			relocateBtnGO_.transform.SetParent (objectBtnHolder_.transform, false);
 			
 			Text buttonText = (Text)relocateBtnGO_.transform.FindChild("Text").GetComponent<Text>();
 			buttonText.text = "Relocate"; //change this to image.
@@ -138,12 +138,12 @@ public class Pabahay : IObject {
 		// create ok and cancel button
 
 		okBtnGO_ = Instantiate (Resources.Load ("Level1/ObjectUIButton")) as GameObject;
-		okBtnGO_.transform.SetParent (objectBtnHolder_.transform, true);
+		okBtnGO_.transform.SetParent (objectBtnHolder_.transform, false);
 		Text buttonText1 = (Text)okBtnGO_.transform.FindChild("Text").GetComponent<Text>();
 		buttonText1.text = "OK"; //change this to image.
 
 		cancelBtnGO_ = Instantiate (Resources.Load ("Level1/ObjectUIButton")) as GameObject;
-		cancelBtnGO_.transform.SetParent (objectBtnHolder_.transform, true);
+		cancelBtnGO_.transform.SetParent (objectBtnHolder_.transform, false);
 		Text buttonText2 = (Text)cancelBtnGO_.transform.FindChild("Text").GetComponent<Text>();
 		buttonText2.text = "X"; //change this to image.
 
