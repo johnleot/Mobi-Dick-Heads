@@ -106,6 +106,9 @@
      <None Include="Assets\Plugins\AstarPathfindingProject\Plugins\JsonFx\Readme.txt" />
      <None Include="Assets\Graphics\Terrain\WaterPlus\Shaders\WaterPlus_Mobile.shader" />
      <None Include="Assets\Plugins\AstarPathfindingProject\link.xml" />
+ <Reference Include="Assembly-UnityScript-firstpass">
+ <HintPath>C:/Users/Yeng Oliva/Documents/GitHub/Mobi-Dick-Heads/Ahon/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
