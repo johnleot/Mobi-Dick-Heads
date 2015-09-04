@@ -111,6 +111,7 @@
      <None Include="Assets\Plugins\Android\facebook\proguard-project.txt" />
      <None Include="Assets\AstarPathfindingEditor\Editor\EditorAssets\Materials\Navmesh2.shader" />
      <None Include="Assets\Plugins\Android\facebook\res\layout\com_facebook_usersettingsfragment.xml" />
+     <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
      <None Include="Assets\Plugins\Android\facebook\res\values-es\strings.xml" />
      <None Include="Assets\Plugins\Android\facebook\res\drawable\com_facebook_picker_top_button.xml" />
      <None Include="Assets\Plugins\Android\facebook\res\values-iw\strings.xml" />
@@ -167,20 +168,20 @@
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
+ <Reference Include="IFacebook">
+ <HintPath>C:/Users/John/Repositories/Mobi-Dick-Heads/Ahon/Assets/Facebook/Scripts/IFacebook.dll</HintPath>
+ </Reference>
  <Reference Include="Mono.Data.Sqlite">
- <HintPath>C:/Users/Elisa/Documents/Elisa/Mobi Dick Heads/Mobi-Dick-Heads/Ahon/Assets/Plugins/Mono.Data.Sqlite.dll</HintPath>
+ <HintPath>C:/Users/John/Repositories/Mobi-Dick-Heads/Ahon/Assets/Plugins/Mono.Data.Sqlite.dll</HintPath>
  </Reference>
  <Reference Include="System.Data">
- <HintPath>C:/Users/Elisa/Documents/Elisa/Mobi Dick Heads/Mobi-Dick-Heads/Ahon/Assets/Plugins/System.Data.dll</HintPath>
+ <HintPath>C:/Users/John/Repositories/Mobi-Dick-Heads/Ahon/Assets/Plugins/System.Data.dll</HintPath>
  </Reference>
  <Reference Include="Pathfinding.Ionic.Zip.Reduced">
- <HintPath>C:/Users/Elisa/Documents/Elisa/Mobi Dick Heads/Mobi-Dick-Heads/Ahon/Assets/Plugins/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
+ <HintPath>C:/Users/John/Repositories/Mobi-Dick-Heads/Ahon/Assets/Plugins/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
  </Reference>
  <Reference Include="Pathfinding.JsonFx">
- <HintPath>C:/Users/Elisa/Documents/Elisa/Mobi Dick Heads/Mobi-Dick-Heads/Ahon/Assets/Plugins/AstarPathfindingProject/Plugins/JsonFx/Pathfinding.JsonFx.dll</HintPath>
- </Reference>
- <Reference Include="IFacebook">
- <HintPath>C:/Users/Elisa/Documents/Elisa/Mobi Dick Heads/Mobi-Dick-Heads/Ahon/Assets/Facebook/Scripts/IFacebook.dll</HintPath>
+ <HintPath>C:/Users/John/Repositories/Mobi-Dick-Heads/Ahon/Assets/Plugins/AstarPathfindingProject/Plugins/JsonFx/Pathfinding.JsonFx.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iossupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>

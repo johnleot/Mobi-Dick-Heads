@@ -11,8 +11,8 @@ public class TouchControl : MonoBehaviour {
 	public float moveSensitivityY = 20.0f;
 	public bool updateZoomSensitivity = true;
 	public float orthoZoomspeed = 0.05f;
-	public float minZoom = 1.0f;
-	public float maxZoom = 20.0f;
+	public float minZoom = 1.0f; // zoomest in
+	public float maxZoom = 20.0f; // zoomest out
 	public bool invertMoveX = false;
 	public bool invertMoveY = false;
 	public float mapWidth = 40.0f;
@@ -47,6 +47,7 @@ public class TouchControl : MonoBehaviour {
 		if (mapWidth > mapHeight)
 			maxZoom = 0.5f * mapHeight;
 		//Debug.Log ("MaxZOOM : " + maxZoom);
+		_camera.orthographicSize = maxZoom; // initial camera zoom.
 		CalculateMapBounds ();
 	}
 	
@@ -299,6 +300,25 @@ public class TouchControl : MonoBehaviour {
 				objectHandler_.showObjectGUI ();
 			}
 		}
+	}
+	
+	public void onclickZoomIn()
+	{
+		float zoomValue = (maxZoom - minZoom) * 0.1f;
+		/*Debug.Log ("MaxZoom: " + maxZoom);
+		Debug.Log ("MinZoom: " + minZoom);
+		Debug.Log ("ZoomValue: " + zoomValue);*/
+		_camera.orthographicSize -= zoomValue;
+		_camera.orthographicSize = Mathf.Clamp(_camera.orthographicSize, minZoom, maxZoom);
+		CalculateMapBounds ();
+	}
+
+	public void onclickZoomOut()
+	{
+		float zoomValue = (maxZoom - minZoom) * 0.1f;
+		_camera.orthographicSize += zoomValue;
+		_camera.orthographicSize = Mathf.Clamp(_camera.orthographicSize, minZoom, maxZoom);
+		CalculateMapBounds ();
 	}
 }
 
