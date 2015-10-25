@@ -38,9 +38,9 @@ namespace Assets.Scripts.Behaviour
             Component[] comps = GetComponentsInChildren<Text>();
 
             calamity = (Text)comps[1];
-            position = (Text)comps[2];
-            resource = (Text)comps[3];
-            tools = (Text)comps[4];
+            tools = (Text)comps[2];
+            //resource = (Text)comps[3];
+            position = (Text)comps[4];
 			scores = (Text)comps[5];
 
             userManager = new UserManager();
@@ -58,8 +58,11 @@ namespace Assets.Scripts.Behaviour
 
             calamity.text = calamities[0].Name;
             position.text = user.PositionName;
-            resource.text = resources[0].Name;
+
+            
+            //resource.text = resources[0].Name;
             tools.text = solutions[0].Name;
+            scores.text = "Test";
 			playerName = "Username";
 			activeLevel = "";
 			playerHealth = 100;
@@ -67,7 +70,7 @@ namespace Assets.Scripts.Behaviour
 			natureResponse = 0;
 			score = 0;
 			scores.text = score.ToString ();
-            Debug.Log("Calamity - " + calamity.text);
+            //Debug.Log("Calamity - " + calamity.text);
         }
 
         // Update is called once per frame

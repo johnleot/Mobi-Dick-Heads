@@ -98,7 +98,7 @@ public class WaterPlusScript : MonoBehaviour {
 		//yAnimationValue = 0.0f;
 		//initialTransformY = transform.position.y - tideAmplitude;
 
-        Debug.Log("Increasing Y-Axis");
+        //Debug.Log("Increasing Y-Axis");
 
 		waterCenter = GetComponent<Renderer>().bounds.center;
 		
@@ -360,7 +360,7 @@ public class WaterPlusScript : MonoBehaviour {
             yAxis.y += amount;
             //Debug.Log("yAxis.y - " + yAxis.y);
             transform.position = yAxis;
-            Debug.Log("amount - "+ amount +"; yAxis - " + yAxis.y);
+            //Debug.Log("amount - "+ amount +"; yAxis - " + yAxis.y);
             //Thread.Sleep(1000);
         //}        
     }

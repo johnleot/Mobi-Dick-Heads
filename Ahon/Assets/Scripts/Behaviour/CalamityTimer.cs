@@ -37,8 +37,8 @@ namespace Assets.Scripts.Behaviour
 			
 			firstCalamity = calamities[0];
             calamityName = firstCalamity.Name;
-			calamityTimeRemaining = firstCalamity.TimeOfArrival;
-            //calamityTimeRemaining = 10;
+			//calamityTimeRemaining = firstCalamity.TimeOfArrival;
+            calamityTimeRemaining = 30;
             calamityTimeToComplete = firstCalamity.Duration;
             //calamityTimeToComplete = 10;
             originalCtc = calamityTimeToComplete; 
@@ -67,7 +67,7 @@ namespace Assets.Scripts.Behaviour
                     int checker_2 = (int)calamityTimeToComplete;
                     if (checker_1 != checker_2)
                     {
-                        //Debug.Log("1: " + checker_1 + " 2: " + checker_2);
+                        //Debug.Log("1: " + originalCtc);
                         StartCalamity(calamityName.ToLower(), originalCtc);
                     }
                     
@@ -94,27 +94,8 @@ namespace Assets.Scripts.Behaviour
             switch (type)
             {
                 case "flooding":
-                            //Vector3 yAxis = this.transform.position;
-               // amount = 7 / amount;
-
-                //while (yAxis.y < 7)
-                //{
-                   // yAxis = this.transform.position;
-                    //Debug.Log("yAxis - " + yAxis);
-                   // yAxis.y += 7 / calamityTimeToComplete;
-                    //Debug.Log("yAxis.y - " + yAxis.y);
-                    //transform.position = yAxis;
-                    //Thread.Sleep(1000);
-                //}  
                     float amount = 8/num;
-                    Debug.Log("amount - " + amount);
-                   // while (amount < 7)
-                   // {
-                        (FindObjectOfType(typeof(WaterPlusScript)) as WaterPlusScript).InvokeFlooding(amount);
-                        //Debug.Log("amount - " + amount);
-                     //   amount+= .001f;
-                        
-                   // }
+                    (FindObjectOfType(typeof(WaterPlusScript)) as WaterPlusScript).InvokeFlooding(amount);
                     break;
                 case "drought":
                     break;

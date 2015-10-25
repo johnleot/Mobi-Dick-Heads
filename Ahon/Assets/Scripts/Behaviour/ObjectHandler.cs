@@ -31,7 +31,7 @@ public class ObjectHandler : MonoBehaviour
 
 	void Start()
 	{
-		Debug.Log (gameObject + " object type is: " + objectType_);
+		//Debug.Log (gameObject + " object type is: " + objectType_);
 
 		if (objectType_ != objectType.empty) 
 		{
@@ -41,8 +41,8 @@ public class ObjectHandler : MonoBehaviour
 			{
 				Debug.Log ("Getting Object type failed.");
 			}
-			else
-				Debug.Log ("Getting object type instance success. Object: " + object_);
+			//else
+				//Debug.Log ("Getting object type instance success. Object: " + object_);
 		}else 
 			Debug.Log ("Object Type is Empty.");
 

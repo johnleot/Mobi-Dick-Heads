@@ -19,12 +19,9 @@ namespace Assets.Scripts.DataSource
         {
             string p = "Ahon.db";
             string filePath = Application.persistentDataPath + "/" + p;
-            
+
             if (dbConn == null)
             {
-                Debug.Log("Application Platform - " + Application.platform);
-                Debug.Log("Accessing Ahon.db");
-
                 if (!File.Exists(filePath))
                 {
                     Debug.Log("Creating Ahon.db");

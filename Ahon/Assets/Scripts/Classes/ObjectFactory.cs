@@ -10,10 +10,10 @@ public class ObjectFactory : MonoBehaviour {
 		switch (objectType) {
 		case ObjectHandler.objectType.Pabahay :
 			return new Pabahay();
-				break;
+				//break;
 		default:
 			return null;
-			break;
+			//break;
 		}
 	}
 }
