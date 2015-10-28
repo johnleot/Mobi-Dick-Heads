@@ -44,7 +44,6 @@ namespace Assets.Scripts.Behaviour
             originalCtc = calamityTimeToComplete; 
 			//ResultsWindow.SetActive (false);
 			//instantiate calamity
-			
 		}
 		void Update()
 		{
@@ -79,12 +78,31 @@ namespace Assets.Scripts.Behaviour
 					SoundManager.instance.PlaySingle(gameOverSound);
 					
 					transform.FindChild("ResultsWindow").gameObject.SetActive(true);
-                    /**
+					
+					/**
                      * Place score card here
 					/*
 					if(!ResultsWindow.activeInHierarchy){
 						ResultsWindow.SetActive(true);
 					}*/
+
+					GameObject resultsWindow = transform.FindChild("ResultsWindow").gameObject;
+
+					Text score = resultsWindow.transform.FindChild("ScoreText").GetComponent<Text>();
+					//Text money = resultsWindow.transform.FindChild("moneyText").GetComponent<Text>();
+					Text natureRating = resultsWindow.transform.FindChild("NatureRatingText").GetComponent<Text>();
+					Text peopleResponse = resultsWindow.transform.FindChild("PeopleRatingText").GetComponent<Text>();
+					Text resourcesScore = resultsWindow.transform.FindChild("ResourcesText").GetComponent<Text>();
+
+					Gameplay gameplay = GetComponent<Gameplay>();
+					if(!gameplay) { Debug.Log ("Error: Gameplay Not Fetched."); }
+					else { Debug.Log("SUCCESSS !!!!! gameplay fetched."); }
+
+					score.text = gameplay.getPlayerScore().ToString();
+					natureRating.text = gameplay.getNatureResponse().ToString();
+					peopleResponse.text = gameplay.getPeopleResponse().ToString();
+					resourcesScore.text = gameplay.getResourcesScore().ToString();
+
 				}
 			}
 		}

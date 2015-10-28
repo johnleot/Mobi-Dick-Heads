@@ -12,12 +12,14 @@ namespace Assets.Scripts.Behaviour
 		public Slider natureResponseBar;
 		public Slider peopleResponseBar;
 		public Slider playerHealthBar;
+		public Slider resourcesBar;
 
 		Text calamity;
 		Text position;
 		Text resource;
 		Text tools;
-		Text scores;
+		public Text scores;
+		public Text moneyText;
 
 		// Use this for initialization
 		UserManager userManager;
@@ -31,7 +33,9 @@ namespace Assets.Scripts.Behaviour
 		private int playerHealth;		//Player's current health
 		private int peopleResponse;		//People's satisfaction score
 		private int natureResponse;		//Nature score
+		private int resourcesScore;		//Resources score
 		private int score;				//Player's total score
+		private int money;				//Player's money
 
         void Start()
         {
@@ -41,7 +45,7 @@ namespace Assets.Scripts.Behaviour
             tools = (Text)comps[2];
             //resource = (Text)comps[3];
             position = (Text)comps[4];
-			scores = (Text)comps[5];
+			//scores = (Text)comps[5];
 
             userManager = new UserManager();
             levelManager = new LevelManager();
@@ -66,21 +70,37 @@ namespace Assets.Scripts.Behaviour
 			playerName = "Username";
 			activeLevel = "";
 			playerHealth = 100;
-			peopleResponse = 0;
-			natureResponse = 0;
-			score = 0;
+			peopleResponse = 32;
+			natureResponse = 12;
+			resourcesScore = 50;
+			money = 1000000;
+			score = 10;
 			scores.text = score.ToString ();
-            //Debug.Log("Calamity - " + calamity.text);
+			moneyText.text = money.ToString ();
+			//Debug.Log ("NatureResponse: " + natureResponse);
         }
 
         // Update is called once per frame
         void Update()
         {
 			//playerHealthBar.value = (float)(getPlayerHealth () / 100);
-			natureResponseBar.value = (float)(getNatureResponse() / 100);
-			peopleResponseBar.value = (float)(getPeopleResponse() / 100);
+			natureResponseBar.value = (float)(getNatureResponse() / 100f);
+			peopleResponseBar.value = (float)(getPeopleResponse() / 100f);
+			resourcesBar.value = (float)(getResourcesScore() / 100f);
+
+			calculateOverallScore ();
 			scores.text = getPlayerScore ().ToString();
         }
+
+		void calculateOverallScore()
+		{
+			/* 
+			 * Calculation not yet final.
+			 */
+			score = (natureResponse + peopleResponse + resourcesScore);
+			//Debug.Log ("SSSSSSSSCORE: " + score);
+		}
+
 		public string getPlayerName()
 		{
 			return playerName;
@@ -115,16 +135,43 @@ namespace Assets.Scripts.Behaviour
 		{
 			return natureResponse;
 		}
+
+		public int getResourcesScore()
+		{
+			return resourcesScore;
+		}
 		
 		public int getPlayerScore()
 		{
 			return score;
 		}
 
-		public void setPlayerScore(int playerScore)
+		public int getPlayerMoney()
 		{
-			score += playerScore;
-			playerHealthBar.value = (float)(score / 100);
+			return money;
+		}
+
+		public void setPeopleResponse(int value)
+		{
+			peopleResponse += value;	// food deficit + illegal activity stopped
+			peopleResponseBar.value = (float)(peopleResponse / 100);
+		}
+
+		public void setNatureResponse(int value)
+		{
+			natureResponse += value;	// illegal activity stopped + calamity damage on crops
+			natureResponseBar.value = (float)(peopleResponse / 100);
+		}
+
+		public void setResourcesScore(int value)
+		{
+			resourcesScore += value;	// crops remaining / population
+			resourcesBar.value = (float)(resourcesScore / 100);
+		}
+
+		public void setPlayerMoney(int value)
+		{
+			money = value;
 		}
     }
 }

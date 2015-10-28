@@ -227,7 +227,7 @@ public class TouchControl : MonoBehaviour {
 	
 	void destroyObject()
 	{
-		gameplay.setPlayerScore(10);
+		//gameplay.setPlayerScore(10);
 		Destroy(gameObject);
 	}
 

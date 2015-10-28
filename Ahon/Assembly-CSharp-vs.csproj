@@ -19,7 +19,7 @@
 	<DebugType>full</DebugType>
 	<Optimize>false</Optimize>
 	<OutputPath>Temp\bin\Debug\</OutputPath>
-	<DefineConstants>DEBUG;TRACE;UNITY_5_0_1;UNITY_5_0;UNITY_5;ENABLE_LICENSE_RENAME;ENABLE_NEW_BUGREPORTER;ENABLE_2D_PHYSICS;ENABLE_4_6_FEATURES;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_NEW_HIERARCHY;ENABLE_PHYSICS;ENABLE_PHYSICS_PHYSX3;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_AUDIOMIXER_SUSPEND;ENABLE_NONPRO;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_TEXTUREID_MAP;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_MONO;DEVELOPMENT_BUILD;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE;UNITY_PRO_LICENSE</DefineConstants>
+	<DefineConstants>DEBUG;TRACE;UNITY_5_0_1;UNITY_5_0;UNITY_5;ENABLE_LICENSE_RENAME;ENABLE_NEW_BUGREPORTER;ENABLE_2D_PHYSICS;ENABLE_4_6_FEATURES;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_NEW_HIERARCHY;ENABLE_PHYSICS;ENABLE_PHYSICS_PHYSX3;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_AUDIOMIXER_SUSPEND;ENABLE_NONPRO;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_SUBSTANCE;ENABLE_TEXTUREID_MAP;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_MONO;DEVELOPMENT_BUILD;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE;UNITY_PRO_LICENSE</DefineConstants>
 	<ErrorReport>prompt</ErrorReport>
 	<WarningLevel>4</WarningLevel>
 	<NoWarn>0169</NoWarn>
@@ -80,6 +80,7 @@
      <Compile Include="Assets\Scripts\Behaviour\ScoringSystem.cs" />
      <Compile Include="Assets\Scripts\Behaviour\Settings.cs" />
      <Compile Include="Assets\Scripts\Behaviour\SoundManager.cs" />
+     <Compile Include="Assets\Scripts\Behaviour\TerrainObjectFactory.cs" />
      <Compile Include="Assets\Scripts\Behaviour\ToolsSlidingMenu.cs" />
      <Compile Include="Assets\Scripts\Behaviour\TouchControl.cs" />
      <Compile Include="Assets\Scripts\CameraAspectController.cs" />
@@ -95,6 +96,11 @@
      <Compile Include="Assets\Scripts\Classes\Resource.cs" />
      <Compile Include="Assets\Scripts\Classes\School.cs" />
      <Compile Include="Assets\Scripts\Classes\Solution.cs" />
+     <Compile Include="Assets\Scripts\Classes\Tree\Tree.cs" />
+     <Compile Include="Assets\Scripts\Classes\Tree\TreeClient.cs" />
+     <Compile Include="Assets\Scripts\Classes\Tree\TreeFactory.cs" />
+     <Compile Include="Assets\Scripts\Classes\Tree\TreeImpl.cs" />
+     <Compile Include="Assets\Scripts\Classes\TreeObject.cs" />
      <Compile Include="Assets\Scripts\Classes\User.cs" />
      <Compile Include="Assets\Scripts\DataSource\CalamityManager.cs" />
      <Compile Include="Assets\Scripts\DataSource\Connection.cs" />
@@ -111,6 +117,7 @@
      <None Include="Assets\Plugins\Android\facebook\proguard-project.txt" />
      <None Include="Assets\AstarPathfindingEditor\Editor\EditorAssets\Materials\Navmesh2.shader" />
      <None Include="Assets\Plugins\Android\facebook\res\layout\com_facebook_usersettingsfragment.xml" />
+     <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
      <None Include="Assets\Plugins\Android\facebook\res\values-es\strings.xml" />
      <None Include="Assets\Plugins\Android\facebook\res\drawable\com_facebook_picker_top_button.xml" />
      <None Include="Assets\Plugins\Android\facebook\res\values-iw\strings.xml" />
@@ -165,25 +172,25 @@
      <None Include="Assets\Plugins\Android\facebook\res\values-xhdpi\dimens.xml" />
      <None Include="Assets\Plugins\Android\facebook\res\drawable\com_facebook_picker_list_selector.xml" />
  <Reference Include="Assembly-UnityScript-firstpass">
- <HintPath>C:/Users/Yeng Oliva/Documents/GitHub/Mobi-Dick-Heads/Ahon/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
+ <HintPath>C:/Users/John/Repositories/Mobi-Dick-Heads/Ahon/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="IFacebook">
- <HintPath>C:/Users/Yeng Oliva/Documents/GitHub/Mobi-Dick-Heads/Ahon/Assets/Facebook/Scripts/IFacebook.dll</HintPath>
+ <HintPath>C:/Users/John/Repositories/Mobi-Dick-Heads/Ahon/Assets/Facebook/Scripts/IFacebook.dll</HintPath>
  </Reference>
  <Reference Include="Mono.Data.Sqlite">
- <HintPath>C:/Users/Yeng Oliva/Documents/GitHub/Mobi-Dick-Heads/Ahon/Assets/Plugins/Mono.Data.Sqlite.dll</HintPath>
+ <HintPath>C:/Users/John/Repositories/Mobi-Dick-Heads/Ahon/Assets/Plugins/Mono.Data.Sqlite.dll</HintPath>
  </Reference>
  <Reference Include="System.Data">
- <HintPath>C:/Users/Yeng Oliva/Documents/GitHub/Mobi-Dick-Heads/Ahon/Assets/Plugins/System.Data.dll</HintPath>
+ <HintPath>C:/Users/John/Repositories/Mobi-Dick-Heads/Ahon/Assets/Plugins/System.Data.dll</HintPath>
  </Reference>
  <Reference Include="Pathfinding.Ionic.Zip.Reduced">
- <HintPath>C:/Users/Yeng Oliva/Documents/GitHub/Mobi-Dick-Heads/Ahon/Assets/Plugins/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
+ <HintPath>C:/Users/John/Repositories/Mobi-Dick-Heads/Ahon/Assets/Plugins/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
  </Reference>
  <Reference Include="Pathfinding.JsonFx">
- <HintPath>C:/Users/Yeng Oliva/Documents/GitHub/Mobi-Dick-Heads/Ahon/Assets/Plugins/AstarPathfindingProject/Plugins/JsonFx/Pathfinding.JsonFx.dll</HintPath>
+ <HintPath>C:/Users/John/Repositories/Mobi-Dick-Heads/Ahon/Assets/Plugins/AstarPathfindingProject/Plugins/JsonFx/Pathfinding.JsonFx.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iossupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
