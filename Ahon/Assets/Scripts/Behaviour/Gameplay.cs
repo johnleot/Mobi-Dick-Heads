@@ -9,6 +9,7 @@ namespace Assets.Scripts.Behaviour
 {
     public class Gameplay : MonoBehaviour
 	{
+		public GameObject MainUI;
 		public Slider natureResponseBar;
 		public Slider peopleResponseBar;
 		public Slider playerHealthBar;
@@ -24,7 +25,10 @@ namespace Assets.Scripts.Behaviour
 		// Use this for initialization
 		UserManager userManager;
 		LevelManager levelManager;
-		
+
+		Resource[] resources;
+		Solution[] solutions;
+
 		//Initialize game state properties
 		private Gameplay gamePlay;
 		private string playerName;		//Player name
@@ -55,15 +59,17 @@ namespace Assets.Scripts.Behaviour
             int levelSelected = PlayerPrefs.GetInt("LevelSelected");
 
             Level level = levelManager.GetLevel(levelSelected);
-            Resource[] resources = level.Resources.ToArray();
+            resources = level.Resources.ToArray();
             Calamity[] calamities = level.Calamities.ToArray();
             Location location = level.Location;
-            Solution[] solutions = level.Solutions.ToArray();
+            solutions = level.Solutions.ToArray();
 
             calamity.text = calamities[0].Name;
             position.text = user.PositionName;
 
-            
+			Debug.Log ("RESOURCES SIZE: " + resources.Length);
+			Debug.Log ("SOLUTION SIZE: " + solutions.Length);
+
             //resource.text = resources[0].Name;
             tools.text = solutions[0].Name;
             scores.text = "Test";
@@ -78,6 +84,13 @@ namespace Assets.Scripts.Behaviour
 			scores.text = score.ToString ();
 			moneyText.text = money.ToString ();
 			//Debug.Log ("NatureResponse: " + natureResponse);
+			
+			MainUI = GameObject.FindWithTag ("MainUI");
+			if (MainUI == null)
+				Debug.Log ("Cant find MAIN UI.");
+
+			setResourcseItems ();
+			setToolsItem ();
         }
 
         // Update is called once per frame
@@ -173,5 +186,94 @@ namespace Assets.Scripts.Behaviour
 		{
 			money = value;
 		}
-    }
+
+		void setResourcseItems()
+		{
+			foreach (Resource resource in resources) 
+			{
+				GameObject resourcesSlider_ = MainUI.transform.FindChild("ResourcesWindow")
+																.FindChild("ResourcesPanel")
+																.FindChild("ResourcesSlider").gameObject;
+
+				GameObject itemExcerpt_ = Instantiate(Resources.Load ("ItemExcerpt")) as GameObject;
+				itemExcerpt_.transform.SetParent (resourcesSlider_.transform, false);
+
+				Text itemLabel_ = itemExcerpt_.transform.FindChild("LabelBackground")
+														.FindChild("Text")
+														.GetComponent<Text>();
+
+				/*check label if null*/
+				if(!itemLabel_){ Debug.Log ("ERROR ACCESSING ITEMLABEL"); }
+				itemLabel_.text = resource.Name;
+
+				Image itemImage_ = itemExcerpt_.transform.FindChild("Image").GetComponent<Image>();
+				/*check image_ if null*/
+				if(!itemImage_){ Debug.Log ("ERROR ACCESSING ITEMIMAGE"); }
+				itemImage_.sprite = Resources.Load(resource.Image,typeof(Sprite)) as Sprite;
+
+				Text itemPrice_ = itemExcerpt_.transform.FindChild("PriceBackground")
+														.FindChild("Text")
+														.GetComponent<Text>();
+				itemPrice_.text = "0000"; // TO DO in database;
+			}
+		}
+
+		void setToolsItem()
+		{
+			foreach (Solution solution in solutions) 
+			{				
+				GameObject toolsSlider_ = MainUI.transform.FindChild("ResourcesWindow")
+																.FindChild("ToolsPanel")
+																.FindChild("ToolsSlider").gameObject;
+				
+				GameObject itemExcerpt_ = Instantiate(Resources.Load ("ItemExcerpt")) as GameObject;
+				itemExcerpt_.transform.SetParent (toolsSlider_.transform, false);
+				
+				Text itemLabel_ = itemExcerpt_.transform.FindChild("LabelBackground")
+														.FindChild("Text")
+														.GetComponent<Text>();
+				
+				/*check label if null*/
+				if(!itemLabel_){ Debug.Log ("ERROR ACCESSING ITEMLABEL"); }
+				itemLabel_.text = solution.Name;
+				
+				Image itemImage_ = itemExcerpt_.transform.FindChild("Image").GetComponent<Image>();
+				/*check image_ if null*/
+				if(!itemImage_){ Debug.Log ("ERROR ACCESSING ITEMIMAGE"); }
+				itemImage_.sprite = Resources.Load(solution.Image,typeof(Sprite)) as Sprite;
+				
+				Text itemPrice_ = itemExcerpt_.transform.FindChild("PriceBackground")
+					.FindChild("Text")
+						.GetComponent<Text>();
+				itemPrice_.text = "0000"; // TO DO in database;
+
+			}
+		}
+
+		public void closeResourcesWindow()
+		{
+			MainUI.transform.FindChild ("ResourcesWindow").gameObject.SetActive(false);
+		}
+
+		public void onclickResourcesBtn()
+		{
+			MainUI.transform.FindChild("ResourcesWindow")
+							.FindChild("ToolsPanel").gameObject.SetActive(false);
+			MainUI.transform.FindChild("ResourcesWindow")
+							.FindChild("ResourcesPanel").gameObject.SetActive(true);
+		}
+
+		public void onclickToolsBtn()
+		{
+			MainUI.transform.FindChild("ResourcesWindow")
+							.FindChild("ResourcesPanel").gameObject.SetActive(false);
+			MainUI.transform.FindChild("ResourcesWindow")
+							.FindChild("ToolsPanel").gameObject.SetActive(true);
+		}
+
+		public void openShop()
+		{
+			MainUI.transform.FindChild ("ResourcesWindow").gameObject.SetActive(true);
+		}
+	}
 }
