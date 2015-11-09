@@ -1,368 +1,368 @@
 BEGIN TRANSACTION;
-CREATE TABLE `user` (
-  `id` int(11) NOT NULL,
-  `email` varchar(45) DEFAULT NULL,
-  `name` varchar(45) DEFAULT NULL,
-  `pos_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+CREATE TABLE "_points" (
+	`ref_asset`	INTEGER,
+	`position_x`	INTEGER,
+	`position_y`	INTEGER,
+	`position_z`	INTEGER,
+	`scale_x`	INTEGER,
+	`scale_y`	INTEGER,
+	`scale_z`	INTEGER,
+	`level`	INTEGER
 );
-INSERT INTO `user` (id,email,name,pos_id) VALUES (1,'kana@antonio.com','kana',1);
-CREATE TABLE `solution` (
-  `id` int(11) NOT NULL,
-  `name` varchar(100) DEFAULT NULL,
-  `amount` int(11) DEFAULT NULL,
-  `type` int(11) DEFAULT NULL,
-  `desc` varchar(500) DEFAULT NULL,
-  `img` varchar(45) DEFAULT NULL,
-  `availability` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+INSERT INTO _points VALUES(3,41.4,7.5,229.7,1,1,1,1);
+INSERT INTO _points VALUES(3,144.69,10.93,179.04,1,1,1,1);
+INSERT INTO _points VALUES(3,130.9,11.13,106.7,1,1,1,1);
+INSERT INTO _points VALUES(3,171.62,15.45,97.98,1,1,1,1);
+INSERT INTO _points VALUES(3,191.12,15.65,129.98,1,1,1,1);
+INSERT INTO _points VALUES(3,190.02,15.45,136.28,1,1,1,1);
+INSERT INTO _points VALUES(3,38.2,7.5,218.6,1,1,1,1);
+INSERT INTO _points VALUES(3,149.69,10.43,170.44,1,1,1,1);
+INSERT INTO _points VALUES(3,134.1,11.23,98.7,1,1,1,1);
+INSERT INTO _points VALUES(3,168.42,15.55,105.98,1,1,1,1);
+INSERT INTO _points VALUES(3,54.8,7.5,241.9,1,1,1,1);
+INSERT INTO _points VALUES(3,162.19,10.23,166.44,1,1,1,1);
+INSERT INTO _points VALUES(3,138.6,11.03,94.2,1,1,1,1);
+INSERT INTO _points VALUES(3,183.22,15.45,108.18,1,1,1,1);
+INSERT INTO _points VALUES(3,178.72,15.45,112.38,1,1,1,1);
+INSERT INTO _points VALUES(3,175.52,15.45,120.38,1,1,1,1);
+INSERT INTO _points VALUES(3,172.32,15.55,130.08,1,1,1,1);
+INSERT INTO _points VALUES(3,167.82,15.45,134.18,1,1,1,1);
+INSERT INTO _points VALUES(3,164.62,15.45,142.18,1,1,1,1);
+INSERT INTO _points VALUES(3,197.72,15.45,126.28,1,1,1,1);
+INSERT INTO _points VALUES(4,67.02,8.75,214.22,0.6256627,0.6256627,0.6256627,1);
+INSERT INTO _points VALUES(5,95.786,9.2001,214.14,0.527511,0.5275109,0.5275109,1);
+INSERT INTO _points VALUES(6,147.0494,8.119846,165.9897,0.1486221,0.148622,0.148622,1);
+INSERT INTO _points VALUES(6,124.2392,8.941406,94.54124,0.1486221,0.148622,0.148622,1);
+INSERT INTO _points VALUES(6,133.2494,8.119846,165.8197,0.1486221,0.148622,0.148622,1);
+INSERT INTO _points VALUES(6,136.7444,8.827457,90.05669,0.1486221,0.148622,0.148622,1);
+INSERT INTO _points VALUES(6,86.25938,5.409842,256.7997,0.1486221,0.148622,0.148622,1);
+INSERT INTO _points VALUES(6,110.42,7.1,158.54,0.1486221,0.1486221,0.148622,1);
+INSERT INTO _points VALUES(6,180.8794,13.43985,101.8597,0.1486221,0.148622,0.148622,1);
+INSERT INTO _points VALUES(6,87.35938,5.739841,236.0297,0.1486221,0.148622,0.148622,1);
+INSERT INTO _points VALUES(6,106.63,6.73,166.36,0.1486221,0.1486221,0.148622,1);
+INSERT INTO _points VALUES(6,181.2794,13.33985,103.7597,0.1486221,0.148622,0.148622,1);
+INSERT INTO _points VALUES(6,44.66938,5.449842,235.1597,0.1486221,0.148622,0.148622,1);
+INSERT INTO _points VALUES(6,103.95,6.97,166.98,0.1486221,0.148622,0.148622,1);
+INSERT INTO _points VALUES(6,161.6794,13.43985,93.85969,0.1486221,0.148622,0.148622,1);
+INSERT INTO _points VALUES(6,70.75938,5.189842,201.0797,0.1486221,0.1486221,0.148622,1);
+INSERT INTO _points VALUES(6,160.2794,12.93985,102.1597,0.1486221,0.148622,0.148622,1);
+INSERT INTO _points VALUES(6,73.35938,4.989841,200.4797,0.1486221,0.1486221,0.148622,1);
+INSERT INTO _points VALUES(6,77.15938,5.389843,192.5797,0.1486221,0.1486221,0.1486221,1);
+INSERT INTO _points VALUES(6,79.65938,5.289843,195.1797,0.1486221,0.1486221,0.1486221,1);
+INSERT INTO _points VALUES(6,129.2494,7.919846,156.3197,0.1486221,0.148622,0.148622,1);
+INSERT INTO _points VALUES(6,136.4092,8.891406,88.21124,0.1486221,0.148622,0.148622,1);
+INSERT INTO _points VALUES(6,163.6494,8.019846,170.6197,0.1486221,0.148622,0.148622,1);
+INSERT INTO _points VALUES(6,146.9192,9.001406,97.37125,0.1486221,0.148622,0.148622,1);
+INSERT INTO _points VALUES(6,44.62447,5.147766,248.4927,0.1486221,0.148622,0.148622,1);
+INSERT INTO _points VALUES(6,122.9492,8.871406,102.8812,0.1486221,0.148622,0.148622,1);
+INSERT INTO _points VALUES(6,54.78938,5.529842,253.8997,0.1486221,0.148622,0.148622,1);
+INSERT INTO _points VALUES(6,127.8,7.13,128.8,0.1486221,0.148622,0.148622,1);
+INSERT INTO _points VALUES(6,156.4794,13.03984,138.3597,0.1486221,0.148622,0.148622,1);
+INSERT INTO _points VALUES(6,181.9794,13.23985,132.4597,0.1486221,0.148622,0.148622,1);
+INSERT INTO _points VALUES(6,65.43938,5.359842,247.9697,0.1486221,0.148622,0.1486219,1);
+INSERT INTO _points VALUES(6,130.48,6.89,128.18,0.1486221,0.148622,0.148622,1);
+INSERT INTO _points VALUES(6,180.4794,13.53984,132.8597,0.1486221,0.148622,0.148622,1);
+INSERT INTO _points VALUES(6,205.9794,13.33985,126.9597,0.1486221,0.148622,0.148622,1);
+INSERT INTO _points VALUES(6,73.86938,5.389843,253.6597,0.1486221,0.148622,0.148622,1);
+INSERT INTO _points VALUES(6,129.68,7.35,124.49,0.1486221,0.1486221,0.148622,1);
+INSERT INTO _points VALUES(6,195.7794,13.13984,119.6597,0.1486221,0.148622,0.148622,1);
+INSERT INTO _points VALUES(6,170.7894,13.54984,127.2597,0.1486221,0.148622,0.148622,1);
+INSERT INTO _points VALUES(6,81.05938,4.989841,253.7797,0.1486221,0.148622,0.148622,1);
+INSERT INTO _points VALUES(6,127.08,7.58,125.09,0.1486221,0.1486221,0.148622,1);
+INSERT INTO _points VALUES(6,184.8794,13.09985,123.7897,0.1486221,0.148622,0.148622,1);
+INSERT INTO _points VALUES(6,157.8794,13.53984,130.0597,0.1486221,0.148622,0.148622,1);
+INSERT INTO _points VALUES(6,92.10938,5.659842,242.5197,0.1486221,0.148622,0.148622,1);
+INSERT INTO _points VALUES(6,112.91,7.01,161.11,0.1486221,0.1486221,0.1486221,1);
+INSERT INTO _points VALUES(6,180.5194,12.49985,121.2397,0.1486221,0.148622,0.148622,1);
+INSERT INTO _points VALUES(6,195.4794,13.23985,117.8597,0.1486221,0.148622,0.148622,1);
+INSERT INTO _points VALUES(7,123.2,7.9,182.3,3.449825,3.449823,3.449823,1);
+INSERT INTO _points VALUES(7,99,11,224.3,3.449825,3.449823,3.449823,1);
+INSERT INTO _points VALUES(8,77.1,7.2,267.9,1,1,1,1);
+INSERT INTO _points VALUES(8,112.5,8.91,154.7,1,1,1,1);
+INSERT INTO _points VALUES(8,119.49,10.03,193.94,1,1,1,1);
+INSERT INTO _points VALUES(8,75,7.2,257.9,1,1,1,1);
+INSERT INTO _points VALUES(8,115.5,8.81,147.5,1,1,1,1);
+INSERT INTO _points VALUES(8,121.59,10.13,190.74,1,1,1,1);
+INSERT INTO _points VALUES(8,74.7,7.2,196.3,1,1,1,1);
+INSERT INTO _points VALUES(8,107.9,8.91,162.2,1,1,1,1);
+INSERT INTO _points VALUES(8,117.29,10.23,179.74,1,1,1,1);
+INSERT INTO _points VALUES(8,79.3,7.2,188.8,1,1,1,1);
+INSERT INTO _points VALUES(8,125.5,8.81,133,1,1,1,1);
+INSERT INTO _points VALUES(8,82.3,7.2,181.6,1,1,1,1);
+INSERT INTO _points VALUES(9,44.7,7.2,238.8,1,1,1,1);
+INSERT INTO _points VALUES(9,147.99,10.03,185.74,1,1,1,1);
+INSERT INTO _points VALUES(9,141.8,10.73,106.7,1,1,1,1);
+INSERT INTO _points VALUES(9,161.52,15.15,98.38,1,1,1,1);
+INSERT INTO _points VALUES(9,203.72,15.15,131.28,1,1,1,1);
+INSERT INTO _points VALUES(9,200.92,15.25,136.28,1,1,1,1);
+INSERT INTO _points VALUES(9,155.69,10.03,177.44,1,1,1,1);
+INSERT INTO _points VALUES(9,144.5,10.73,101.7,1,1,1,1);
+INSERT INTO _points VALUES(9,167.62,15.15,117.18,1,1,1,1);
+INSERT INTO _points VALUES(9,132.19,10.23,153.34,1,1,1,1);
+INSERT INTO _points VALUES(9,124,10.83,99.1,1,1,1,1);
+INSERT INTO _points VALUES(9,161.72,15.25,125.18,1,1,1,1);
+INSERT INTO _points VALUES(9,156.19,10.43,163.34,1,1,1,1);
+INSERT INTO _points VALUES(9,128,11.03,89.7,1,1,1,1);
+INSERT INTO _points VALUES(9,157.72,15.25,134.58,1,1,1,1);
+INSERT INTO _points VALUES(9,160.19,10.03,171.44,1,1,1,1);
+INSERT INTO _points VALUES(9,134,10.83,81.7,1,1,1,1);
+INSERT INTO _points VALUES(9,193.12,15.15,111.28,1,1,1,1);
+INSERT INTO _points VALUES(9,187.22,15.15,119.28,1,1,1,1);
+INSERT INTO _points VALUES(9,183.12,15.25,128.68,1,1,1,1);
+INSERT INTO _points VALUES(9,178.22,15.15,137.18,1,1,1,1);
+INSERT INTO _points VALUES(9,175.42,15.15,142.18,1,1,1,1);
+INSERT INTO _points VALUES(10,137.99,10.23,197.24,1,1,1,1);
+INSERT INTO _points VALUES(10,137.99,10.23,191.84,1,1,1,1);
+INSERT INTO _points VALUES(10,138.19,10.03,186.44,1,1,1,1);
+INSERT INTO _points VALUES(10,131.29,10.43,186.74,1,1,1,1);
+INSERT INTO _points VALUES(10,131.29,10.43,192.34,1,1,1,1);
+INSERT INTO _points VALUES(10,131.29,10.43,197.64,1,1,1,1);
+INSERT INTO _points VALUES(1,123.02,9.32,171.42,1,1,1,1);
+INSERT INTO _points VALUES(12,97.8,11,231.8,1,1,1,1);
+INSERT INTO _points VALUES(12,129.41,12.8,171.43,1,1,1,1);
+INSERT INTO _points VALUES(11,116.1,9.16,153.2,0.3201136,0.3201138,0.3201138,1);
+INSERT INTO _points VALUES(11,111.96,11.04,192.38,0.3201136,0.3201137,0.3201137,1);
+INSERT INTO _points VALUES(11,147.6494,10.11985,183.4197,0.3201136,0.3201134,0.3201134,1);
+INSERT INTO _points VALUES(11,130.1492,11.17141,85.91125,0.3201136,0.3201134,0.3201134,1);
+INSERT INTO _points VALUES(11,61.95938,7.669842,246.0797,0.3201136,0.3201134,0.3201134,1);
+INSERT INTO _points VALUES(11,190.1794,15.43985,140.1597,0.3201136,0.3201136,0.3201136,1);
+INSERT INTO _points VALUES(11,164.7794,15.73985,146.0597,0.3201136,0.3201136,0.3201136,1);
+INSERT INTO _points VALUES(11,56.45938,7.639843,265.3797,0.3201136,0.3201135,0.3201135,1);
+INSERT INTO _points VALUES(11,199.0794,15.43985,140.2597,0.3201136,0.3201135,0.3201135,1);
+INSERT INTO _points VALUES(11,173.6794,15.73985,146.1597,0.3201136,0.3201135,0.3201135,1);
+INSERT INTO _points VALUES(11,73.43938,7.689842,261.7297,0.3201136,0.3201135,0.3201135,1);
+INSERT INTO _points VALUES(11,192.3794,15.43985,132.7597,0.3201136,0.3201136,0.3201136,1);
+INSERT INTO _points VALUES(11,166.9794,15.73985,138.6597,0.3201136,0.3201136,0.3201136,1);
+INSERT INTO _points VALUES(11,57.65938,7.689842,245.3797,0.3201136,0.3201133,0.3201133,1);
+INSERT INTO _points VALUES(11,189.1794,15.53984,115.5597,0.3201136,0.3201133,0.3201133,1);
+INSERT INTO _points VALUES(11,163.7794,15.73985,121.3597,0.3201136,0.3201133,0.3201133,1);
+INSERT INTO _points VALUES(11,60.85938,7.689842,260.6797,0.3201136,0.3201136,0.3201136,1);
+INSERT INTO _points VALUES(11,194.1794,15.43985,130.4597,0.3201136,0.3201135,0.3201135,1);
+INSERT INTO _points VALUES(11,168.6794,15.73985,136.2597,0.3201136,0.3201135,0.3201135,1);
+INSERT INTO _points VALUES(11,76.19938,7.589842,272.5497,0.3201136,0.3201135,0.3201135,1);
+INSERT INTO _points VALUES(11,186.4794,15.43985,140.3597,0.3201136,0.3201135,0.3201135,1);
+INSERT INTO _points VALUES(11,161.0794,15.73985,146.2597,0.3201136,0.3201135,0.3201135,1);
+INSERT INTO _points VALUES(11,60.85938,7.689842,268.6797,0.3201136,0.3201136,0.3201136,1);
+INSERT INTO _points VALUES(11,193.4794,15.43985,125.9597,0.3201136,0.3201134,0.3201134,1);
+INSERT INTO _points VALUES(11,168.9894,15.73985,131.7597,0.3201136,0.3201134,0.3201134,1);
+INSERT INTO _points VALUES(11,178.9794,15.73985,109.9597,0.3201136,0.3201133,0.3201133,1);
+INSERT INTO _points VALUES(11,171.9794,15.73985,124.4597,0.3201136,0.3201134,0.3201134,1);
+INSERT INTO _points VALUES(11,118.61,9.16,152.09,0.3201136,0.3201138,0.3201138,1);
+INSERT INTO _points VALUES(11,121.8494,11.21984,195.6197,0.3201136,0.3201137,0.3201137,1);
+INSERT INTO _points VALUES(11,179.5794,15.73985,114.4597,0.3201136,0.3201134,0.3201134,1);
+INSERT INTO _points VALUES(11,177.8794,15.73985,116.8597,0.3201136,0.3201136,0.3201136,1);
+INSERT INTO _points VALUES(11,175.6794,15.73985,124.2597,0.3201136,0.3201135,0.3201135,1);
+INSERT INTO _points VALUES(11,171.8794,15.63984,95.55969,0.3201136,0.3201133,0.3201133,1);
+INSERT INTO _points VALUES(11,164.8794,15.63984,110.0597,0.3201136,0.3201134,0.3201134,1);
+INSERT INTO _points VALUES(11,172.4794,15.63984,100.0597,0.3201136,0.3201134,0.3201134,1);
+INSERT INTO _points VALUES(11,170.7794,15.63984,102.4597,0.3201136,0.3201136,0.3201136,1);
+INSERT INTO _points VALUES(11,168.5794,15.63984,109.8597,0.3201136,0.3201135,0.3201135,1);
+INSERT INTO _points VALUES(11,116.1,9.16,153.2,0.3201136,0.3201137,0.3201137,1);
+INSERT INTO _points VALUES(11,119.3494,11.21984,201.8197,0.3201136,0.3201137,0.3201137,1);
+INSERT INTO _points VALUES(11,79.75938,7.599842,218.3797,0.3201136,0.3201137,0.3201137,1);
+INSERT INTO _points VALUES(11,122.9,9.13,138.7,0.3201136,0.3201137,0.3201137,1);
+INSERT INTO _points VALUES(11,153.0494,10.23985,172.5197,0.3201136,0.3201137,0.3201137,1);
+INSERT INTO _points VALUES(11,133.3492,11.16141,103.1512,0.3201136,0.3201137,0.3201137,1);
+INSERT INTO _points VALUES(11,78.85938,7.599842,212.0797,0.3201136,0.3201137,0.3201137,1);
+INSERT INTO _points VALUES(11,122.9,9.13,138.7,0.3201136,0.3201137,0.3201137,1);
+INSERT INTO _points VALUES(11,153.0494,10.23985,185.4597,0.3201136,0.3201136,0.3201136,1);
+INSERT INTO _points VALUES(11,131.1792,11.16141,110.5912,0.3201136,0.3201136,0.3201136,1);
+INSERT INTO _points VALUES(11,57.55938,7.599842,209.4797,0.3201136,0.3201136,0.3201136,1);
+INSERT INTO _points VALUES(11,125.4,9.13,137.6,0.3201136,0.3201137,0.3201137,1);
+INSERT INTO _points VALUES(11,159.7493,10.21984,177.2197,0.3201136,0.3201136,0.3201136,1);
+INSERT INTO _points VALUES(11,140.0492,11.14141,110.6612,0.3201136,0.3201136,0.3201136,1);
+INSERT INTO _points VALUES(11,58.45938,7.599842,215.7797,0.3201136,0.3201136,0.3201136,1);
+INSERT INTO _points VALUES(11,82.85938,7.389843,187.2797,0.3201136,0.3201137,0.3201137,1);
+INSERT INTO _points VALUES(11,148.6494,10.21984,177.2197,0.3201136,0.3201135,0.3201135,1);
+INSERT INTO _points VALUES(11,127.4792,11.14141,110.7512,0.3201136,0.3201135,0.3201135,1);
+INSERT INTO _points VALUES(11,82.85938,7.389843,187.2797,0.3201136,0.3201137,0.3201137,1);
+INSERT INTO _points VALUES(11,159.7493,10.21984,169.3197,0.3201136,0.3201135,0.3201135,1);
+INSERT INTO _points VALUES(11,135.1192,11.14141,100.8012,0.3201136,0.3201135,0.3201135,1);
+INSERT INTO _points VALUES(11,85.35938,7.389843,186.1797,0.3201136,0.3201137,0.3201137,1);
+INSERT INTO _points VALUES(11,154.1494,9.519844,166.5197,0.3201136,0.3201135,0.3201135,1);
+INSERT INTO _points VALUES(11,134.4492,11.13141,96.32124,0.3201136,0.3201135,0.3201135,1);
+CREATE TABLE `area` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `cluster_id` int(11) DEFAULT NULL,
+  `scene_id` int(11) DEFAULT NULL,
+  `desc` varchar(1000) DEFAULT NULL,
+  `political_level` int(11) DEFAULT NULL,
+  `prov_id` int(11) DEFAULT NULL,
+  `population` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 );
-INSERT INTO `solution` (id,name,amount,type,desc,img,availability) VALUES (1,'Build SWIPs (Small Water Impounding Projects)',3000,0,'Produces additional resource (Tilapia)','/img/sol1.jpg',1),
- (2,'Plant drought-tolerant rice variety',7000,1,'Produces higher yeild and survival rate. This is more expensive.','/img/sol2.jpg',1),
- (3,'Replant trees',4000,1,'Reduces water run-off from mountains and/or help ensure continuous downstream flow of water','/img/sol3.jpg',1),
- (4,'Plant water-tolerant rice variety ',7000,1,'Produces higher yeild and survival rate. This is more expensive.','/img/sol4.jpg',1),
- (5,'Relocate population',15000,0,'Permanently relocates the people to higher/safer grounds','/img/sol5.jpg',1),
- (6,'Evacuate population',9000,0,'Evacuates the people to higher and safer grounds','/img/sol6.jpg',1),
- (7,'Fishnet Fishing',2000,1,'50% catch','/img/sol7.jpg',1),
- (8,'Dynamite Fishing',3000,1,'75% catch','/img/sol8.jpg',1),
- (9,'Plant Mangroves',1000,1,'Prevents sea level rise but also any form of infrastructure development','/img/sol9.jpg',1);
-CREATE TABLE `sol_pos` (
-  `sol_id` int(11) NOT NULL,
-  `pos_id` int(11) NOT NULL,
-  PRIMARY KEY (`sol_id`,`pos_id`)
+INSERT INTO area VALUES(1,'Tacloban',8,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum.',0,1,2000);
+CREATE TABLE `calamity` (
+  `id` int(11) NOT NULL,
+  `name` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 );
-CREATE TABLE `sol_lev` (
-  `sol_id` int(11) NOT NULL,
-  `lev_id` int(11) NOT NULL,
-  PRIMARY KEY (`sol_id`,`lev_id`)
+INSERT INTO calamity VALUES(1,'Extreme Heating Event');
+INSERT INTO calamity VALUES(2,'Sea Level Rise');
+INSERT INTO calamity VALUES(3,'Extreme Rainfall');
+INSERT INTO calamity VALUES(4,'Disturbed Water Budget');
+INSERT INTO calamity VALUES(5,'Increased Ocean Temperature');
+INSERT INTO calamity VALUES(6,'Decreased Water Budget');
+INSERT INTO calamity VALUES(7,'Coral Bleaching');
+INSERT INTO calamity VALUES(8,'Drought');
+INSERT INTO calamity VALUES(9,'Typhoon');
+INSERT INTO calamity VALUES(10,'Storm Surge');
+INSERT INTO calamity VALUES(11,'Flooding');
+CREATE TABLE `cluster` (
+  `id` int(11) NOT NULL,
+  `name` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 );
-INSERT INTO `sol_lev` (sol_id,lev_id) VALUES (2,1),
- (3,1),
- (4,34),
- (5,34),
- (6,34),
- (7,64),
- (8,64),
- (9,64);
-CREATE TABLE "resource" (
-	`id`	int(11) NOT NULL,
-	`name`	varchar(45) DEFAULT NULL,
-	`img`	varchar(45) DEFAULT NULL,
-	`SurvivalTime`	INT,
-	`MaxNoOfOccupants`	INTEGER,
-	PRIMARY KEY(id)
+INSERT INTO cluster VALUES(1,'I');
+INSERT INTO cluster VALUES(2,'II');
+INSERT INTO cluster VALUES(3,'III');
+INSERT INTO cluster VALUES(4,'IV');
+INSERT INTO cluster VALUES(5,'V');
+INSERT INTO cluster VALUES(6,'VI');
+INSERT INTO cluster VALUES(7,'VII');
+INSERT INTO cluster VALUES(8,'VIII');
+INSERT INTO cluster VALUES(9,'IX');
+INSERT INTO cluster VALUES(10,'X');
+INSERT INTO cluster VALUES(11,'XI');
+CREATE TABLE `gameplay` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `lev_id` int(11) DEFAULT NULL,
+  `stars` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 );
-INSERT INTO `resource` (id,name,img,SurvivalTime,MaxNoOfOccupants) VALUES (1,'Palay (Rice)','/img/rice.png',2,-1),
- (2,'Danggit (Fish)','/img/fish.png',2,-1),
- (3,'Blue House','Resources/Level1/BlueHouse.prefab',5,10),
- (4,'Church','Resources/Level1/Church.prefab',7,50),
- (5,'City Hall','Resources/Level1/CityHall.prefab',7,30),
- (6,'Coconut','/Level1/',15,-1),
- (7,'Health Center','Graphics/Sprites/OK_Health_Center_Shadow_Left.png',10,60),
- (8,'Nipahut','Resouces/Level1/NipaHutAsset.prefab',3,10),
- (9,'Orange House','Resources/Level1/OrangeHouse.prefab',5,10),
- (10,'Pabahay','Resources/Level1/Pabahay.prefab',10,10),
- (11,'Tree','',12,-1),
- (12,'School','Resouces/Level1/School.prefab',7,50);
-CREATE TABLE `province` (
-  `id` int(11) NOT NULL,
-  `name` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+INSERT INTO gameplay VALUES(1,1,1,0);
+CREATE TABLE `lev_cal` (
+  `lev_id` int(11) NOT NULL,
+  `cal_id` int(11) NOT NULL,
+  `percentage` int(11) DEFAULT NULL,
+  `duration` int(11) DEFAULT NULL,
+  `time` int(11) DEFAULT NULL,
+  `casualty_people` int(11) DEFAULT NULL,
+  `casualty_crops` int(11) DEFAULT NULL,
+  `forecast` varchar(1000) DEFAULT NULL,
+  PRIMARY KEY (`lev_id`,`cal_id`)
 );
-INSERT INTO `province` (id,name) VALUES (1,'Leyte');
-CREATE TABLE `position` (
-  `id` int(11) NOT NULL,
-  `name` varchar(45) DEFAULT NULL,
-  `money` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+INSERT INTO lev_cal VALUES(1,11,NULL,60,180,5,10,'The country could suffer a significant drop in the rainfall levels early next year and bottom out in April. Regular crops can easily die when exposed to prolonged drought/floods.');
+INSERT INTO lev_cal VALUES(34,9,NULL,30,320,15,5,'As it continues to roar across the Pacific Ocean toward Easterm Visayas, Typhoon Kana has evolved into a super Typhoon - according to the US Navy weather specialists - stirring more frenzied preparations in communities still haunted by the memories of Yolanda.');
+INSERT INTO lev_cal VALUES(34,10,NULL,15,480,30,30,'Storm surges up to four meters high are likely to hit coastal communities in Northern Samar and Leyte, including the capital of Tacloban City, and possibly the Bicol Region and Surigao provinces, according to the Philippine Atmospherical, Geophysical and Astronomical Services Administration (PAGASA).');
+INSERT INTO lev_cal VALUES(67,2,NULL,20,380,40,50,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.');
+INSERT INTO lev_cal VALUES(67,7,NULL,120,320,30,30,'Cras mattis consectetur purus sit amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean lacinia bibendum nulla sed consectetur.');
+CREATE TABLE `lev_res` (
+  `lev_res_id` int(11) NOT NULL,
+  `lev_id` int(11) DEFAULT NULL,
+  `res_id` int(11) DEFAULT NULL,
+  `quantity` int(11) DEFAULT NULL,
+  PRIMARY KEY (`lev_res_id`)
 );
-INSERT INTO `position` (id,name,money) VALUES (1,'Barangay Captain',1000),
- (2,'Mayor',5000),
- (3,'Governor',10000),
- (4,'Congressman',15000),
- (5,'Senator',20000),
- (6,'Vice President',30000),
- (7,'President',50000);
-CREATE TABLE `level` (
-  `id` int(11) NOT NULL,
-  `area_id` int(11) DEFAULT NULL,
-  `season` int(11) DEFAULT NULL,
-  `ave_daily_amt_food` decimal(11,0) DEFAULT NULL,
-  `desc` varchar(1000) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+INSERT INTO lev_res VALUES(1,1,1,79);
+INSERT INTO lev_res VALUES(2,34,1,79);
+INSERT INTO lev_res VALUES(3,67,2,25);
+INSERT INTO lev_res VALUES(4,1,2,2);
+INSERT INTO lev_res VALUES(5,1,3,2);
+INSERT INTO lev_res VALUES(6,1,4,1);
+INSERT INTO lev_res VALUES(7,1,5,1);
+INSERT INTO lev_res VALUES(8,1,6,44);
+INSERT INTO lev_res VALUES(9,1,7,2);
+INSERT INTO lev_res VALUES(10,1,8,12);
+INSERT INTO lev_res VALUES(11,1,9,22);
+INSERT INTO lev_res VALUES(12,1,10,6);
+INSERT INTO lev_res VALUES(13,1,11,61);
+INSERT INTO lev_res VALUES(14,1,12,2);
+CREATE TABLE `level` (
+  `id` int(11) NOT NULL,
+  `area_id` int(11) DEFAULT NULL,
+  `season` int(11) DEFAULT NULL,
+  `ave_daily_amt_food` decimal(11,0) DEFAULT NULL,
+  `desc` varchar(1000) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 );
-INSERT INTO `level` (id,area_id,season,ave_daily_amt_food,desc) VALUES (1,1,NULL,79,'Cras mattis consectetur purus sit amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean lacinia bibendum nulla sed consectetur.'),
- (34,1,NULL,79,'Cras mattis consectetur purus sit amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean lacinia bibendum nulla sed consectetur.'),
- (67,1,NULL,20,'Cras mattis consectetur purus sit amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean lacinia bibendum nulla sed consectetur.');
-CREATE TABLE `lev_res` (
-  `lev_res_id` int(11) NOT NULL,
-  `lev_id` int(11) DEFAULT NULL,
-  `res_id` int(11) DEFAULT NULL,
-  `quantity` int(11) DEFAULT NULL,
-  PRIMARY KEY (`lev_res_id`)
+INSERT INTO level VALUES(1,1,NULL,79,'Cras mattis consectetur purus sit amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean lacinia bibendum nulla sed consectetur.');
+INSERT INTO level VALUES(34,1,NULL,79,'Cras mattis consectetur purus sit amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean lacinia bibendum nulla sed consectetur.');
+INSERT INTO level VALUES(67,1,NULL,20,'Cras mattis consectetur purus sit amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean lacinia bibendum nulla sed consectetur.');
+CREATE TABLE `position` (
+  `id` int(11) NOT NULL,
+  `name` varchar(45) DEFAULT NULL,
+  `money` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 );
-INSERT INTO `lev_res` (lev_res_id,lev_id,res_id,quantity) VALUES (1,1,1,79),
- (2,34,1,79),
- (3,67,2,25),
- (4,1,2,2),
- (5,1,3,2),
- (6,1,4,1),
- (7,1,5,1),
- (8,1,6,44),
- (9,1,7,2),
- (10,1,8,12),
- (11,1,9,22),
- (12,1,10,6),
- (13,1,11,61),
- (14,1,12,2);
-CREATE TABLE `lev_cal` (
-  `lev_id` int(11) NOT NULL,
-  `cal_id` int(11) NOT NULL,
-  `percentage` int(11) DEFAULT NULL,
-  `duration` int(11) DEFAULT NULL,
-  `time` int(11) DEFAULT NULL,
-  `casualty_people` int(11) DEFAULT NULL,
-  `casualty_crops` int(11) DEFAULT NULL,
-  `forecast` varchar(1000) DEFAULT NULL,
-  PRIMARY KEY (`lev_id`,`cal_id`)
+INSERT INTO position VALUES(1,'Barangay Captain',1000);
+INSERT INTO position VALUES(2,'Mayor',5000);
+INSERT INTO position VALUES(3,'Governor',10000);
+INSERT INTO position VALUES(4,'Congressman',15000);
+INSERT INTO position VALUES(5,'Senator',20000);
+INSERT INTO position VALUES(6,'Vice President',30000);
+INSERT INTO position VALUES(7,'President',50000);
+CREATE TABLE `province` (
+  `id` int(11) NOT NULL,
+  `name` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 );
-INSERT INTO `lev_cal` (lev_id,cal_id,percentage,duration,time,casualty_people,casualty_crops,forecast) VALUES (1,11,NULL,60,180,5,10,'The country could suffer a significant drop in the rainfall levels early next year and bottom out in April. Regular crops can easily die when exposed to prolonged drought/floods.'),
- (34,9,NULL,30,320,15,5,'As it continues to roar across the Pacific Ocean toward Easterm Visayas, Typhoon Kana has evolved into a super Typhoon - according to the US Navy weather specialists - stirring more frenzied preparations in communities still haunted by the memories of Yolanda.'),
- (34,10,NULL,15,480,30,30,'Storm surges up to four meters high are likely to hit coastal communities in Northern Samar and Leyte, including the capital of Tacloban City, and possibly the Bicol Region and Surigao provinces, according to the Philippine Atmospherical, Geophysical and Astronomical Services Administration (PAGASA).'),
- (67,2,NULL,20,380,40,50,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.'),
- (67,7,NULL,120,320,30,30,'Cras mattis consectetur purus sit amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean lacinia bibendum nulla sed consectetur.');
-CREATE TABLE `gameplay` (
-  `id` int(11) NOT NULL,
-  `user_id` int(11) DEFAULT NULL,
-  `lev_id` int(11) DEFAULT NULL,
-  `stars` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+INSERT INTO province VALUES(1,'Leyte');
+CREATE TABLE "resource" (
+	`id`	int(11) NOT NULL,
+	`name`	varchar(45) DEFAULT NULL,
+	`img`	varchar(45) DEFAULT NULL,
+	`SurvivalTime`	INT,
+	`MaxNoOfOccupants`	INTEGER,
+	PRIMARY KEY(id)
 );
-INSERT INTO `gameplay` (id,user_id,lev_id,stars) VALUES (1,1,1,0);
-CREATE TABLE `cluster` (
-  `id` int(11) NOT NULL,
-  `name` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+INSERT INTO resource VALUES(1,'Palay (Rice)','ResourceIcons/PALAY',2,-1);
+INSERT INTO resource VALUES(2,'Danggit (Fish)','ResourceIcons/Danggit',2,-1);
+INSERT INTO resource VALUES(3,'Blue House','Resources/Level1/BlueHouse.prefab',5,10);
+INSERT INTO resource VALUES(4,'Church','Resources/Level1/Church.prefab',7,50);
+INSERT INTO resource VALUES(5,'City Hall','Resources/Level1/CityHall.prefab',7,30);
+INSERT INTO resource VALUES(6,'Coconut','ResourceIcons/COCONUT',15,-1);
+INSERT INTO resource VALUES(7,'Health Center','Graphics/Sprites/OK_Health_Center_Shadow_Left.png',10,60);
+INSERT INTO resource VALUES(8,'Nipahut','Resouces/Level1/NipaHutAsset.prefab',3,10);
+INSERT INTO resource VALUES(9,'Orange House','Resources/Level1/OrangeHouse.prefab',5,10);
+INSERT INTO resource VALUES(10,'Pabahay','Resources/Level1/Pabahay.prefab',10,10);
+INSERT INTO resource VALUES(11,'Tree','',12,-1);
+INSERT INTO resource VALUES(12,'School','Resouces/Level1/School.prefab',7,50);
+CREATE TABLE `sol_lev` (
+  `sol_id` int(11) NOT NULL,
+  `lev_id` int(11) NOT NULL,
+  PRIMARY KEY (`sol_id`,`lev_id`)
 );
-INSERT INTO `cluster` (id,name) VALUES (1,'I'),
- (2,'II'),
- (3,'III'),
- (4,'IV'),
- (5,'V'),
- (6,'VI'),
- (7,'VII'),
- (8,'VIII'),
- (9,'IX'),
- (10,'X'),
- (11,'XI');
-CREATE TABLE `calamity` (
-  `id` int(11) NOT NULL,
-  `name` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+INSERT INTO sol_lev VALUES(2,1);
+INSERT INTO sol_lev VALUES(3,1);
+INSERT INTO sol_lev VALUES(4,34);
+INSERT INTO sol_lev VALUES(5,34);
+INSERT INTO sol_lev VALUES(6,34);
+INSERT INTO sol_lev VALUES(7,64);
+INSERT INTO sol_lev VALUES(8,64);
+INSERT INTO sol_lev VALUES(9,64);
+CREATE TABLE `sol_pos` (
+  `sol_id` int(11) NOT NULL,
+  `pos_id` int(11) NOT NULL,
+  PRIMARY KEY (`sol_id`,`pos_id`)
 );
-INSERT INTO `calamity` (id,name) VALUES (1,'Extreme Heating Event'),
- (2,'Sea Level Rise'),
- (3,'Extreme Rainfall'),
- (4,'Disturbed Water Budget'),
- (5,'Increased Ocean Temperature'),
- (6,'Decreased Water Budget'),
- (7,'Coral Bleaching'),
- (8,'Drought'),
- (9,'Typhoon'),
- (10,'Storm Surge'),
- (11,'Flooding');
-CREATE TABLE `area` (
-  `id` int(11) NOT NULL,
-  `name` varchar(50) DEFAULT NULL,
-  `cluster_id` int(11) DEFAULT NULL,
-  `scene_id` int(11) DEFAULT NULL,
-  `desc` varchar(1000) DEFAULT NULL,
-  `political_level` int(11) DEFAULT NULL,
-  `prov_id` int(11) DEFAULT NULL,
-  `population` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+CREATE TABLE `solution` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) DEFAULT NULL,
+  `amount` int(11) DEFAULT NULL,
+  `type` int(11) DEFAULT NULL,
+  `desc` varchar(500) DEFAULT NULL,
+  `img` varchar(45) DEFAULT NULL,
+  `availability` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 );
-INSERT INTO `area` (id,name,cluster_id,scene_id,desc,political_level,prov_id,population) VALUES (1,'Tacloban',8,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum.',0,1,2000);
-CREATE TABLE "_points" (
-	`ref_asset`	INTEGER,
-	`position_x`	INTEGER,
-	`position_y`	INTEGER,
-	`position_z`	INTEGER,
-	`scale_x`	INTEGER,
-	`scale_y`	INTEGER,
-	`scale_z`	INTEGER,
-	`level`	INTEGER
+INSERT INTO solution VALUES(1,'Build SWIPs (Small Water Impounding Projects)',3000,0,'Produces additional resource (Tilapia)','/img/sol1.jpg',1);
+INSERT INTO solution VALUES(2,'Plant drought-tolerant rice variety',7000,1,'Produces higher yeild and survival rate. This is more expensive.','/img/sol2.jpg',1);
+INSERT INTO solution VALUES(3,'Replant trees',4000,1,'Reduces water run-off from mountains and/or help ensure continuous downstream flow of water','/img/sol3.jpg',1);
+INSERT INTO solution VALUES(4,'Plant water-tolerant rice variety ',7000,1,'Produces higher yeild and survival rate. This is more expensive.','/img/sol4.jpg',1);
+INSERT INTO solution VALUES(5,'Relocate population',15000,0,'Permanently relocates the people to higher/safer grounds','/img/sol5.jpg',1);
+INSERT INTO solution VALUES(6,'Evacuate population',9000,0,'Evacuates the people to higher and safer grounds','/img/sol6.jpg',1);
+INSERT INTO solution VALUES(7,'Fishnet Fishing',2000,1,'50% catch','/img/sol7.jpg',1);
+INSERT INTO solution VALUES(8,'Dynamite Fishing',3000,1,'75% catch','/img/sol8.jpg',1);
+INSERT INTO solution VALUES(9,'Plant Mangroves',1000,1,'Prevents sea level rise but also any form of infrastructure development','/img/sol9.jpg',1);
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
+  `email` varchar(45) DEFAULT NULL,
+  `name` varchar(45) DEFAULT NULL,
+  `pos_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 );
-INSERT INTO `_points` (ref_asset,position_x,position_y,position_z,scale_x,scale_y,scale_z,level) VALUES (3,41.4,7.5,229.7,1,1,1,1),
- (3,144.69,10.93,179.04,1,1,1,1),
- (3,130.9,11.13,106.7,1,1,1,1),
- (3,171.62,15.45,97.98,1,1,1,1),
- (3,191.12,15.65,129.98,1,1,1,1),
- (3,190.02,15.45,136.28,1,1,1,1),
- (3,38.2,7.5,218.6,1,1,1,1),
- (3,149.69,10.43,170.44,1,1,1,1),
- (3,134.1,11.23,98.7,1,1,1,1),
- (3,168.42,15.55,105.98,1,1,1,1),
- (3,54.8,7.5,241.9,1,1,1,1),
- (3,162.19,10.23,166.44,1,1,1,1),
- (3,138.6,11.03,94.2,1,1,1,1),
- (3,183.22,15.45,108.18,1,1,1,1),
- (3,178.72,15.45,112.38,1,1,1,1),
- (3,175.52,15.45,120.38,1,1,1,1),
- (3,172.32,15.55,130.08,1,1,1,1),
- (3,167.82,15.45,134.18,1,1,1,1),
- (3,164.62,15.45,142.18,1,1,1,1),
- (3,197.72,15.45,126.28,1,1,1,1),
- (4,67.02,8.75,214.22,0.6256627,0.6256627,0.6256627,1),
- (5,95.786,9.2001,214.14,0.527511,0.5275109,0.5275109,1),
- (6,147.0494,8.119846,165.9897,0.1486221,0.148622,0.148622,1),
- (6,124.2392,8.941406,94.54124,0.1486221,0.148622,0.148622,1),
- (6,133.2494,8.119846,165.8197,0.1486221,0.148622,0.148622,1),
- (6,136.7444,8.827457,90.05669,0.1486221,0.148622,0.148622,1),
- (6,86.25938,5.409842,256.7997,0.1486221,0.148622,0.148622,1),
- (6,110.42,7.1,158.54,0.1486221,0.1486221,0.148622,1),
- (6,180.8794,13.43985,101.8597,0.1486221,0.148622,0.148622,1),
- (6,87.35938,5.739841,236.0297,0.1486221,0.148622,0.148622,1),
- (6,106.63,6.73,166.36,0.1486221,0.1486221,0.148622,1),
- (6,181.2794,13.33985,103.7597,0.1486221,0.148622,0.148622,1),
- (6,44.66938,5.449842,235.1597,0.1486221,0.148622,0.148622,1),
- (6,103.95,6.97,166.98,0.1486221,0.148622,0.148622,1),
- (6,161.6794,13.43985,93.85969,0.1486221,0.148622,0.148622,1),
- (6,70.75938,5.189842,201.0797,0.1486221,0.1486221,0.148622,1),
- (6,160.2794,12.93985,102.1597,0.1486221,0.148622,0.148622,1),
- (6,73.35938,4.989841,200.4797,0.1486221,0.1486221,0.148622,1),
- (6,77.15938,5.389843,192.5797,0.1486221,0.1486221,0.1486221,1),
- (6,79.65938,5.289843,195.1797,0.1486221,0.1486221,0.1486221,1),
- (6,129.2494,7.919846,156.3197,0.1486221,0.148622,0.148622,1),
- (6,136.4092,8.891406,88.21124,0.1486221,0.148622,0.148622,1),
- (6,163.6494,8.019846,170.6197,0.1486221,0.148622,0.148622,1),
- (6,146.9192,9.001406,97.37125,0.1486221,0.148622,0.148622,1),
- (6,44.62447,5.147766,248.4927,0.1486221,0.148622,0.148622,1),
- (6,122.9492,8.871406,102.8812,0.1486221,0.148622,0.148622,1),
- (6,54.78938,5.529842,253.8997,0.1486221,0.148622,0.148622,1),
- (6,127.8,7.13,128.8,0.1486221,0.148622,0.148622,1),
- (6,156.4794,13.03984,138.3597,0.1486221,0.148622,0.148622,1),
- (6,181.9794,13.23985,132.4597,0.1486221,0.148622,0.148622,1),
- (6,65.43938,5.359842,247.9697,0.1486221,0.148622,0.1486219,1),
- (6,130.48,6.89,128.18,0.1486221,0.148622,0.148622,1),
- (6,180.4794,13.53984,132.8597,0.1486221,0.148622,0.148622,1),
- (6,205.9794,13.33985,126.9597,0.1486221,0.148622,0.148622,1),
- (6,73.86938,5.389843,253.6597,0.1486221,0.148622,0.148622,1),
- (6,129.68,7.35,124.49,0.1486221,0.1486221,0.148622,1),
- (6,195.7794,13.13984,119.6597,0.1486221,0.148622,0.148622,1),
- (6,170.7894,13.54984,127.2597,0.1486221,0.148622,0.148622,1),
- (6,81.05938,4.989841,253.7797,0.1486221,0.148622,0.148622,1),
- (6,127.08,7.58,125.09,0.1486221,0.1486221,0.148622,1),
- (6,184.8794,13.09985,123.7897,0.1486221,0.148622,0.148622,1),
- (6,157.8794,13.53984,130.0597,0.1486221,0.148622,0.148622,1),
- (6,92.10938,5.659842,242.5197,0.1486221,0.148622,0.148622,1),
- (6,112.91,7.01,161.11,0.1486221,0.1486221,0.1486221,1),
- (6,180.5194,12.49985,121.2397,0.1486221,0.148622,0.148622,1),
- (6,195.4794,13.23985,117.8597,0.1486221,0.148622,0.148622,1),
- (7,123.2,7.9,182.3,3.449825,3.449823,3.449823,1),
- (7,99,11,224.3,3.449825,3.449823,3.449823,1),
- (8,77.1,7.2,267.9,1,1,1,1),
- (8,112.5,8.91,154.7,1,1,1,1),
- (8,119.49,10.03,193.94,1,1,1,1),
- (8,75,7.2,257.9,1,1,1,1),
- (8,115.5,8.81,147.5,1,1,1,1),
- (8,121.59,10.13,190.74,1,1,1,1),
- (8,74.7,7.2,196.3,1,1,1,1),
- (8,107.9,8.91,162.2,1,1,1,1),
- (8,117.29,10.23,179.74,1,1,1,1),
- (8,79.3,7.2,188.8,1,1,1,1),
- (8,125.5,8.81,133,1,1,1,1),
- (8,82.3,7.2,181.6,1,1,1,1),
- (9,44.7,7.2,238.8,1,1,1,1),
- (9,147.99,10.03,185.74,1,1,1,1),
- (9,141.8,10.73,106.7,1,1,1,1),
- (9,161.52,15.15,98.38,1,1,1,1),
- (9,203.72,15.15,131.28,1,1,1,1),
- (9,200.92,15.25,136.28,1,1,1,1),
- (9,155.69,10.03,177.44,1,1,1,1),
- (9,144.5,10.73,101.7,1,1,1,1),
- (9,167.62,15.15,117.18,1,1,1,1),
- (9,132.19,10.23,153.34,1,1,1,1),
- (9,124,10.83,99.1,1,1,1,1),
- (9,161.72,15.25,125.18,1,1,1,1),
- (9,156.19,10.43,163.34,1,1,1,1),
- (9,128,11.03,89.7,1,1,1,1),
- (9,157.72,15.25,134.58,1,1,1,1),
- (9,160.19,10.03,171.44,1,1,1,1),
- (9,134,10.83,81.7,1,1,1,1),
- (9,193.12,15.15,111.28,1,1,1,1),
- (9,187.22,15.15,119.28,1,1,1,1),
- (9,183.12,15.25,128.68,1,1,1,1),
- (9,178.22,15.15,137.18,1,1,1,1),
- (9,175.42,15.15,142.18,1,1,1,1),
- (10,137.99,10.23,197.24,1,1,1,1),
- (10,137.99,10.23,191.84,1,1,1,1),
- (10,138.19,10.03,186.44,1,1,1,1),
- (10,131.29,10.43,186.74,1,1,1,1),
- (10,131.29,10.43,192.34,1,1,1,1),
- (10,131.29,10.43,197.64,1,1,1,1),
- (1,123.02,9.32,171.42,1,1,1,1),
- (12,97.8,11,231.8,1,1,1,1),
- (12,129.41,12.8,171.43,1,1,1,1),
- (11,116.1,9.16,153.2,0.3201136,0.3201138,0.3201138,1),
- (11,111.96,11.04,192.38,0.3201136,0.3201137,0.3201137,1),
- (11,147.6494,10.11985,183.4197,0.3201136,0.3201134,0.3201134,1),
- (11,130.1492,11.17141,85.91125,0.3201136,0.3201134,0.3201134,1),
- (11,61.95938,7.669842,246.0797,0.3201136,0.3201134,0.3201134,1),
- (11,190.1794,15.43985,140.1597,0.3201136,0.3201136,0.3201136,1),
- (11,164.7794,15.73985,146.0597,0.3201136,0.3201136,0.3201136,1),
- (11,56.45938,7.639843,265.3797,0.3201136,0.3201135,0.3201135,1),
- (11,199.0794,15.43985,140.2597,0.3201136,0.3201135,0.3201135,1),
- (11,173.6794,15.73985,146.1597,0.3201136,0.3201135,0.3201135,1),
- (11,73.43938,7.689842,261.7297,0.3201136,0.3201135,0.3201135,1),
- (11,192.3794,15.43985,132.7597,0.3201136,0.3201136,0.3201136,1),
- (11,166.9794,15.73985,138.6597,0.3201136,0.3201136,0.3201136,1),
- (11,57.65938,7.689842,245.3797,0.3201136,0.3201133,0.3201133,1),
- (11,189.1794,15.53984,115.5597,0.3201136,0.3201133,0.3201133,1),
- (11,163.7794,15.73985,121.3597,0.3201136,0.3201133,0.3201133,1),
- (11,60.85938,7.689842,260.6797,0.3201136,0.3201136,0.3201136,1),
- (11,194.1794,15.43985,130.4597,0.3201136,0.3201135,0.3201135,1),
- (11,168.6794,15.73985,136.2597,0.3201136,0.3201135,0.3201135,1),
- (11,76.19938,7.589842,272.5497,0.3201136,0.3201135,0.3201135,1),
- (11,186.4794,15.43985,140.3597,0.3201136,0.3201135,0.3201135,1),
- (11,161.0794,15.73985,146.2597,0.3201136,0.3201135,0.3201135,1),
- (11,60.85938,7.689842,268.6797,0.3201136,0.3201136,0.3201136,1),
- (11,193.4794,15.43985,125.9597,0.3201136,0.3201134,0.3201134,1),
- (11,168.9894,15.73985,131.7597,0.3201136,0.3201134,0.3201134,1),
- (11,178.9794,15.73985,109.9597,0.3201136,0.3201133,0.3201133,1),
- (11,171.9794,15.73985,124.4597,0.3201136,0.3201134,0.3201134,1),
- (11,118.61,9.16,152.09,0.3201136,0.3201138,0.3201138,1),
- (11,121.8494,11.21984,195.6197,0.3201136,0.3201137,0.3201137,1),
- (11,179.5794,15.73985,114.4597,0.3201136,0.3201134,0.3201134,1),
- (11,177.8794,15.73985,116.8597,0.3201136,0.3201136,0.3201136,1),
- (11,175.6794,15.73985,124.2597,0.3201136,0.3201135,0.3201135,1),
- (11,171.8794,15.63984,95.55969,0.3201136,0.3201133,0.3201133,1),
- (11,164.8794,15.63984,110.0597,0.3201136,0.3201134,0.3201134,1),
- (11,172.4794,15.63984,100.0597,0.3201136,0.3201134,0.3201134,1),
- (11,170.7794,15.63984,102.4597,0.3201136,0.3201136,0.3201136,1),
- (11,168.5794,15.63984,109.8597,0.3201136,0.3201135,0.3201135,1),
- (11,116.1,9.16,153.2,0.3201136,0.3201137,0.3201137,1),
- (11,119.3494,11.21984,201.8197,0.3201136,0.3201137,0.3201137,1),
- (11,79.75938,7.599842,218.3797,0.3201136,0.3201137,0.3201137,1),
- (11,122.9,9.13,138.7,0.3201136,0.3201137,0.3201137,1),
- (11,153.0494,10.23985,172.5197,0.3201136,0.3201137,0.3201137,1),
- (11,133.3492,11.16141,103.1512,0.3201136,0.3201137,0.3201137,1),
- (11,78.85938,7.599842,212.0797,0.3201136,0.3201137,0.3201137,1),
- (11,122.9,9.13,138.7,0.3201136,0.3201137,0.3201137,1),
- (11,153.0494,10.23985,185.4597,0.3201136,0.3201136,0.3201136,1),
- (11,131.1792,11.16141,110.5912,0.3201136,0.3201136,0.3201136,1),
- (11,57.55938,7.599842,209.4797,0.3201136,0.3201136,0.3201136,1),
- (11,125.4,9.13,137.6,0.3201136,0.3201137,0.3201137,1),
- (11,159.7493,10.21984,177.2197,0.3201136,0.3201136,0.3201136,1),
- (11,140.0492,11.14141,110.6612,0.3201136,0.3201136,0.3201136,1),
- (11,58.45938,7.599842,215.7797,0.3201136,0.3201136,0.3201136,1),
- (11,82.85938,7.389843,187.2797,0.3201136,0.3201137,0.3201137,1),
- (11,148.6494,10.21984,177.2197,0.3201136,0.3201135,0.3201135,1),
- (11,127.4792,11.14141,110.7512,0.3201136,0.3201135,0.3201135,1),
- (11,82.85938,7.389843,187.2797,0.3201136,0.3201137,0.3201137,1),
- (11,159.7493,10.21984,169.3197,0.3201136,0.3201135,0.3201135,1),
- (11,135.1192,11.14141,100.8012,0.3201136,0.3201135,0.3201135,1),
- (11,85.35938,7.389843,186.1797,0.3201136,0.3201137,0.3201137,1),
- (11,154.1494,9.519844,166.5197,0.3201136,0.3201135,0.3201135,1),
- (11,134.4492,11.13141,96.32124,0.3201136,0.3201135,0.3201135,1);
+INSERT INTO user VALUES(1,'kana@antonio.com','kana',1);
 COMMIT;
