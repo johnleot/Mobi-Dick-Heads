@@ -14,7 +14,8 @@ public class ObjectHandler : MonoBehaviour
 		BaranggayHall,
 		Church,
 		School,
-		EvacuationCenter
+		EvacuationCenter,
+		Palay
 	}
 
 	public ObjectHandler.objectType objectType_;

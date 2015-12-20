@@ -93,6 +93,7 @@
      <Compile Include="Assets\Scripts\Classes\NipaHut.cs" />
      <Compile Include="Assets\Scripts\Classes\ObjectFactory.cs" />
      <Compile Include="Assets\Scripts\Classes\Pabahay.cs" />
+     <Compile Include="Assets\Scripts\Classes\Palay.cs" />
      <Compile Include="Assets\Scripts\Classes\Resource.cs" />
      <Compile Include="Assets\Scripts\Classes\School.cs" />
      <Compile Include="Assets\Scripts\Classes\Solution.cs" />

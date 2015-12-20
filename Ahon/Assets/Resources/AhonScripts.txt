@@ -1,13 +1,13 @@
 BEGIN TRANSACTION;
-CREATE TABLE "_points" (
-	`ref_asset`	INTEGER,
-	`position_x`	INTEGER,
-	`position_y`	INTEGER,
-	`position_z`	INTEGER,
-	`scale_x`	INTEGER,
-	`scale_y`	INTEGER,
-	`scale_z`	INTEGER,
-	`level`	INTEGER
+CREATE TABLE "_points" (
+	`ref_asset`	INTEGER,
+	`position_x`	INTEGER,
+	`position_y`	INTEGER,
+	`position_z`	INTEGER,
+	`scale_x`	INTEGER,
+	`scale_y`	INTEGER,
+	`scale_z`	INTEGER,
+	`level`	INTEGER
 );
 INSERT INTO _points VALUES(3,41.4,7.5,229.7,1,1,1,1);
 INSERT INTO _points VALUES(3,144.69,10.93,179.04,1,1,1,1);
@@ -181,22 +181,22 @@ INSERT INTO _points VALUES(11,135.1192,11.14141,100.8012,0.3201136,0.3201135,0.3
 INSERT INTO _points VALUES(11,85.35938,7.389843,186.1797,0.3201136,0.3201137,0.3201137,1);
 INSERT INTO _points VALUES(11,154.1494,9.519844,166.5197,0.3201136,0.3201135,0.3201135,1);
 INSERT INTO _points VALUES(11,134.4492,11.13141,96.32124,0.3201136,0.3201135,0.3201135,1);
-CREATE TABLE `area` (
-  `id` int(11) NOT NULL,
-  `name` varchar(50) DEFAULT NULL,
-  `cluster_id` int(11) DEFAULT NULL,
-  `scene_id` int(11) DEFAULT NULL,
-  `desc` varchar(1000) DEFAULT NULL,
-  `political_level` int(11) DEFAULT NULL,
-  `prov_id` int(11) DEFAULT NULL,
-  `population` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+CREATE TABLE `area` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `cluster_id` int(11) DEFAULT NULL,
+  `scene_id` int(11) DEFAULT NULL,
+  `desc` varchar(1000) DEFAULT NULL,
+  `political_level` int(11) DEFAULT NULL,
+  `prov_id` int(11) DEFAULT NULL,
+  `population` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 );
 INSERT INTO area VALUES(1,'Tacloban',8,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum.',0,1,2000);
-CREATE TABLE `calamity` (
-  `id` int(11) NOT NULL,
-  `name` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+CREATE TABLE `calamity` (
+  `id` int(11) NOT NULL,
+  `name` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 );
 INSERT INTO calamity VALUES(1,'Extreme Heating Event');
 INSERT INTO calamity VALUES(2,'Sea Level Rise');
@@ -209,10 +209,10 @@ INSERT INTO calamity VALUES(8,'Drought');
 INSERT INTO calamity VALUES(9,'Typhoon');
 INSERT INTO calamity VALUES(10,'Storm Surge');
 INSERT INTO calamity VALUES(11,'Flooding');
-CREATE TABLE `cluster` (
-  `id` int(11) NOT NULL,
-  `name` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+CREATE TABLE `cluster` (
+  `id` int(11) NOT NULL,
+  `name` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 );
 INSERT INTO cluster VALUES(1,'I');
 INSERT INTO cluster VALUES(2,'II');
@@ -225,36 +225,36 @@ INSERT INTO cluster VALUES(8,'VIII');
 INSERT INTO cluster VALUES(9,'IX');
 INSERT INTO cluster VALUES(10,'X');
 INSERT INTO cluster VALUES(11,'XI');
-CREATE TABLE `gameplay` (
-  `id` int(11) NOT NULL,
-  `user_id` int(11) DEFAULT NULL,
-  `lev_id` int(11) DEFAULT NULL,
-  `stars` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+CREATE TABLE `gameplay` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `lev_id` int(11) DEFAULT NULL,
+  `stars` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 );
 INSERT INTO gameplay VALUES(1,1,1,0);
-CREATE TABLE `lev_cal` (
-  `lev_id` int(11) NOT NULL,
-  `cal_id` int(11) NOT NULL,
-  `percentage` int(11) DEFAULT NULL,
-  `duration` int(11) DEFAULT NULL,
-  `time` int(11) DEFAULT NULL,
-  `casualty_people` int(11) DEFAULT NULL,
-  `casualty_crops` int(11) DEFAULT NULL,
-  `forecast` varchar(1000) DEFAULT NULL,
-  PRIMARY KEY (`lev_id`,`cal_id`)
+CREATE TABLE `lev_cal` (
+  `lev_id` int(11) NOT NULL,
+  `cal_id` int(11) NOT NULL,
+  `percentage` int(11) DEFAULT NULL,
+  `duration` int(11) DEFAULT NULL,
+  `time` int(11) DEFAULT NULL,
+  `casualty_people` int(11) DEFAULT NULL,
+  `casualty_crops` int(11) DEFAULT NULL,
+  `forecast` varchar(1000) DEFAULT NULL,
+  PRIMARY KEY (`lev_id`,`cal_id`)
 );
 INSERT INTO lev_cal VALUES(1,11,NULL,60,180,5,10,'The country could suffer a significant drop in the rainfall levels early next year and bottom out in April. Regular crops can easily die when exposed to prolonged drought/floods.');
 INSERT INTO lev_cal VALUES(34,9,NULL,30,320,15,5,'As it continues to roar across the Pacific Ocean toward Easterm Visayas, Typhoon Kana has evolved into a super Typhoon - according to the US Navy weather specialists - stirring more frenzied preparations in communities still haunted by the memories of Yolanda.');
 INSERT INTO lev_cal VALUES(34,10,NULL,15,480,30,30,'Storm surges up to four meters high are likely to hit coastal communities in Northern Samar and Leyte, including the capital of Tacloban City, and possibly the Bicol Region and Surigao provinces, according to the Philippine Atmospherical, Geophysical and Astronomical Services Administration (PAGASA).');
 INSERT INTO lev_cal VALUES(67,2,NULL,20,380,40,50,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.');
 INSERT INTO lev_cal VALUES(67,7,NULL,120,320,30,30,'Cras mattis consectetur purus sit amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean lacinia bibendum nulla sed consectetur.');
-CREATE TABLE `lev_res` (
-  `lev_res_id` int(11) NOT NULL,
-  `lev_id` int(11) DEFAULT NULL,
-  `res_id` int(11) DEFAULT NULL,
-  `quantity` int(11) DEFAULT NULL,
-  PRIMARY KEY (`lev_res_id`)
+CREATE TABLE `lev_res` (
+  `lev_res_id` int(11) NOT NULL,
+  `lev_id` int(11) DEFAULT NULL,
+  `res_id` int(11) DEFAULT NULL,
+  `quantity` int(11) DEFAULT NULL,
+  PRIMARY KEY (`lev_res_id`)
 );
 INSERT INTO lev_res VALUES(1,1,1,79);
 INSERT INTO lev_res VALUES(2,34,1,79);
@@ -270,22 +270,22 @@ INSERT INTO lev_res VALUES(11,1,9,22);
 INSERT INTO lev_res VALUES(12,1,10,6);
 INSERT INTO lev_res VALUES(13,1,11,61);
 INSERT INTO lev_res VALUES(14,1,12,2);
-CREATE TABLE `level` (
-  `id` int(11) NOT NULL,
-  `area_id` int(11) DEFAULT NULL,
-  `season` int(11) DEFAULT NULL,
-  `ave_daily_amt_food` decimal(11,0) DEFAULT NULL,
-  `desc` varchar(1000) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+CREATE TABLE `level` (
+  `id` int(11) NOT NULL,
+  `area_id` int(11) DEFAULT NULL,
+  `season` int(11) DEFAULT NULL,
+  `ave_daily_amt_food` decimal(11,0) DEFAULT NULL,
+  `desc` varchar(1000) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 );
 INSERT INTO level VALUES(1,1,NULL,79,'Cras mattis consectetur purus sit amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean lacinia bibendum nulla sed consectetur.');
 INSERT INTO level VALUES(34,1,NULL,79,'Cras mattis consectetur purus sit amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean lacinia bibendum nulla sed consectetur.');
 INSERT INTO level VALUES(67,1,NULL,20,'Cras mattis consectetur purus sit amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean lacinia bibendum nulla sed consectetur.');
-CREATE TABLE `position` (
-  `id` int(11) NOT NULL,
-  `name` varchar(45) DEFAULT NULL,
-  `money` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+CREATE TABLE `position` (
+  `id` int(11) NOT NULL,
+  `name` varchar(45) DEFAULT NULL,
+  `money` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 );
 INSERT INTO position VALUES(1,'Barangay Captain',1000);
 INSERT INTO position VALUES(2,'Mayor',5000);
@@ -294,23 +294,23 @@ INSERT INTO position VALUES(4,'Congressman',15000);
 INSERT INTO position VALUES(5,'Senator',20000);
 INSERT INTO position VALUES(6,'Vice President',30000);
 INSERT INTO position VALUES(7,'President',50000);
-CREATE TABLE `province` (
-  `id` int(11) NOT NULL,
-  `name` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+CREATE TABLE `province` (
+  `id` int(11) NOT NULL,
+  `name` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 );
 INSERT INTO province VALUES(1,'Leyte');
-CREATE TABLE "resource" (
-	`id`	int(11) NOT NULL,
-	`name`	varchar(45) DEFAULT NULL,
-	`img`	varchar(45) DEFAULT NULL,
-	`SurvivalTime`	INT,
-	`MaxNoOfOccupants`	INTEGER,
-	`PrefabtoInstantiate`	varchar(45) DEFAULT NULL,
-	`price`	int(11) NOT NULL,
-	PRIMARY KEY(id)
+CREATE TABLE "resource" (
+	`id`	int(11) NOT NULL,
+	`name`	varchar(45) DEFAULT NULL,
+	`img`	varchar(45) DEFAULT NULL,
+	`SurvivalTime`	INT,
+	`MaxNoOfOccupants`	INTEGER,
+	`PrefabtoInstantiate`	varchar(45) DEFAULT NULL,
+	`price`	int(11) NOT NULL,
+	PRIMARY KEY(id)
 );
-INSERT INTO resource VALUES(1,'Palay (Rice)','ResourceIcons/PALAY',2,-1,'',1000);
+INSERT INTO resource VALUES(1,'Palay (Rice)','ResourceIcons/PALAY',2,-1,'PrefabToInstantiate/Palay01',1000);
 INSERT INTO resource VALUES(2,'Danggit (Fish)','ResourceIcons/Danggit',2,-1,'',1000);
 INSERT INTO resource VALUES(3,'Blue House','Resources/Level1/BlueHouse.prefab',5,10,'',1000);
 INSERT INTO resource VALUES(4,'Church','Resources/Level1/Church.prefab',7,50,'',1000);
@@ -322,10 +322,10 @@ INSERT INTO resource VALUES(9,'Orange House','Resources/Level1/OrangeHouse.prefa
 INSERT INTO resource VALUES(10,'Pabahay','Resources/Level1/Pabahay.prefab',10,10,'',1000);
 INSERT INTO resource VALUES(11,'Tree','',12,-1,'',1000);
 INSERT INTO resource VALUES(12,'School','Resouces/Level1/School.prefab',7,50,'',1000);
-CREATE TABLE `sol_lev` (
-  `sol_id` int(11) NOT NULL,
-  `lev_id` int(11) NOT NULL,
-  PRIMARY KEY (`sol_id`,`lev_id`)
+CREATE TABLE `sol_lev` (
+  `sol_id` int(11) NOT NULL,
+  `lev_id` int(11) NOT NULL,
+  PRIMARY KEY (`sol_id`,`lev_id`)
 );
 INSERT INTO sol_lev VALUES(2,1);
 INSERT INTO sol_lev VALUES(3,1);
@@ -335,20 +335,20 @@ INSERT INTO sol_lev VALUES(6,34);
 INSERT INTO sol_lev VALUES(7,64);
 INSERT INTO sol_lev VALUES(8,64);
 INSERT INTO sol_lev VALUES(9,64);
-CREATE TABLE `sol_pos` (
-  `sol_id` int(11) NOT NULL,
-  `pos_id` int(11) NOT NULL,
-  PRIMARY KEY (`sol_id`,`pos_id`)
+CREATE TABLE `sol_pos` (
+  `sol_id` int(11) NOT NULL,
+  `pos_id` int(11) NOT NULL,
+  PRIMARY KEY (`sol_id`,`pos_id`)
 );
-CREATE TABLE `solution` (
-  `id` int(11) NOT NULL,
-  `name` varchar(100) DEFAULT NULL,
-  `amount` int(11) DEFAULT NULL,
-  `type` int(11) DEFAULT NULL,
-  `desc` varchar(500) DEFAULT NULL,
-  `img` varchar(45) DEFAULT NULL,
-  `availability` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+CREATE TABLE `solution` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) DEFAULT NULL,
+  `amount` int(11) DEFAULT NULL,
+  `type` int(11) DEFAULT NULL,
+  `desc` varchar(500) DEFAULT NULL,
+  `img` varchar(45) DEFAULT NULL,
+  `availability` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 );
 INSERT INTO solution VALUES(1,'Build SWIPs (Small Water Impounding Projects)',3000,0,'Produces additional resource (Tilapia)','/img/sol1.jpg',1);
 INSERT INTO solution VALUES(2,'Plant drought-tolerant rice variety',7000,1,'Produces higher yeild and survival rate. This is more expensive.','/img/sol2.jpg',1);
@@ -359,12 +359,12 @@ INSERT INTO solution VALUES(6,'Evacuate population',9000,0,'Evacuates the people
 INSERT INTO solution VALUES(7,'Fishnet Fishing',2000,1,'50% catch','/img/sol7.jpg',1);
 INSERT INTO solution VALUES(8,'Dynamite Fishing',3000,1,'75% catch','/img/sol8.jpg',1);
 INSERT INTO solution VALUES(9,'Plant Mangroves',1000,1,'Prevents sea level rise but also any form of infrastructure development','/img/sol9.jpg',1);
-CREATE TABLE `user` (
-  `id` int(11) NOT NULL,
-  `email` varchar(45) DEFAULT NULL,
-  `name` varchar(45) DEFAULT NULL,
-  `pos_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
+  `email` varchar(45) DEFAULT NULL,
+  `name` varchar(45) DEFAULT NULL,
+  `pos_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 );
 INSERT INTO user VALUES(1,'kana@antonio.com','kana',1);
 COMMIT;
