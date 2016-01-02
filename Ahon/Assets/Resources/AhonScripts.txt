@@ -310,7 +310,7 @@ CREATE TABLE "resource" (
 	`price`	int(11) NOT NULL,
 	PRIMARY KEY(id)
 );
-INSERT INTO resource VALUES(1,'Palay (Rice)','ResourceIcons/PALAY',2,-1,'PrefabToInstantiate/Palay01',1000);
+INSERT INTO resource VALUES(1,'Palay (Rice)','ResourceIcons/PALAY',2,-1,'PrefabToInstantiate/Palay01',2000);
 INSERT INTO resource VALUES(2,'Danggit (Fish)','ResourceIcons/Danggit',2,-1,'',1000);
 INSERT INTO resource VALUES(3,'Blue House','Resources/Level1/BlueHouse.prefab',5,10,'',1000);
 INSERT INTO resource VALUES(4,'Church','Resources/Level1/Church.prefab',7,50,'',1000);

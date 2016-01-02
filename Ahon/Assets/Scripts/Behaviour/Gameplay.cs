@@ -214,7 +214,30 @@ namespace Assets.Scripts.Behaviour
 				Text itemPrice_ = itemExcerpt_.transform.FindChild("PriceBackground")
 														.FindChild("Text")
 														.GetComponent<Text>();
-				itemPrice_.text = "0000"; // TO DO in database;
+				itemPrice_.text = resource.Price.ToString(); // TO DO in database;
+
+				/*add event listener here. prefabToINstantiate*/
+
+				if(resource.PrefabToInstantiate != "")
+				{
+					try
+					{
+						Debug.Log ("PREFABTOINSTANTIATE: " + resource.PrefabToInstantiate);
+						Button itemExcerptBtn_ = itemExcerpt_.GetComponent<Button>();
+						itemExcerptBtn_.onClick.RemoveAllListeners();
+						string path_ = resource.PrefabToInstantiate;
+						itemExcerptBtn_.onClick.AddListener (
+							() => { 
+							Debug.Log ("PATH: " + path_);
+							GameObject instance = Instantiate (Resources.Load (path_)) as GameObject; 
+						}
+						);
+					}
+					catch(UnityException e)
+					{
+						Debug.Log (e);
+					}
+				}
 			}
 		}
 
