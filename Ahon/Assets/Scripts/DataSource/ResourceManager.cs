@@ -71,5 +71,43 @@ namespace Assets.Scripts.DataSource
 
             return resources;
         }
+        public List<Resource> GetResourceNames(int level)
+        {
+            Debug.Log("Getting Resource Names");
+            IDbCommand dbCmd;
+            IDataReader reader;
+
+            dbConn = dsc.GetInstance();
+            dbConn.Open();
+            dbCmd = dbConn.CreateCommand();
+            dbCmd.CommandText = "SELECT c.name AS 'ResourceName', c.img AS 'ResourceImage', " +
+                " c.prefabtoInstantiate AS 'PrefabtoInstantiate', c.price AS 'Price' " + 
+                "FROM level a LEFT JOIN lev_res b ON a.id = b.lev_id " +
+                "LEFT JOIN resource c ON b.res_id = c.id " +
+                "WHERE (ResourceName <> 'Tree' AND ResourceName <> 'Coconut')  AND a.id= " + level;
+            reader = dbCmd.ExecuteReader();
+            string name = "";
+            string image = "";
+            int price = 0;
+            string prefabToInstantiate = ""; 
+
+            List<Resource> resources = new List<Resource>();
+            while (reader.Read())
+            {
+                name = reader.GetString(0);
+                image = reader.GetString(1);
+                prefabToInstantiate = reader.GetString(2);
+                price = reader.GetInt16(3);
+
+
+
+                Resource resource = new Resource(name, image, 0, 0, prefabToInstantiate, price,
+                                                 0, 0, 0, 0);
+                resources.Add(resource);
+            }
+            dbConn.Close();
+
+            return resources;
+        }
     }
 }

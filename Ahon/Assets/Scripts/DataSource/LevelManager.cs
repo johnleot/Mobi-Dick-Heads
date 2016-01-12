@@ -51,7 +51,7 @@ namespace Assets.Scripts.DataSource
         {
             Debug.Log("Getting Level for Gameplay");
             List<Calamity> calamities = new CalamityManager().GetCalamities(level);
-            List<Resource> resources = new ResourceManager().GetResources(level);
+            List<Resource> resources = new ResourceManager().GetResourceNames(level);
             List<Solution> solutions = new SolutionManager().GetSolutions(level);
             Location location = new LocationManager().GetLocation(level);
 
