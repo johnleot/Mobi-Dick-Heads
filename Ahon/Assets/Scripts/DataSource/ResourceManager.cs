@@ -109,5 +109,49 @@ namespace Assets.Scripts.DataSource
 
             return resources;
         }
+        // get pabahay, blue house and nipa huts
+        public List<Resource> GetPabahayPoints(int level)
+        {
+            Debug.Log("Getting Resource Points (Pabahay, Nipa Hut, Blue House )");
+            IDbCommand dbCmd;
+            IDataReader reader;
+
+            dbConn = dsc.GetInstance();
+            dbConn.Open();
+            dbCmd = dbConn.CreateCommand();
+
+            dbCmd.CommandText = "SELECT ref_asset, position_x, position_y, position_z, " + 
+                "name, img, survivalTime, maxnoofoccupants FROM _points p left join " +
+                "resource r on p.ref_asset = r.id where ref_asset in (3, 8, 9, 10) and level = " + level;
+            reader = dbCmd.ExecuteReader();
+            
+            float position_x = 0f;
+            float position_y = 0f;
+            float position_z = 0f;
+            string name = "";            
+            string image = "";
+            int survivalTime = 0;
+            int occupants = 0;
+            
+            List<Resource> resources = new List<Resource>();
+            while (reader.Read())
+            {
+                position_x = reader.GetFloat(1);
+                position_y = reader.GetFloat(2);
+                position_z = reader.GetFloat(3);
+
+                name = reader.GetString(4);
+                image = reader.GetString(5);
+                survivalTime = reader.GetInt16(6);
+                occupants = reader.GetInt16(7);
+
+                Resource resource = new Resource(name, image, survivalTime, occupants, image, 0,
+                                                 1, position_x, position_y, position_z);
+                resources.Add(resource);
+            }
+            dbConn.Close();
+
+            return resources;
+        }
     }
 }

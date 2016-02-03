@@ -1,10 +1,22 @@
 fileFormatVersion: 2
 guid: 41f6f83760fcc914d85f091af8609445
-timeCreated: 1444570297
+timeCreated: 1453653065
 licenseType: Pro
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - BaranggayHall: {instanceID: 0}
+  - BlueHouse: {fileID: 471946, guid: 2c566d4f4591f184fa77421b13989c51, type: 2}
+  - Church: {instanceID: 0}
+  - CityHall: {instanceID: 0}
+  - NipaHut: {fileID: 424200, guid: 176aa03ee1e89ea48aa77a766c8f53d9, type: 2}
+  - OrangeHouse: {instanceID: 0}
+  - Pabahay: {fileID: 475364, guid: 8fdc4af04fb05134daa0261bffc0919e, type: 2}
+  - School: {instanceID: 0}
+  - Palay: {instanceID: 0}
+  - Danggit: {instanceID: 0}
+  - Coconut: {instanceID: 0}
+  - Tree: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

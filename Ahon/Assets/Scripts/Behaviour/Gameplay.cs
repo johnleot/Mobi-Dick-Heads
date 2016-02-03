@@ -9,6 +9,8 @@ namespace Assets.Scripts.Behaviour
 {
     public class Gameplay : MonoBehaviour
 	{
+        public Color grey = new Color(0.3F, 0.4F, 0.6F);
+        public Color normal = new Color(0.0F, 0.0F, 0.0F);
 		public GameObject MainUI;
 		public Slider natureResponseBar;
 		public Slider peopleResponseBar;
@@ -19,6 +21,7 @@ namespace Assets.Scripts.Behaviour
 		Text position;
 		Text resource;
 		Text tools;
+        Text noOcc;
 		public Text scores;
 		public Text moneyText;
 
@@ -33,13 +36,17 @@ namespace Assets.Scripts.Behaviour
 		private Gameplay gamePlay;
 		private string playerName;		//Player name
 		private string activeLevel;		//Player's current level
-
+        private Image actionCanvasImg;
 		private int playerHealth;		//Player's current health
 		private int peopleResponse;		//People's satisfaction score
 		private int natureResponse;		//Nature score
 		private int resourcesScore;		//Resources score
 		private int score;				//Player's total score
 		private int money;				//Player's money
+
+        private int numberOfOccupants;
+        private Button feedButton;
+        private Button evacuateButton;
 
         void Start()
         {
@@ -164,16 +171,53 @@ namespace Assets.Scripts.Behaviour
 			return money;
 		}
 
+        public int getNumberOfOccupants()
+        {
+            return numberOfOccupants;
+        }
+
+        public void setNumberOfOccupants(int value)
+        {
+            feedButton = GameObject.Find("Feed").GetComponent<Button>();
+            evacuateButton = GameObject.Find("Evacuate").GetComponent<Button>();
+            noOcc = GameObject.Find("NoOcc").GetComponent<Text>();
+            numberOfOccupants = int.Parse(noOcc.text);
+
+            int newNoOcc = numberOfOccupants - value;
+            if (newNoOcc >= 0)
+            {
+                noOcc.text = newNoOcc.ToString();
+                feedButton.enabled = true;
+                evacuateButton.enabled = true;
+
+            } else
+            {
+                
+                feedButton.enabled = false;
+                evacuateButton.enabled = false;
+            }
+        }
+
+        public void resetNumberOfOccupants()
+        {
+            feedButton = GameObject.Find("Feed").GetComponent<Button>();
+            evacuateButton = GameObject.Find("Evacuate").GetComponent<Button>();
+            feedButton.enabled = true;
+            evacuateButton.enabled = true;
+        }
 		public void setPeopleResponse(int value)
 		{
-			peopleResponse += value;	// food deficit + illegal activity stopped
-			peopleResponseBar.value = (float)(peopleResponse / 100);
+            if(peopleResponse <=56){
+                peopleResponse += value;	// food deficit + illegal activity stopped
+                peopleResponseBar.value = (float)(peopleResponse / 100);
+            }
 		}
 
 		public void setNatureResponse(int value)
 		{
 			natureResponse += value;	// illegal activity stopped + calamity damage on crops
 			natureResponseBar.value = (float)(peopleResponse / 100);
+            
 		}
 
 		public void setResourcesScore(int value)
@@ -184,7 +228,8 @@ namespace Assets.Scripts.Behaviour
 
 		public void setPlayerMoney(int value)
 		{
-			money = value;
+            money -= value;
+			moneyText.text = money.ToString();
 		}
 
 		void setResourcseItems()

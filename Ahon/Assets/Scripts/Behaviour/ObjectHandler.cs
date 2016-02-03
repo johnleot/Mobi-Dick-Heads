@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using Assets.Scripts.Behaviour;
+using UnityEngine.UI;
 
 public class ObjectHandler : MonoBehaviour
 {
@@ -15,9 +16,12 @@ public class ObjectHandler : MonoBehaviour
 		Church,
 		School,
 		EvacuationCenter,
-		Palay
+		Palay,
+        Terrain
 	}
-
+    private Canvas actionCanvas;
+    private Image actionCanvasImg;
+    private Text actionCanvasNoOcc;
 	public ObjectHandler.objectType objectType_;
 	private bool colliding = false;
 	private Vector3 originalPosition;
@@ -32,15 +36,18 @@ public class ObjectHandler : MonoBehaviour
 
 	void Start()
 	{
+        actionCanvas = GameObject.Find("ActionCanvas").GetComponent<Canvas>();
+        actionCanvasImg = GameObject.Find("ActionCanvasImg").GetComponent<Image>();
+        actionCanvasNoOcc =  GameObject.Find("NoOcc").GetComponent<Text>();
 		//Debug.Log (gameObject + " object type is: " + objectType_);
-
+        actionCanvas.enabled = false;
 		if (objectType_ != objectType.empty) 
 		{
 			object_ = (IObject)GetComponent(typeof(IObject));
 			
 			if (object_ == null) 
 			{
-				Debug.Log ("Getting Object type failed.");
+				//Debug.Log ("Getting Object type failed.");
 			}
 			//else
 				//Debug.Log ("Getting object type instance success. Object: " + object_);
@@ -51,10 +58,15 @@ public class ObjectHandler : MonoBehaviour
 
 	void OnTriggerEnter(Collider other)
 	{
+        //Debug.Log("entering " + other.gameObject.tag);
 		if (other.gameObject.tag == "Obstacle" || other.gameObject.tag == "Untagged") 
 		{
 			colliding = true;
 		}
+        if (other.gameObject.tag == "Building")
+        {
+            Destroy(gameObject);
+        }
 	}
 	
 	void OnTriggerExit(Collider other)
@@ -131,5 +143,40 @@ public class ObjectHandler : MonoBehaviour
 			originalPosition = value;
 		}
 	}
+    
+    public void OnMouseDown()
+    {
+        string obj = this.gameObject.transform.name;
+        string name = obj.Split(',')[0];
+        string noOcc = obj.Split(',')[1];
+        if (name == "Nipahut" ||
+            name == "Pabahay" ||
+            name == "Blue House" ||
+            name == "Orange House")
+        {
+            actionCanvas.enabled = true;
+            actionCanvasNoOcc.text = noOcc;
+        }
+        else
+        {
+            actionCanvas.enabled = false; 
+        }
+    }
+
+    public void FeedPopulation(int value)
+    {
+
+    }
+
+    public void EvacuatePopulation(int value)
+    {
+
+    }
+
+    public void HideActionCanvas()
+    {
+        actionCanvas.enabled = false; 
+    }
+
 }
 
