@@ -274,7 +274,10 @@ namespace Assets.Scripts.Behaviour
 						itemExcerptBtn_.onClick.AddListener (
 							() => { 
 							Debug.Log ("PATH: " + path_);
-							GameObject instance = Instantiate (Resources.Load (path_)) as GameObject; 
+							GameObject instance = Instantiate (Resources.Load (path_),
+							                                   Camera.main.ViewportToWorldPoint(new Vector3(0.5f,0.5f,10f)),
+							                                   Quaternion.identity) as GameObject;
+							closeResourcesWindow();
 						}
 						);
 					}

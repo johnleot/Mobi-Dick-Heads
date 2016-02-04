@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using UnityEngine.Events;
 using System.Collections;
+using Assets.Scripts.Behaviour;
 
 namespace Assets.Scripts.Classes
 {

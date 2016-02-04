@@ -312,16 +312,16 @@ CREATE TABLE "resource" (
 );
 INSERT INTO resource VALUES(1,'Palay (Rice)','ResourceIcons/PALAY',2,-1,'PrefabToInstantiate/Palay01',2000);
 INSERT INTO resource VALUES(2,'Danggit (Fish)','ResourceIcons/Danggit',2,-1,'',1000);
-INSERT INTO resource VALUES(3,'Blue House','Resources/Level1/BlueHouse.prefab',5,10,'',1000);
-INSERT INTO resource VALUES(4,'Church','Resources/Level1/Church.prefab',7,50,'',1000);
-INSERT INTO resource VALUES(5,'City Hall','Resources/Level1/CityHall.prefab',7,30,'',1000);
+INSERT INTO resource VALUES(3,'Blue House','ResourceIcons/h1',5,10,'Level1/BlueHouse',1000);
+INSERT INTO resource VALUES(4,'Church','',7,50,'Level1/Church',1000);
+INSERT INTO resource VALUES(5,'City Hall','',7,30,'Level1/CityHall',1000);
 INSERT INTO resource VALUES(6,'Coconut','ResourceIcons/COCONUT',15,-1,'',1000);
 INSERT INTO resource VALUES(7,'Health Center','Graphics/Sprites/OK_Health_Center_Shadow_Left.png',10,60,'',1000);
-INSERT INTO resource VALUES(8,'Nipahut','Resouces/Level1/NipaHutAsset.prefab',3,10,'',1000);
-INSERT INTO resource VALUES(9,'Orange House','Resources/Level1/OrangeHouse.prefab',5,10,'',1000);
-INSERT INTO resource VALUES(10,'Pabahay','Resources/Level1/Pabahay.prefab',10,10,'',1000);
+INSERT INTO resource VALUES(8,'Nipahut','g610455',3,10,'Level1/NipaHutAsset',1000);
+INSERT INTO resource VALUES(9,'Orange House','ResourceIcons/h2',5,10,'Level1/OrangeHouse',1000);
+INSERT INTO resource VALUES(10,'Pabahay','Pabahay',10,10,'Level1/Pabahay',1000);
 INSERT INTO resource VALUES(11,'Tree','',12,-1,'',1000);
-INSERT INTO resource VALUES(12,'School','Resouces/Level1/School.prefab',7,50,'',1000);
+INSERT INTO resource VALUES(12,'School','1_School_300x230',7,50,'Level1/School',1000);
 CREATE TABLE `sol_lev` (
   `sol_id` int(11) NOT NULL,
   `lev_id` int(11) NOT NULL,

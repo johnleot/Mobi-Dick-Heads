@@ -69,6 +69,7 @@
      <Compile Include="Assets\Scripts\Behaviour\CollisionDetect.cs" />
      <Compile Include="Assets\Scripts\Behaviour\Draggable.cs" />
      <Compile Include="Assets\Scripts\Behaviour\Gameplay.cs" />
+     <Compile Include="Assets\Scripts\Behaviour\Item.cs" />
      <Compile Include="Assets\Scripts\Behaviour\LevelIntroduction.cs" />
      <Compile Include="Assets\Scripts\Behaviour\LevelSelection.cs" />
      <Compile Include="Assets\Scripts\Behaviour\MainMenu.cs" />
@@ -77,6 +78,7 @@
      <Compile Include="Assets\Scripts\Behaviour\PauseGame.cs" />
      <Compile Include="Assets\Scripts\Behaviour\ResourceSlidingMenu.cs" />
      <Compile Include="Assets\Scripts\Behaviour\ResultsWindow.cs" />
+     <Compile Include="Assets\Scripts\Behaviour\SampleButton.cs" />
      <Compile Include="Assets\Scripts\Behaviour\ScoringSystem.cs" />
      <Compile Include="Assets\Scripts\Behaviour\Settings.cs" />
      <Compile Include="Assets\Scripts\Behaviour\SoundManager.cs" />
