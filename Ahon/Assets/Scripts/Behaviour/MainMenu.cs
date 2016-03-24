@@ -8,7 +8,10 @@ namespace Assets.Scripts.Behaviour
 {
     class MainMenu : MonoBehaviour
     {
-        public void OnClick(int buttonClicked)
+		public GameObject mainMenu;
+		public GameObject settingsMenu;
+
+		public void OnClick(int buttonClicked)
         {
             switch (buttonClicked)
             {
@@ -18,6 +21,9 @@ namespace Assets.Scripts.Behaviour
                 case 2:
                     LoadCinematicsScreen();
                     break;
+				case 3:
+					OpenSettingsMenu();
+					break;
                 default:
                     LoadFacebookScreen();
                     break;
@@ -39,6 +45,11 @@ namespace Assets.Scripts.Behaviour
         {
             Application.LoadLevel("LevelSelection");
         }
+
+		void OpenSettingsMenu ()
+		{
+			settingsMenu.SetActive (true);
+		}
 
         void LoadFacebookScreen()
         {
