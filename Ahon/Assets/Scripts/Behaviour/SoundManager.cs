@@ -18,7 +18,7 @@ namespace Assets.Scripts.Behaviour
 	
 			if (instance == null)
 				instance = this;
-			else if (instance != this)
+			else if (instance != null)
 				Destroy (gameObject);
 	
 			DontDestroyOnLoad (gameObject);

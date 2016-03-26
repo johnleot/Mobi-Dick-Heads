@@ -9,7 +9,6 @@ namespace Assets.Scripts.Behaviour
 		public GameObject mainMenu,settingsMenu;
 		public GameObject audioPanel, helpPanel, aboutPanel;
 		public Text help, about;
-		SoundManager bgMusic, soundFX;
 
 		public void OnClick(int buttonClicked)
 		{
@@ -50,33 +49,6 @@ namespace Assets.Scripts.Behaviour
 			helpPanel.SetActive (false);
 			audioPanel.SetActive(true);
 			aboutPanel.SetActive(false);
-		}
-
-		public void onClickSounds (int btn)
-		{
-			switch (btn)
-			{
-			case 1:
-				if(SoundManager.instance.bgMusic.isPlaying)
-				{
-					SoundManager.instance.bgMusic.Stop();
-				}
-				else
-				{
-					SoundManager.instance.bgMusic.Play();
-				}
-				break;
-			case 2:
-				if(SoundManager.instance.soundFX.isPlaying)
-				{
-					SoundManager.instance.soundFX.Stop();
-				}
-				else
-				{
-					SoundManager.instance.soundFX.Play();
-				}
-				break;
-			}
 		}
 
 		void AboutButton ()
