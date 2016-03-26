@@ -13,7 +13,7 @@ namespace Assets.Scripts.Behaviour
         public float originalCtc;
 		public Image calamity;
 		public Image duration;
-		public Text over;
+		//public Text over;
 		
 		LevelManager levelManager;
 		Calamity[] calamities;
@@ -73,7 +73,7 @@ namespace Assets.Scripts.Behaviour
 				}
 				else
 				{
-					over.text = "Game Over";
+					//over.text = "Game Over";
                     SoundManager.instance.bgMusic.Stop();
 					SoundManager.instance.PlaySingle(gameOverSound);
 					
