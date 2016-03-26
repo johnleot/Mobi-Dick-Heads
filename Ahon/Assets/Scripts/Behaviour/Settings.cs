@@ -11,6 +11,7 @@ namespace Assets.Scripts.Behaviour
 		public Text help, about;
 		SoundManager bgMusic, soundFX;
 
+
 		public void OnClick(int buttonClicked)
 		{
 			switch (buttonClicked)

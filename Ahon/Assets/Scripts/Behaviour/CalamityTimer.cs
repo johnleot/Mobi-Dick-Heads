@@ -98,10 +98,10 @@ namespace Assets.Scripts.Behaviour
 					if(!gameplay) { Debug.Log ("Error: Gameplay Not Fetched."); }
 					else { Debug.Log("SUCCESSS !!!!! gameplay fetched."); }
 
-					score.text = gameplay.getPlayerScore().ToString();
-					natureRating.text = gameplay.getNatureResponse().ToString();
-					peopleResponse.text = gameplay.getPeopleResponse().ToString();
-					resourcesScore.text = gameplay.getResourcesScore().ToString();
+					score.text = "Score: " + gameplay.getPlayerScore().ToString();
+					natureRating.text = "Nature Rating: " + gameplay.getNatureResponse().ToString();
+					peopleResponse.text = "People Rating: " + gameplay.getPeopleResponse().ToString();
+					resourcesScore.text = "Resource Rating: " + gameplay.getResourcesScore().ToString();
 
 				}
 			}

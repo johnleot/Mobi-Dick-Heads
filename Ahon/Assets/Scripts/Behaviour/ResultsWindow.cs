@@ -38,6 +38,11 @@ namespace Assets.Scripts.Behaviour
 
 		public void OnShareToFBButtonClicked(){
 		}
+
+		public void OnCloseButtonClicked()
+		{
+			Application.LoadLevel ("LevelSelection");
+		}
 	}
 }
 
