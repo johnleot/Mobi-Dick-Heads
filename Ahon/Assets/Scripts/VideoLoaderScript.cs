@@ -22,7 +22,7 @@ public class VideoLoaderScript : MonoBehaviour {
 		LoadMain();
 	#endif*/
 		Debug.Log("Android stuff here");
-		StartCoroutine(LoadVideo ("animation.mp4"));
+		StartCoroutine(LoadVideo ("Ahon Book Video.ogg"));
 		LoadMain ();
 	}
 

@@ -62,8 +62,8 @@
      <Compile Include="Assets\Facebook\Scripts\IOSFacebook.cs" />
      <Compile Include="Assets\Facebook\Scripts\IOSFacebookLoader.cs" />
      <Compile Include="Assets\Facebook\Scripts\NativeDialogModes.cs" />
-     <Compile Include="Assets\Graphics\Terrain\WaterPlus\Scripts\FlowmapAnimator.cs" />
-     <Compile Include="Assets\Graphics\Terrain\WaterPlus\Scripts\WaterPlusScript.cs" />
+     <Compile Include="Assets\Resources\Graphics\Terrain\WaterPlus\Scripts\FlowmapAnimator.cs" />
+     <Compile Include="Assets\Resources\Graphics\Terrain\WaterPlus\Scripts\WaterPlusScript.cs" />
      <Compile Include="Assets\Scripts\AstarAI.cs" />
      <Compile Include="Assets\Scripts\Behaviour\CalamityTimer.cs" />
      <Compile Include="Assets\Scripts\Behaviour\CollisionDetect.cs" />
@@ -85,6 +85,7 @@
      <Compile Include="Assets\Scripts\Behaviour\TerrainObjectFactory.cs" />
      <Compile Include="Assets\Scripts\Behaviour\ToolsSlidingMenu.cs" />
      <Compile Include="Assets\Scripts\Behaviour\TouchControl.cs" />
+     <Compile Include="Assets\Scripts\Behaviour\VideoPlayer.cs" />
      <Compile Include="Assets\Scripts\CameraAspectController.cs" />
      <Compile Include="Assets\Scripts\Classes\BaranggayHall.cs" />
      <Compile Include="Assets\Scripts\Classes\Calamity.cs" />
@@ -114,9 +115,9 @@
      <Compile Include="Assets\Scripts\DataSource\UserManager.cs" />
      <Compile Include="Assets\Scripts\InitScript.cs" />
      <Compile Include="Assets\Scripts\VideoLoaderScript.cs" />
-     <None Include="Assets\Graphics\Terrain\WaterPlus\Shaders\WaterPlus_Mobile_HQ_VertColor.shader" />
+     <None Include="Assets\Resources\Graphics\Terrain\WaterPlus\Shaders\WaterPlus_Mobile_HQ_VertColor.shader" />
      <None Include="Assets\Plugins\Android\facebook\res\drawable\com_facebook_top_background.xml" />
-     <None Include="Assets\Graphics\Terrain\WaterPlus\Shaders\WaterPlus_Mobile_NoSpec.shader" />
+     <None Include="Assets\Resources\Graphics\Terrain\WaterPlus\Shaders\WaterPlus_Mobile_NoSpec.shader" />
      <None Include="Assets\Plugins\Android\facebook\proguard-project.txt" />
      <None Include="Assets\AstarPathfindingEditor\Editor\EditorAssets\Materials\Navmesh2.shader" />
      <None Include="Assets\Plugins\Android\facebook\res\layout\com_facebook_usersettingsfragment.xml" />
@@ -129,10 +130,10 @@
      <None Include="Assets\Plugins\Android\facebook\res\values\strings.xml" />
      <None Include="Assets\Plugins\Android\facebook\res\layout\com_facebook_picker_title_bar.xml" />
      <None Include="Assets\Plugins\Android\facebook\res\layout\com_facebook_picker_search_box.xml" />
-     <None Include="Assets\Graphics\Terrain\WaterPlus\Shaders\WaterPlus_Mobile_Lite.shader" />
+     <None Include="Assets\Resources\Graphics\Terrain\WaterPlus\Shaders\WaterPlus_Mobile_Lite.shader" />
      <None Include="Assets\Plugins\Android\facebook\res\layout\com_facebook_placepickerfragment.xml" />
-     <None Include="Assets\Graphics\Terrain\WaterPlus\Shaders\WaterPlus_Mobile_Shadows.shader" />
-     <None Include="Assets\Graphics\Terrain\WaterPlus\Shaders\WaterPlus_Mobile_Opaque.shader" />
+     <None Include="Assets\Resources\Graphics\Terrain\WaterPlus\Shaders\WaterPlus_Mobile_Shadows.shader" />
+     <None Include="Assets\Resources\Graphics\Terrain\WaterPlus\Shaders\WaterPlus_Mobile_Opaque.shader" />
      <None Include="Assets\Plugins\Android\facebook\res\layout\com_facebook_picker_list_section_header.xml" />
      <None Include="Assets\Plugins\Android\facebook\res\drawable\com_facebook_loginbutton_silver.xml" />
      <None Include="Assets\Plugins\Android\facebook\res\layout\com_facebook_search_bar_layout.xml" />
@@ -140,7 +141,7 @@
      <None Include="Assets\Plugins\Android\facebook\res\values-ldpi\dimens.xml" />
      <None Include="Assets\Plugins\AstarPathfindingProject\Plugins\dependencies.txt" />
      <None Include="Assets\Plugins\Android\facebook\res\drawable\com_facebook_picker_list_selector_background_transition.xml" />
-     <None Include="Assets\Graphics\Terrain\WaterPlus\Shaders\WaterPlusInclude.cginc" />
+     <None Include="Assets\Resources\Graphics\Terrain\WaterPlus\Shaders\WaterPlusInclude.cginc" />
      <None Include="Assets\Plugins\Android\facebook\res\layout\com_facebook_picker_title_bar_stub.xml" />
      <None Include="Assets\Plugins\Android\facebook\res\values\drawables.xml" />
      <None Include="Assets\Resources\AhonScripts.txt" />
@@ -151,7 +152,7 @@
      <None Include="Assets\Plugins\Android\facebook\res\layout\com_facebook_picker_checkbox.xml" />
      <None Include="Assets\Plugins\Android\facebook\res\values-he\strings.xml" />
      <None Include="Assets\Plugins\AstarPathfindingProject\Readme.txt" />
-     <None Include="Assets\Graphics\Terrain\WaterPlus\Shaders\WaterPlus_Mobile_HQ.shader" />
+     <None Include="Assets\Resources\Graphics\Terrain\WaterPlus\Shaders\WaterPlus_Mobile_HQ.shader" />
      <None Include="Assets\Plugins\Android\facebook\res\values\attrs.xml" />
      <None Include="Assets\Plugins\Android\facebook\res\layout\com_facebook_picker_activity_circle_row.xml" />
      <None Include="Assets\Plugins\Android\facebook\res\drawable\com_facebook_button_like_selected.xml" />
@@ -170,7 +171,7 @@
      <None Include="Assets\Plugins\Android\facebook\AndroidManifest.xml" />
      <None Include="Assets\Plugins\Android\facebook\res\drawable\com_facebook_usersettingsfragment_background_gradient.xml" />
      <None Include="Assets\Plugins\Android\facebook\res\layout\com_facebook_picker_image.xml" />
-     <None Include="Assets\Graphics\Terrain\WaterPlus\Shaders\WaterPlus_Mobile.shader" />
+     <None Include="Assets\Resources\Graphics\Terrain\WaterPlus\Shaders\WaterPlus_Mobile.shader" />
      <None Include="Assets\Plugins\AstarPathfindingProject\link.xml" />
      <None Include="Assets\Plugins\Android\facebook\res\values-xhdpi\dimens.xml" />
      <None Include="Assets\Plugins\Android\facebook\res\drawable\com_facebook_picker_list_selector.xml" />
