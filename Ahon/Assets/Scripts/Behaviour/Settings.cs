@@ -7,7 +7,7 @@ namespace Assets.Scripts.Behaviour
     class Settings : MonoBehaviour
     {
 		public GameObject mainMenu,settingsMenu;
-		public GameObject audioPanel, helpPanel, aboutPanel;
+		public GameObject audioPanel, helpPanel, aboutPanel, prohibitMusic, prohibitSFX;
 		public Text help, about;
 		SoundManager bgMusic, soundFX;
 
@@ -51,6 +51,8 @@ namespace Assets.Scripts.Behaviour
 			helpPanel.SetActive (false);
 			audioPanel.SetActive(true);
 			aboutPanel.SetActive(false);
+			prohibitMusic.SetActive(false);
+			prohibitSFX.SetActive(false);
 		}
 
 		public void onClickSounds (int btn)
@@ -61,20 +63,24 @@ namespace Assets.Scripts.Behaviour
 				if(SoundManager.instance.bgMusic.isPlaying)
 				{
 					SoundManager.instance.bgMusic.Stop();
+					prohibitMusic.SetActive(true);
 				}
 				else
 				{
 					SoundManager.instance.bgMusic.Play();
+					prohibitMusic.SetActive(false);
 				}
 				break;
 			case 2:
 				if(SoundManager.instance.soundFX.isPlaying)
 				{
 					SoundManager.instance.soundFX.Stop();
+					prohibitSFX.SetActive(true);
 				}
 				else
 				{
 					SoundManager.instance.soundFX.Play();
+					prohibitSFX.SetActive(false);
 				}
 				break;
 			}

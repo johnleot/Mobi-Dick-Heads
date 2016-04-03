@@ -17,5 +17,10 @@ namespace Assets.Scripts.Behaviour
             Application.LoadLevel("Level_Info");
         }
 
+		public void backBtnClick()
+		{
+			Application.LoadLevel("Main");
+		}
+
     }
 }
