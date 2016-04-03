@@ -22,7 +22,7 @@ public class VideoLoaderScript : MonoBehaviour {
 		LoadMain();
 	#endif*/
 		Debug.Log("Android stuff here");
-		StartCoroutine(LoadVideo ("animation.mp4"));
+		StartCoroutine(LoadVideo ("AhonBook.mp4"));
 		LoadMain ();
 	}
 
@@ -34,6 +34,7 @@ public class VideoLoaderScript : MonoBehaviour {
 		                             FullScreenMovieScalingMode.AspectFill);
 		yield return new WaitForEndOfFrame ();
 		yield return new WaitForEndOfFrame ();
+		Debug.Log("Slideshow Done");
 	}
 
 	public void LoadMain()

@@ -14,7 +14,8 @@ public class InitScript : MonoBehaviour {
 	bool isNewPlayer()
 	{
 		// some logic
-		return true;
+//		return true;
+		return false;
 	}
 
 	void Awake()
