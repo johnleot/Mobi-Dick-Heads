@@ -21,7 +21,7 @@ namespace Assets.Scripts.Behaviour
         int level = 1;
 		GameObject ResultsWindow;
 		public AudioClip gameOverSound;
-
+		private bool aired = false;
 
         Calamity firstCalamity;
         string calamityName;
@@ -47,16 +47,33 @@ namespace Assets.Scripts.Behaviour
 		}
 		void Update()
 		{
+			/**
+			 * Checks the calamityTimeRemaining and calamityTimetoComplete everytime if they have reached zero already
+			 */
 			if (calamityTimeRemaining > 0.0f)
 			{
+
 				calamity.fillAmount = Mathf.MoveTowards(calamity.fillAmount, 1.0f, (Time.deltaTime / calamityTimeRemaining) / 4f);
                 calamityTimeRemaining -= Time.deltaTime;
-			}
+			} 
+			else if(calamityTimeRemaining == 0.0f){
+			/**
+			 * 
+			 */
+
+			} 
 			else
 			{
 				if (calamityTimeToComplete > 0.0f)
 				{
+					/**
+					 * Start news cast here, also place a 'flag' to indicate that the newscast already aired
+					 */
 
+					if (!aired){
+						ShowNewsCast();
+						aired = true;
+					}
                     int checker_1 = (int)calamityTimeToComplete;
 
                     duration.fillAmount = Mathf.MoveTowards(duration.fillAmount, 1.0f, (Time.deltaTime / calamityTimeToComplete) / 4f);
@@ -66,7 +83,6 @@ namespace Assets.Scripts.Behaviour
                     int checker_2 = (int)calamityTimeToComplete;
                     if (checker_1 != checker_2)
                     {
-                        //Debug.Log("1: " + originalCtc);
                         StartCalamity(calamityName.ToLower(), originalCtc);
                     }
                     
@@ -106,7 +122,12 @@ namespace Assets.Scripts.Behaviour
 				}
 			}
 		}
-
+		void ShowNewsCast(){
+			Debug.Log ("MAY BAGYOOOOOo!");
+			/**
+			 * Show graphics/window/notification here 
+			 */ 
+		}
         void StartCalamity(string type, float num)
         {
             switch (type)
