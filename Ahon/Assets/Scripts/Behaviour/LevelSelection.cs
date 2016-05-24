@@ -22,5 +22,9 @@ namespace Assets.Scripts.Behaviour
 			Application.LoadLevel("Main");
 		}
 
+		public void forLevel2()
+		{
+			Application.LoadLevel ("Level2");
+		}
     }
 }
