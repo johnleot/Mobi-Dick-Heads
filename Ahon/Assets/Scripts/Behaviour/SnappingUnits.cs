@@ -32,6 +32,7 @@ public class SnappingUnits : MonoBehaviour {
 	private Vector3 oldPosition; // the previous valid position
 
 	private Transform cachedTransform; //cache the transform for performance
+	private TouchCameraControl touchCameraControl;
 	
 	void Awake () {
 		cachedTransform = transform;
@@ -50,14 +51,17 @@ public class SnappingUnits : MonoBehaviour {
 		// setup the rigidbody for collision and contstruct a trigger
 		SetupRigidbody();
 		ConstructTrigger();
+		touchCameraControl = GameObject.Find ("TouchCameraControl").GetComponent<TouchCameraControl>();
 	}
 	
 	// these two methods toggle dragging
 	void OnMouseDown(){
 		beingDragged = true;
+		touchCameraControl._objectDragging = true;
 	}
 	void OnMouseUp(){
 		beingDragged = false;
+		touchCameraControl._objectDragging = false;
 		cachedTransform.position = oldPosition; // place on the last valid position
 		_intersecting = 0; // stationary block do not intersect anymore
 		TintRed(_intersecting); // set the tint one last time

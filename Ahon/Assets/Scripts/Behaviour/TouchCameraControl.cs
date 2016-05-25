@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.EventSystems;
+using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class TouchCameraControl : MonoBehaviour 
 {
@@ -15,7 +18,11 @@ public class TouchCameraControl : MonoBehaviour
 	public float mapHeight = 40.0f;
 	
 	public float inertiaDuration = 1.0f;
-	
+
+	public Canvas _mainCanvas;
+
+	public bool _objectDragging = false;
+
 	private Camera _camera;
 	private Vector3 cameraInitialPosition;
 	private float highestX = 57.6f, highestY = 49.44f;
@@ -40,7 +47,7 @@ public class TouchCameraControl : MonoBehaviour
 		
 		if (_camera.orthographicSize > maxZoom)
 			_camera.orthographicSize = maxZoom;
-		
+
 		CalculateLevelBounds ();
 	}
 	
@@ -51,9 +58,9 @@ public class TouchCameraControl : MonoBehaviour
 			moveSensitivityX = _camera.orthographicSize / 5.0f;
 			moveSensitivityY = _camera.orthographicSize / 5.0f;
 		}
-		
+
 		Touch[] touches = Input.touches;
-		
+
 		if (touches.Length < 1)
 		{
 			//if the camera is currently scrolling
@@ -69,7 +76,7 @@ public class TouchCameraControl : MonoBehaviour
 			}
 		}
 		
-		if (touches.Length > 0)
+		if (touches.Length > 0 && !_objectDragging)
 		{
 			//Single touch (move)
 			if (touches.Length == 1)
@@ -102,8 +109,7 @@ public class TouchCameraControl : MonoBehaviour
 				{
 					timeTouchPhaseEnded = Time.time;
 				}
-			}
-			
+			}				
 			
 			//Double touch (zoom)
 			if (touches.Length == 2)
@@ -162,5 +168,29 @@ public class TouchCameraControl : MonoBehaviour
 		limitedCameraPosition.y = Mathf.Clamp (limitedCameraPosition.y, minY, maxY);
 		limitedCameraPosition.z = Mathf.Clamp (limitedCameraPosition.z, minZ, maxZ);
 		_camera.transform.position = limitedCameraPosition;
+	}
+
+	bool IsPointerOverUIObject(Vector2 touchPosition) {
+		PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
+		eventDataCurrentPosition.position = touchPosition;
+		
+		List<RaycastResult> results = new List<RaycastResult>();
+		EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+		return results.Count > 0;
+	}
+	/// <summary>
+	/// Cast a ray to test if screenPosition is over any UI object in canvas. This is a replacement
+	/// for IsPointerOverGameObject() which does not work on Android in 4.6.0f3
+	/// </summary>
+	private bool IsPointerOverUIObject(Canvas canvas, Vector2 screenPosition) {
+		// Referencing this code for GraphicRaycaster https://gist.github.com/stramit/ead7ca1f432f3c0f181f
+		// the ray cast appears to require only eventData.position.
+		PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
+		eventDataCurrentPosition.position = screenPosition;
+		
+		GraphicRaycaster uiRaycaster = canvas.gameObject.GetComponent<GraphicRaycaster>();
+		List<RaycastResult> results = new List<RaycastResult>();
+		uiRaycaster.Raycast(eventDataCurrentPosition, results);
+		return results.Count > 0;
 	}
 }
