@@ -33,6 +33,8 @@ public class SnappingUnits : MonoBehaviour {
 
 	private Transform cachedTransform; //cache the transform for performance
 	private TouchCameraControl touchCameraControl;
+
+	private float obstacleHeight = 0f;
 	
 	void Awake () {
 		cachedTransform = transform;
@@ -98,7 +100,7 @@ public class SnappingUnits : MonoBehaviour {
 		//first store the objects position in grid coordinates
 		Vector3 gridPosition = grid.WorldToGrid(cachedTransform.position);
 		//then change only the Y coordinate
-		gridPosition.y = 0.5f * cachedTransform.lossyScale.y;
+		gridPosition.y = 0.5f * cachedTransform.lossyScale.y + obstacleHeight;
 		
 		//convert the result back to world coordinates
 		return grid.GridToWorld(gridPosition);
@@ -112,7 +114,18 @@ public class SnappingUnits : MonoBehaviour {
 		return hit.collider != null ? hit.point : cachedTransform.position;
 	}
 
+	public void alterYOffset(float size)
+	{
+		obstacleHeight = size;
+	}
 
+	public void resetObstacleHeightTotheGround()
+	{
+		Vector3 cursorWorldPoint = ShootRay ();
+		cachedTransform.position = cursorWorldPoint;
+		grid.AlignTransform (cachedTransform);
+		obstacleHeight = cachedTransform.position.y;
+	}
 // --------------- the following is just for the red tint when intersecting, it has nothing to do with snapping ---------------
 
 	#region Intersection handling
@@ -157,7 +170,7 @@ public class SnappingUnits : MonoBehaviour {
 		// attach it to this block and make it exactly the same, except slightly smaller
 		go.transform.parent = transform;
 		go.transform.localPosition = Vector3.zero; //exactly at the centre of the actual object
-		go.transform.localScale = 0.9f * Vector3.one; //slightly smaller than the actual object
+		go.transform.localScale = 1f * Vector3.one; //slightly smaller than the actual object
 		go.transform.localRotation = Quaternion.identity; // same rotation as the actual object
 		// add the same type of collider as the block has and make it a trigger
 		Collider col = (Collider) go.AddComponent(GetComponent<Collider>().GetType());
