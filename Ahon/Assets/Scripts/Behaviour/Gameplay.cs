@@ -240,7 +240,7 @@ namespace Assets.Scripts.Behaviour
 																.FindChild("ResourcesPanel")
 																.FindChild("ResourcesSlider").gameObject;
 
-				GameObject itemExcerpt_ = Instantiate(Resources.Load ("ItemExcerpt")) as GameObject;
+				GameObject itemExcerpt_ = Instantiate(Resources.Load ("UI/InGame/ItemExcerpt")) as GameObject;
 				itemExcerpt_.transform.SetParent (resourcesSlider_.transform, false);
 
 				Text itemLabel_ = itemExcerpt_.transform.FindChild("LabelBackground")
@@ -297,7 +297,7 @@ namespace Assets.Scripts.Behaviour
 																.FindChild("ToolsPanel")
 																.FindChild("ToolsSlider").gameObject;
 				
-				GameObject itemExcerpt_ = Instantiate(Resources.Load ("ItemExcerpt")) as GameObject;
+				GameObject itemExcerpt_ = Instantiate(Resources.Load ("UI/InGame/ItemExcerpt")) as GameObject;
 				itemExcerpt_.transform.SetParent (toolsSlider_.transform, false);
 				
 				Text itemLabel_ = itemExcerpt_.transform.FindChild("LabelBackground")
