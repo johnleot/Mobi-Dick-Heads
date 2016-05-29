@@ -93,7 +93,7 @@ namespace Assets.Scripts.Behaviour
                     SoundManager.instance.bgMusic.Stop();
 					SoundManager.instance.PlaySingle(gameOverSound);
 					
-					transform.FindChild("ResultsWindow").gameObject.SetActive(true);
+					transform.FindChild("ResultWindow").gameObject.SetActive(true);
 					
 					/**
                      * Place score card here
@@ -102,7 +102,7 @@ namespace Assets.Scripts.Behaviour
 						ResultsWindow.SetActive(true);
 					}*/
 
-					GameObject resultsWindow = transform.FindChild("ResultsWindow").gameObject;
+					GameObject resultsWindow = GameObject.FindGameObjectWithTag ("ResultsWindow");
 
 					Text score = resultsWindow.transform.FindChild("ScoreText").GetComponent<Text>();
 					//Text money = resultsWindow.transform.FindChild("moneyText").GetComponent<Text>();
