@@ -26,11 +26,17 @@ namespace Assets.Scripts.Behaviour
         Calamity firstCalamity;
         string calamityName;
         bool hasCalamityStarted;
+
+		GameObject mainUI;
+		GameObject newsCast;
+
 		void Awake(){
 			//ResultsWindow = GameObject.FindGameObjectWithTag ("ResultsWindow");
 		}
 		void Start()
 		{
+			mainUI = GameObject.FindGameObjectWithTag ("MainUI");
+
 			level = PlayerPrefs.GetInt("LevelSelected");
 			levelManager = new CalamityManager();
 			calamities = levelManager.GetLevel(level).Calamities.ToArray();
@@ -127,7 +133,33 @@ namespace Assets.Scripts.Behaviour
 			/**
 			 * Show graphics/window/notification here 
 			 */ 
+			Time.timeScale = 0;
+			newsCast = Instantiate (Resources.Load ("UI/InGame/NewsCast")) as GameObject;
+			newsCast.transform.SetParent (mainUI.transform, false);
+			
+			Button okBtn_ = newsCast.transform.FindChild("OkBtn").GetComponent<Button> ();
+			okBtn_.onClick.RemoveAllListeners();
+			okBtn_.onClick.AddListener (() => OkBtnMethod());
+
+			
+			Button cancelBtn_ = newsCast.transform.FindChild("CancelBtn").GetComponent<Button> ();
+			cancelBtn_.onClick.RemoveAllListeners();
+			cancelBtn_.onClick.AddListener (() => cancelBtnMethod());
 		}
+
+		void OkBtnMethod()
+		{
+			if(newsCast)
+				Destroy (newsCast);
+			Time.timeScale = 1;
+		}
+
+		void cancelBtnMethod()
+		{
+			Time.timeScale = 1;
+			Application.LoadLevel("Level_Info");
+		}
+
         void StartCalamity(string type, float num)
         {
             switch (type)
