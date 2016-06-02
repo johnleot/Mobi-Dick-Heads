@@ -85,19 +85,19 @@ public class TouchControl : MonoBehaviour {
 							{
 								touchTime = Time.time;
 								pickedObject = hit.transform;
-								selectGameObject ();
+//								selectGameObject ();
 							}
 							else
 							{
 								if (hit.transform.gameObject == pickedObject.gameObject ||
 								    hit.transform.gameObject != pickedObject.gameObject) 
 								{
-									deselectGameObject ();
+//									deselectGameObject ();
 								}
 							}
 							
 						} else {
-							deselectGameObject ();
+//							deselectGameObject ();
 							pickedObject = null;
 						}
 					}

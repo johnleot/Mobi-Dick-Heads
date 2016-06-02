@@ -36,11 +36,11 @@ public class ObjectHandler : MonoBehaviour
 
 	void Start()
 	{
-        actionCanvas = GameObject.Find("ActionCanvas").GetComponent<Canvas>();
-        actionCanvasImg = GameObject.Find("ActionCanvasImg").GetComponent<Image>();
-        actionCanvasNoOcc =  GameObject.Find("NoOcc").GetComponent<Text>();
-		//Debug.Log (gameObject + " object type is: " + objectType_);
-        actionCanvas.enabled = false;
+//        actionCanvas = GameObject.Find("ActionCanvas").GetComponent<Canvas>();
+//        actionCanvasImg = GameObject.Find("ActionCanvasImg").GetComponent<Image>();
+//        actionCanvasNoOcc =  GameObject.Find("NoOcc").GetComponent<Text>();
+//		//Debug.Log (gameObject + " object type is: " + objectType_);
+//        actionCanvas.enabled = false;
 		if (objectType_ != objectType.empty) 
 		{
 			object_ = (IObject)GetComponent(typeof(IObject));
@@ -144,39 +144,45 @@ public class ObjectHandler : MonoBehaviour
 		}
 	}
     
-    public void OnMouseDown()
-    {
-        string obj = this.gameObject.transform.name;
-        string name = obj.Split(',')[0];
-        string noOcc = obj.Split(',')[1];
-        if (name == "Nipahut" ||
-            name == "Pabahay" ||
-            name == "Blue House" ||
-            name == "Orange House")
-        {
-            actionCanvas.enabled = true;
-            actionCanvasNoOcc.text = noOcc;
-        }
-        else
-        {
-            actionCanvas.enabled = false; 
-        }
-    }
-
-    public void FeedPopulation(int value)
-    {
-
-    }
-
-    public void EvacuatePopulation(int value)
-    {
-
-    }
-
-    public void HideActionCanvas()
-    {
-        actionCanvas.enabled = false; 
-    }
-
+//    public void OnMouseDown()
+//    {
+//        string obj = this.gameObject.transform.name;
+//        string name = obj.Split(',')[0];
+//        string noOcc = obj.Split(',')[1];
+//        if (name == "Nipahut" ||
+//            name == "Pabahay" ||
+//            name == "Blue House" ||
+//            name == "Orange House")
+//        {
+//            actionCanvas.enabled = true;
+//            actionCanvasNoOcc.text = noOcc;
+//        }
+//        else
+//        {
+//            actionCanvas.enabled = false; 
+//        }
+//    }
+//
+//    public void FeedPopulation(int value)
+//    {
+//
+//    }
+//
+//    public void EvacuatePopulation(int value)
+//    {
+//
+//    }
+//
+//    public void HideActionCanvas()
+//    {
+//        actionCanvas.enabled = false; 
+//    }
+	
+	void OnMouseDown()
+	{
+		//clear objectUIpanel
+		removeObjectGUI ();
+		insertObjectGUI ();
+	}
 }
 
