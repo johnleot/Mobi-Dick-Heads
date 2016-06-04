@@ -28,7 +28,11 @@ namespace Assets.Scripts.Behaviour
         bool hasCalamityStarted;
 
 		GameObject mainUI;
-		GameObject newsCast;
+		//GameObject newsCast;
+		public GameObject newsCast;
+		string textToFlash;
+		bool flashing;
+		int flashtimes = 5;
 
 		void Awake(){
 			//ResultsWindow = GameObject.FindGameObjectWithTag ("ResultsWindow");
@@ -133,31 +137,34 @@ namespace Assets.Scripts.Behaviour
 			/**
 			 * Show graphics/window/notification here 
 			 */ 
-			Time.timeScale = 0;
-			newsCast = Instantiate (Resources.Load ("UI/InGame/NewsCast")) as GameObject;
-			newsCast.transform.SetParent (mainUI.transform, false);
-			
-			Button okBtn_ = newsCast.transform.FindChild("OkBtn").GetComponent<Button> ();
-			okBtn_.onClick.RemoveAllListeners();
-			okBtn_.onClick.AddListener (() => OkBtnMethod());
+//			newsCast = Instantiate (Resources.Load ("UI/InGame/NewsCast")) as GameObject;
+//			newsCast.transform.SetParent (mainUI.transform, false);
+//
+//			Text text = newsCast.transform.FindChild ("News").GetComponent<Text> ();
 
-			
-			Button cancelBtn_ = newsCast.transform.FindChild("CancelBtn").GetComponent<Button> ();
-			cancelBtn_.onClick.RemoveAllListeners();
-			cancelBtn_.onClick.AddListener (() => cancelBtnMethod());
+			flashing = true;
+			StartCoroutine (BlinkText ());
 		}
 
-		void OkBtnMethod()
+		public IEnumerator BlinkText()
 		{
-			if(newsCast)
-				Destroy (newsCast);
-			Time.timeScale = 1;
-		}
-
-		void cancelBtnMethod()
-		{
-			Time.timeScale = 1;
-			Application.LoadLevel("Level_Info");
+			int cycles = 0;
+			transform.FindChild ("NewsCastImage").gameObject.SetActive (true);
+			GameObject newsCast = GameObject.FindGameObjectWithTag ("NewsFlash");
+			textToFlash = "NEWS FLASH: " + calamityName + " is imminent!";
+			Text news = GameObject.Find ("NewsText").GetComponent<Text>();
+			news.text = textToFlash;
+			while (flashing)
+			{
+				yield return new WaitForSeconds(0.5f);
+				newsCast.SetActive(true);
+				yield return new WaitForSeconds(2.0f);
+				newsCast.SetActive(false);
+				yield return new WaitForSeconds(0.5f);
+				cycles ++;
+				if(cycles >= flashtimes) yield break;
+			}
+			yield return null;
 		}
 
         void StartCalamity(string type, float num)
