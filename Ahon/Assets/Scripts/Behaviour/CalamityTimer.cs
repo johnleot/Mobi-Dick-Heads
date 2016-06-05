@@ -34,6 +34,8 @@ namespace Assets.Scripts.Behaviour
 		bool flashing;
 		int flashtimes = 5;
 
+		public Animator goalAnimation;
+
 		void Awake(){
 			//ResultsWindow = GameObject.FindGameObjectWithTag ("ResultsWindow");
 		}
@@ -54,6 +56,9 @@ namespace Assets.Scripts.Behaviour
             originalCtc = calamityTimeToComplete; 
 			//ResultsWindow.SetActive (false);
 			//instantiate calamity
+
+//			goalAnimation.SetBool ("isHidden", true);
+			StartCoroutine (ShowGoal ());
 		}
 		void Update()
 		{
@@ -164,6 +169,15 @@ namespace Assets.Scripts.Behaviour
 				cycles ++;
 				if(cycles >= flashtimes) yield break;
 			}
+			yield return null;
+		}
+
+		public IEnumerator ShowGoal()
+		{
+			yield return new WaitForSeconds (5f);
+			goalAnimation.SetBool ("isHidden", true);
+//			yield return new WaitForSeconds (2f);
+//			goalAnimation.SetBool ("isHidden", false);
 			yield return null;
 		}
 
