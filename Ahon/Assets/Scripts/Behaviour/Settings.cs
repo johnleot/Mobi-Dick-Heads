@@ -17,7 +17,7 @@ namespace Assets.Scripts.Behaviour
 		bool sfxSound = true;
 
 		public GameObject mainMenu,settingsMenu;
-		public GameObject audioPanel, helpPanel, aboutPanel, prohibitMusic, prohibitSFX;
+		public GameObject audioPanel, helpPanel, aboutPanel;
 		public Text help, about;
 		SoundManager bgMusic, soundFX;
 
@@ -60,8 +60,6 @@ namespace Assets.Scripts.Behaviour
 			helpPanel.SetActive (false);
 			audioPanel.SetActive(true);
 			aboutPanel.SetActive(false);
-			prohibitMusic.SetActive(false);
-			prohibitSFX.SetActive(false);
 		}
 
 		public void MuteBG()

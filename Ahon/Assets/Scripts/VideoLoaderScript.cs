@@ -10,12 +10,13 @@ public class VideoLoaderScript : MonoBehaviour {
 			videoHolder.SetActive(true);
 			MovieTexture movieTexture_ = (MovieTexture)videoHolder.GetComponent<Renderer>().material.mainTexture;
 			movieTexture_.Play();
+			Debug.Log("Played in Editor");
 			Invoke ("LoadMain", 20f);
 		}
-	#elif UNITY_ANDROID
+	#elseif UNITY_ANDROID
 		{
 			Debug.Log("Android stuff here");
-			StartCoroutine(LoadVideo ("animation.mp4"));
+			StartCoroutine(LoadVideo ("AhonBook.mp4"));
 			LoadMain ();
 		}
 	#else
@@ -28,8 +29,6 @@ public class VideoLoaderScript : MonoBehaviour {
 
 	IEnumerator LoadVideo(string path)
 	{
-		//WWW link = new WWW (path);
-		//yield return link;
 		Handheld.PlayFullScreenMovie (path, Color.black, FullScreenMovieControlMode.Hidden,
 		                             FullScreenMovieScalingMode.AspectFill);
 		yield return new WaitForEndOfFrame ();
