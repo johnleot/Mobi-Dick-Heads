@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Audio;
 
 namespace Assets.Scripts.Behaviour
 {
@@ -11,11 +12,10 @@ namespace Assets.Scripts.Behaviour
 	
 		public float lowPitch = .95f;
 		public float highPitch = 1.05f;
-	
+
 		// Use this for initialization
 		void Awake ()
 		{
-	
 			if (instance == null)
 				instance = this;
 			else if (instance != this)
@@ -24,7 +24,7 @@ namespace Assets.Scripts.Behaviour
 			DontDestroyOnLoad (gameObject);
 		
 		}
-	
+
 		public void PlaySingle(AudioClip clip)
 		{
 			soundFX.clip = clip;
