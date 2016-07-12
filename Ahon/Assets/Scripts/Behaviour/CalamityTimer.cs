@@ -34,13 +34,17 @@ namespace Assets.Scripts.Behaviour
 		bool flashing;
 		int flashtimes = 5;
 
-		public Animator goalAnimation;
+		GameObject[] goal_1;
+		public Animator slideInGoal_1;
 
 		void Awake(){
 			//ResultsWindow = GameObject.FindGameObjectWithTag ("ResultsWindow");
 		}
 		void Start()
 		{
+			goal_1 = GameObject.FindGameObjectsWithTag ("Goal_1");
+			StartCoroutine (ShowGoal_1 ());
+
 			mainUI = GameObject.FindGameObjectWithTag ("MainUI");
 
 			level = PlayerPrefs.GetInt("LevelSelected");
@@ -57,8 +61,7 @@ namespace Assets.Scripts.Behaviour
 			//ResultsWindow.SetActive (false);
 			//instantiate calamity
 
-//			goalAnimation.SetBool ("isHidden", true);
-			StartCoroutine (ShowGoal ());
+
 		}
 		void Update()
 		{
@@ -172,13 +175,23 @@ namespace Assets.Scripts.Behaviour
 			yield return null;
 		}
 
-		public IEnumerator ShowGoal()
+		public IEnumerator ShowGoal_1()
 		{
-			yield return new WaitForSeconds (5f);
-			goalAnimation.SetBool ("isHidden", true);
-//			yield return new WaitForSeconds (2f);
-//			goalAnimation.SetBool ("isHidden", false);
+			yield return new WaitForSeconds (0.1f);
+			slideInGoal_1.SetTrigger ("StartGoal_1");
+			foreach (GameObject g in goal_1)
+			{
+				g.SetActive(true);
+			}
 			yield return null;
+		}
+
+		public void closeGoal()
+		{
+			foreach (GameObject g in goal_1) 
+			{
+				g.SetActive(false);
+			}
 		}
 
         void StartCalamity(string type, float num)
