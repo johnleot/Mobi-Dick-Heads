@@ -81,6 +81,7 @@
      <Compile Include="Assets\Scripts\Behaviour\SampleButton.cs" />
      <Compile Include="Assets\Scripts\Behaviour\ScoringSystem.cs" />
      <Compile Include="Assets\Scripts\Behaviour\Settings.cs" />
+     <Compile Include="Assets\Scripts\Behaviour\SlideShow.cs" />
      <Compile Include="Assets\Scripts\Behaviour\SnappingUnits.cs" />
      <Compile Include="Assets\Scripts\Behaviour\SoundManager.cs" />
      <Compile Include="Assets\Scripts\Behaviour\TerrainObjectFactory.cs" />
