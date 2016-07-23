@@ -20,6 +20,14 @@ public class SlideShow : MonoBehaviour {
 		page.sprite = images [0];
 		StartCoroutine (FadeInFadeOut ());
 	}
+
+	void Update()
+	{
+		if (Input.GetKeyDown (KeyCode.Escape))
+		{
+			Application.LoadLevel ("Main");
+		}
+	}
 	
 	public IEnumerator FadeInFadeOut()
 	{
