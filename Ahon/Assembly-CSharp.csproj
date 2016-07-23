@@ -46,9 +46,6 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Examples\Scripts\ConsoleBase.cs" />
-     <Compile Include="Assets\Examples\Scripts\GameGroupsConsole.cs" />
-     <Compile Include="Assets\Examples\Scripts\InteractiveConsole.cs" />
      <Compile Include="Assets\Facebook\Scripts\AndroidFacebook.cs" />
      <Compile Include="Assets\Facebook\Scripts\AndroidFacebookLoader.cs" />
      <Compile Include="Assets\Facebook\Scripts\CanvasFacebookLoader.cs" />
@@ -62,6 +59,7 @@
      <Compile Include="Assets\Facebook\Scripts\IOSFacebook.cs" />
      <Compile Include="Assets\Facebook\Scripts\IOSFacebookLoader.cs" />
      <Compile Include="Assets\Facebook\Scripts\NativeDialogModes.cs" />
+     <Compile Include="Assets\Grid Framework\Debug\GridDebugger.cs" />
      <Compile Include="Assets\Resources\Graphics\Terrain\WaterPlus\Scripts\FlowmapAnimator.cs" />
      <Compile Include="Assets\Resources\Graphics\Terrain\WaterPlus\Scripts\WaterPlusScript.cs" />
      <Compile Include="Assets\Scripts\AstarAI.cs" />
@@ -69,6 +67,7 @@
      <Compile Include="Assets\Scripts\Behaviour\CollisionDetect.cs" />
      <Compile Include="Assets\Scripts\Behaviour\Draggable.cs" />
      <Compile Include="Assets\Scripts\Behaviour\Gameplay.cs" />
+     <Compile Include="Assets\Scripts\Behaviour\IntersectionTrigger.cs" />
      <Compile Include="Assets\Scripts\Behaviour\Item.cs" />
      <Compile Include="Assets\Scripts\Behaviour\LevelIntroduction.cs" />
      <Compile Include="Assets\Scripts\Behaviour\LevelSelection.cs" />
@@ -76,14 +75,18 @@
      <Compile Include="Assets\Scripts\Behaviour\ObjectHandler.cs" />
      <Compile Include="Assets\Scripts\Behaviour\ObjectSpawner.cs" />
      <Compile Include="Assets\Scripts\Behaviour\PauseGame.cs" />
+     <Compile Include="Assets\Scripts\Behaviour\PointDebug.cs" />
      <Compile Include="Assets\Scripts\Behaviour\ResourceSlidingMenu.cs" />
      <Compile Include="Assets\Scripts\Behaviour\ResultsWindow.cs" />
      <Compile Include="Assets\Scripts\Behaviour\SampleButton.cs" />
      <Compile Include="Assets\Scripts\Behaviour\ScoringSystem.cs" />
      <Compile Include="Assets\Scripts\Behaviour\Settings.cs" />
+     <Compile Include="Assets\Scripts\Behaviour\SlideShow.cs" />
+     <Compile Include="Assets\Scripts\Behaviour\SnappingUnits.cs" />
      <Compile Include="Assets\Scripts\Behaviour\SoundManager.cs" />
      <Compile Include="Assets\Scripts\Behaviour\TerrainObjectFactory.cs" />
      <Compile Include="Assets\Scripts\Behaviour\ToolsSlidingMenu.cs" />
+     <Compile Include="Assets\Scripts\Behaviour\TouchCameraControl.cs" />
      <Compile Include="Assets\Scripts\Behaviour\TouchControl.cs" />
      <Compile Include="Assets\Scripts\CameraAspectController.cs" />
      <Compile Include="Assets\Scripts\Classes\BaranggayHall.cs" />
@@ -143,6 +146,7 @@
      <None Include="Assets\Resources\Graphics\Terrain\WaterPlus\Shaders\WaterPlusInclude.cginc" />
      <None Include="Assets\Plugins\Android\facebook\res\layout\com_facebook_picker_title_bar_stub.xml" />
      <None Include="Assets\Plugins\Android\facebook\res\values\drawables.xml" />
+     <None Include="Assets\Grid Framework\Changelog.txt" />
      <None Include="Assets\Resources\AhonScripts.txt" />
      <None Include="Assets\Plugins\Android\facebook\res\layout\com_facebook_friendpickerfragment.xml" />
      <None Include="Assets\Plugins\AstarPathfindingProject\Readme_upgrading.txt" />
@@ -178,19 +182,19 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="IFacebook">
- <HintPath>C:/Users/Elisa/Documents/Elisa/Mobi Dick Heads/AhonPinas/Ahon/Mobi-Dick-Heads/Ahon/Assets/Facebook/Scripts/IFacebook.dll</HintPath>
+ <HintPath>C:/Users/Yeng Oliva/Documents/GitHub/Mobi-Dick-Heads/Ahon/Assets/Facebook/Scripts/IFacebook.dll</HintPath>
  </Reference>
  <Reference Include="Mono.Data.Sqlite">
- <HintPath>C:/Users/Elisa/Documents/Elisa/Mobi Dick Heads/AhonPinas/Ahon/Mobi-Dick-Heads/Ahon/Assets/Plugins/Mono.Data.Sqlite.dll</HintPath>
+ <HintPath>C:/Users/Yeng Oliva/Documents/GitHub/Mobi-Dick-Heads/Ahon/Assets/Plugins/Mono.Data.Sqlite.dll</HintPath>
  </Reference>
  <Reference Include="System.Data">
- <HintPath>C:/Users/Elisa/Documents/Elisa/Mobi Dick Heads/AhonPinas/Ahon/Mobi-Dick-Heads/Ahon/Assets/Plugins/System.Data.dll</HintPath>
+ <HintPath>C:/Users/Yeng Oliva/Documents/GitHub/Mobi-Dick-Heads/Ahon/Assets/Plugins/System.Data.dll</HintPath>
  </Reference>
  <Reference Include="Pathfinding.Ionic.Zip.Reduced">
- <HintPath>C:/Users/Elisa/Documents/Elisa/Mobi Dick Heads/AhonPinas/Ahon/Mobi-Dick-Heads/Ahon/Assets/Plugins/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
+ <HintPath>C:/Users/Yeng Oliva/Documents/GitHub/Mobi-Dick-Heads/Ahon/Assets/Plugins/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
  </Reference>
  <Reference Include="Pathfinding.JsonFx">
- <HintPath>C:/Users/Elisa/Documents/Elisa/Mobi Dick Heads/AhonPinas/Ahon/Mobi-Dick-Heads/Ahon/Assets/Plugins/AstarPathfindingProject/Plugins/JsonFx/Pathfinding.JsonFx.dll</HintPath>
+ <HintPath>C:/Users/Yeng Oliva/Documents/GitHub/Mobi-Dick-Heads/Ahon/Assets/Plugins/AstarPathfindingProject/Plugins/JsonFx/Pathfinding.JsonFx.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iossupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>

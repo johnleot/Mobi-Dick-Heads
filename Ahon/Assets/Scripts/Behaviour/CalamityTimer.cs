@@ -26,11 +26,27 @@ namespace Assets.Scripts.Behaviour
         Calamity firstCalamity;
         string calamityName;
         bool hasCalamityStarted;
+
+		GameObject mainUI;
+		//GameObject newsCast;
+		public GameObject newsCast;
+		string textToFlash;
+		bool flashing;
+		int flashtimes = 5;
+
+		GameObject[] goal_1;
+		public Animator slideInGoal_1;
+
 		void Awake(){
 			//ResultsWindow = GameObject.FindGameObjectWithTag ("ResultsWindow");
 		}
 		void Start()
 		{
+			goal_1 = GameObject.FindGameObjectsWithTag ("Goal_1");
+			StartCoroutine (ShowGoal_1 ());
+
+			mainUI = GameObject.FindGameObjectWithTag ("MainUI");
+
 			level = PlayerPrefs.GetInt("LevelSelected");
 			levelManager = new CalamityManager();
 			calamities = levelManager.GetLevel(level).Calamities.ToArray();
@@ -44,6 +60,8 @@ namespace Assets.Scripts.Behaviour
             originalCtc = calamityTimeToComplete; 
 			//ResultsWindow.SetActive (false);
 			//instantiate calamity
+
+
 		}
 		void Update()
 		{
@@ -93,7 +111,7 @@ namespace Assets.Scripts.Behaviour
                     SoundManager.instance.bgMusic.Stop();
 					SoundManager.instance.PlaySingle(gameOverSound);
 					
-					transform.FindChild("ResultsWindow").gameObject.SetActive(true);
+					transform.FindChild("ResultWindow").gameObject.SetActive(true);
 					
 					/**
                      * Place score card here
@@ -102,7 +120,7 @@ namespace Assets.Scripts.Behaviour
 						ResultsWindow.SetActive(true);
 					}*/
 
-					GameObject resultsWindow = transform.FindChild("ResultsWindow").gameObject;
+					GameObject resultsWindow = GameObject.FindGameObjectWithTag ("ResultsWindow");
 
 					Text score = resultsWindow.transform.FindChild("ScoreText").GetComponent<Text>();
 					//Text money = resultsWindow.transform.FindChild("moneyText").GetComponent<Text>();
@@ -127,7 +145,55 @@ namespace Assets.Scripts.Behaviour
 			/**
 			 * Show graphics/window/notification here 
 			 */ 
+//			newsCast = Instantiate (Resources.Load ("UI/InGame/NewsCast")) as GameObject;
+//			newsCast.transform.SetParent (mainUI.transform, false);
+//
+//			Text text = newsCast.transform.FindChild ("News").GetComponent<Text> ();
+
+			flashing = true;
+			StartCoroutine (BlinkText ());
 		}
+
+		public IEnumerator BlinkText()
+		{
+			int cycles = 0;
+			transform.FindChild ("NewsCastImage").gameObject.SetActive (true);
+			GameObject newsCast = GameObject.FindGameObjectWithTag ("NewsFlash");
+			textToFlash = "NEWS FLASH: " + calamityName + " is imminent!";
+			Text news = GameObject.Find ("NewsText").GetComponent<Text>();
+			news.text = textToFlash;
+			while (flashing)
+			{
+				yield return new WaitForSeconds(0.5f);
+				newsCast.SetActive(true);
+				yield return new WaitForSeconds(2.0f);
+				newsCast.SetActive(false);
+				yield return new WaitForSeconds(0.5f);
+				cycles ++;
+				if(cycles >= flashtimes) yield break;
+			}
+			yield return null;
+		}
+
+		public IEnumerator ShowGoal_1()
+		{
+			yield return new WaitForSeconds (0.1f);
+			slideInGoal_1.SetTrigger ("StartGoal_1");
+			foreach (GameObject g in goal_1)
+			{
+				g.SetActive(true);
+			}
+			yield return null;
+		}
+
+		public void closeGoal()
+		{
+			foreach (GameObject g in goal_1) 
+			{
+				g.SetActive(false);
+			}
+		}
+
         void StartCalamity(string type, float num)
         {
             switch (type)

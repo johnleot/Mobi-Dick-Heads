@@ -1,16 +1,25 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 using System.Collections;
 
 namespace Assets.Scripts.Behaviour
 {
     class Settings : MonoBehaviour
     {
+		public AudioMixerSnapshot noBG;
+		public AudioMixerSnapshot withBG;
+		
+		public AudioMixerSnapshot noSFX;
+		public AudioMixerSnapshot withSFX;
+
+		bool bgSound = true;
+		bool sfxSound = true;
+
 		public GameObject mainMenu,settingsMenu;
-		public GameObject audioPanel, helpPanel, aboutPanel, prohibitMusic, prohibitSFX;
+		public GameObject audioPanel, helpPanel, aboutPanel;
 		public Text help, about;
 		SoundManager bgMusic, soundFX;
-
 
 		public void OnClick(int buttonClicked)
 		{
@@ -51,40 +60,36 @@ namespace Assets.Scripts.Behaviour
 			helpPanel.SetActive (false);
 			audioPanel.SetActive(true);
 			aboutPanel.SetActive(false);
-			prohibitMusic.SetActive(false);
-			prohibitSFX.SetActive(false);
 		}
 
-		public void onClickSounds (int btn)
+		public void MuteBG()
 		{
-			switch (btn)
+			if (bgSound)
 			{
-			case 1:
-				if(SoundManager.instance.bgMusic.isPlaying)
-				{
-					SoundManager.instance.bgMusic.Stop();
-					prohibitMusic.SetActive(true);
-				}
-				else
-				{
-					SoundManager.instance.bgMusic.Play();
-					prohibitMusic.SetActive(false);
-				}
-				break;
-			case 2:
-				if(SoundManager.instance.soundFX.isPlaying)
-				{
-					SoundManager.instance.soundFX.Stop();
-					prohibitSFX.SetActive(true);
-				}
-				else
-				{
-					SoundManager.instance.soundFX.Play();
-					prohibitSFX.SetActive(false);
-				}
-				break;
+				noBG.TransitionTo (0.1f);
+				bgSound = false;
+			}
+			else
+			{
+				withBG.TransitionTo(0.1f);
+				bgSound = true;
 			}
 		}
+		
+		public void MuteSFX()
+		{
+			if (sfxSound)
+			{
+				noSFX.TransitionTo (0.1f);
+				sfxSound = false;
+			}
+			else
+			{
+				withSFX.TransitionTo(0.1f);
+				sfxSound = true;
+			}
+		}
+
 
 		void AboutButton ()
 		{

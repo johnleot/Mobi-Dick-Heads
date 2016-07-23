@@ -22,5 +22,28 @@ namespace Assets.Scripts.Behaviour
 			Application.LoadLevel("Main");
 		}
 
+		public void forLevel2()
+		{
+			Application.LoadLevel ("Level_Info");
+
+		}
+
+		public void forLevel3(){
+			//Application.LoadLevel ("LevelSelected");
+		}
+
+
+
+		public void disabledBtn() 
+		{ 
+			gameObject.GetComponent<Button>().interactable = false; 
+		
+		}
+
+		public void enabledBtn() 
+		{ 
+			gameObject.GetComponent<Button>().interactable = true; 
+			
+		}
     }
 }

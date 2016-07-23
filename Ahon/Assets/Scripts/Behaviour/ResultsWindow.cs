@@ -33,7 +33,7 @@ namespace Assets.Scripts.Behaviour
 		}
 
 		public void OnNextLevelButtonClicked(){
-			Application.LoadLevel ("LevelSelection");
+			Application.LoadLevel ("Level2");
 		}
 
 		public void OnShareToFBButtonClicked(){

@@ -23,6 +23,8 @@ public class TouchControl : MonoBehaviour {
 	private float minX, maxX, minY, maxY, minZ, maxZ;
 	private float maxPickingDistance = 1000;
 	private Vector3 cameraInitialPosition;
+	float highestX = 169f;
+	float highestY = 103f;
 
 	private Gameplay gameplay;
 	
@@ -42,12 +44,12 @@ public class TouchControl : MonoBehaviour {
 			Debug.Log ("Failed getting gamplay instance. ");
 		}
 		cameraInitialPosition = _camera.transform.position;
-		maxZoom = 0.5f * (mapWidth / _camera.aspect);
-
-		if (mapWidth > mapHeight)
-			maxZoom = 0.5f * mapHeight;
+//		maxZoom = 0.5f * (mapWidth / _camera.aspect);
+//
+//		if (mapWidth > mapHeight)
+//			maxZoom = 0.5f * mapHeight;
 		//Debug.Log ("MaxZOOM : " + maxZoom);
-		_camera.orthographicSize = maxZoom; // initial camera zoom.
+//		_camera.orthographicSize = maxZoom; // initial camera zoom.
 		CalculateMapBounds ();
 	}
 	
@@ -83,19 +85,19 @@ public class TouchControl : MonoBehaviour {
 							{
 								touchTime = Time.time;
 								pickedObject = hit.transform;
-								selectGameObject ();
+//								selectGameObject ();
 							}
 							else
 							{
 								if (hit.transform.gameObject == pickedObject.gameObject ||
 								    hit.transform.gameObject != pickedObject.gameObject) 
 								{
-									deselectGameObject ();
+//									deselectGameObject ();
 								}
 							}
 							
 						} else {
-							deselectGameObject ();
+//							deselectGameObject ();
 							pickedObject = null;
 						}
 					}
@@ -188,32 +190,24 @@ public class TouchControl : MonoBehaviour {
 	
 	void CalculateMapBounds()
 	{
-		verticalExtent = _camera.orthographicSize;
-		horizontalExtent = verticalExtent * _camera.aspect;
-		minX = horizontalExtent - mapWidth / 2.0f;
-		maxX = mapWidth / 2.0f - horizontalExtent;
-		minY = verticalExtent - mapHeight / 2.0f;
-		maxY = mapHeight / 2.0f - verticalExtent;
-
-		minZ = horizontalExtent - mapWidth / 2.0f;
-		maxZ = mapWidth / 2.0f - horizontalExtent;
-
-		minX += cameraInitialPosition.x;
-		maxX += cameraInitialPosition.x;
-		minY += cameraInitialPosition.y;
-		maxY += cameraInitialPosition.y;
-		minZ += cameraInitialPosition.z;
-		maxZ += cameraInitialPosition.z;
-
-		//Print MaxHeight, MaxWidth;
-		/*
-		Debug.Log ("VerticalExtent" + verticalExtent);
-		Debug.Log ("HorizontalExtent" + horizontalExtent);
-		Debug.Log ("minX" + minX);
-		Debug.Log ("maxX" + maxX);
-		Debug.Log ("minY" + minY);
-		Debug.Log ("maxY" + maxY);
-		*/
+		float xPerOrthoSize;
+		float yPerOrthoSize;
+		
+		xPerOrthoSize = (highestX - cameraInitialPosition.x) / (maxZoom);
+		yPerOrthoSize = (highestY - cameraInitialPosition.y) / (maxZoom);
+		
+		Debug.Log ("xPerOrthoSize: " + xPerOrthoSize + " yPerOrthoSize: " + yPerOrthoSize);
+		
+		minX = cameraInitialPosition.x - (xPerOrthoSize * maxZoom - _camera.orthographicSize + 1);
+		maxX = cameraInitialPosition.x + (xPerOrthoSize * maxZoom - _camera.orthographicSize + 1);
+		
+		minY = cameraInitialPosition.y - (yPerOrthoSize * maxZoom - _camera.orthographicSize + 1);
+		maxY = cameraInitialPosition.y + (yPerOrthoSize * maxZoom - _camera.orthographicSize + 1);
+		
+		minZ = cameraInitialPosition.z - (xPerOrthoSize * maxZoom - _camera.orthographicSize + 1);
+		maxZ = cameraInitialPosition.z + (xPerOrthoSize * maxZoom - _camera.orthographicSize + 1);
+		
+		Debug.Log ("minX:" + minX + " maxX:" + maxX + "-minY:" + minY + " maxY:" + maxY + "-minZ:" + minZ + " maxZ:" + maxZ);
 	}
 	
 	void LateUpdate()

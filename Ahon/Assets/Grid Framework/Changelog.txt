@@ -1,0 +1,112 @@
+* Version 1.3.1 *
+- fixed an edge case for AlignVector3 in rectangular grids
+- in the runtime snapping example you can now click-drag on the grids directly and see AlignVector3 in action (turn on gizmos in game view to see)
+- added the PointDebug script to the above examplt for that purpose
+- changed the way movement is done in the grid-based movement example, now the sphere will always take the straight path
+
+* Version 1.3.0 *
+Introducing polar grids to Grid Framework: comes with all the usual methods and two coordinate systems
+- added up, right and forward members to rectangular grids
+- added sides, width and height members to hex grids
+- added the enum GFAngleMode {radians, degree} to specify an angle type; currently only used in methods of polar grids
+- added the enum HexDirection for cardinal directions (north, north-east, east, ...) in hex grids
+- added the GetDirection method to hex grids to convert a cardinal direction to a world space direction vector
+- hex grids and polar grids now both inherit from GFLayeredGrid, which in return inherits from GFGrid
+- the Lights Off example now features a polar grid as well
+- procedural mesh generation for grid faces in the Lights Off example
+- mouse handling in runtime snapping example changed because it was confusing a lot of users who just copy-pasted the code
+
+------------------------------------------------------------------------
+
+* Version 1.2.5 *
+This release serves as a preparation for Version 1.3.0, which will add polar grids
+- the methods NearestVertex/Face/BoxW and NearestVertex/Face/BoxG replace FindNearestVertex/Face/Box and GetVertex/Face/BoxCoordinates respectively.
+This is just a change in name, as the old nomencalture was confusing and makes no sense for grids with multiple coordinate systems, but the syntax stays the same.
+The old methods will throw compiler warnings but will still work fine. You can run a Search&Replace through your scripts to get rid of them.
+- the GFBoolVector3 class can now be instantiated via GFBoolVector3.True and GFBoolVector3.False to create an all-true or all-false vector
+- similarly you use GFColorVector3.RGB, GFColorVector3.CMY and GFColorVector3.BGW for half-transparent standard colour vectors
+- various code cleanup
+
+* Version 1.2.4 *
+- performance improvement by caching draw points. As long as the grid hasn't been changed the method CalculateDrawPoints will reuse the existing points instead of calculating them again
+- added explantion about rendering performance to the user manual. It explains what exactly happens, what lowers performance and what techniques can improve performance.
+- NEW EXAMPLE: A seemingly endless grid scrolls forever. This is achieved by adjusting the rendering range dynamically and we add a little buffer to make use of the new caching feature.
+
+* Version 1.2.3 *
+- added the ability to use a separate set of colours for rendering and drawing
+- added the ability to have the size of drawings/renderings be relative to the spacing of the grid instead of absolute in world coordinates
+- some examples were broken after the last update after adding accessors to the code, fixed now
+
+* Version 1.2.2 *
+- fixed a typo that could prevent a finished project from building correctly
+- NEW EXAMPLE: a sliding block puzzle working entirely without physics
+- removed the variables minimumSpacing and minimumRadius from GFRectGrid and GFHexGrid. Instead they both use accessors that limit spacing and radius to 0.1
+- size, renderTo and renderFrom are now using accessors as well, this prevents setting them to nonsensical values
+- removed the redundant "Use Custom Rendering Range" flag in the inspector (doesn't change anything in the API though, it's just cosmetic)
+- the foldout state for Draw & Render Settings in the inspector should stick now (individual for both grid types)
+- several minor tweaks under the hood
+
+* Version 1.2.1 * 
+- updated the Lights Off example to use hex grids
+
+* Version 1.2.0 *
+introducing hexagnal gids: use hexagons instead of rectangles for your grids. Comes with all the methods you've come to know from rectangular grids and uses a herringbone pattern as the coordiante system.
+- the movement example scripts now take a GFGrid instead of a GFRectGrid, allowing the user to use both rectangular and hexagonal grids without changing the code
+
+------------------------------------------------------------------------
+
+* Version 1.1.10 *
+- NEW METHOD ScaleVector3: lets you scale a Vector3 to the grid instead of a Transform
+
+* Version 1.1.9 *
+- NEW METHOD AlignVector3: lets you align a single point represented as a Vector3 instead of a Transform to a grid
+- added the ability to lock a certain axis when calling AlignTransform and AlignVector3
+- added a new constructor to both GFBoolVector3 and GFColorVector3 that lets you pass one parameter that gets applied to all components
+- you can now lock axes in the Grid Align Panel as well
+- aligning objects via the Grid Align Panel which already are in place won't do anything, meaning they won't create redundant Undo entries anymore
+- fixed an issue in GetVectrosityPointsSeperate
+- renamed the classes BoolVector3 and ColorVector3 to GFBoolVector3 and GFColorVector3 to avoid name collision
+- size has always been a member of GFGrid, not GFRectGrid, I fixed that mistake in the documentation
+- minor code cleanup and removing redundant code
+
+* Version 1.1.8 *
+- previously if you unloaded a level with a grid that was rendered the game could have crashed. Fixed that issue
+
+* Version 1.1.7 *
+- fixed a typo that prevented adding the GFGridRenderCamera component from the menu bar
+- NEW EXAMPLE: design your levels in a plain text file and use Grid Framework and a text parser to build them during runtime. No need to change scnes when switching levels, faster than placing blocks by hand and great for user-made mods.
+- NEW EXAMPLE: a continuation of the grid-based movment example where you can place obstacles on the grid and the sphere will avoid them. Works without using any physics or colliders. 
+
+* Version 1.1.6 *
+- IMPORTANT: The classes Grid and RectGrid have been renamed to GFGrid and GFRectGrid. This was done to prevent name collision with classes users might already be using or classes from other extensions. I apologize for the inconvenience.
+- minor code cleanup and performance increase in GFRectGrid
+
+* Version 1.1.5 *
+- custom rendering range affects now drawing as well
+
+* Version 1.1.4 *
+- fixed an issue where lines with width would be renderd on top of objects enven though they should be underneath
+
+* Version 1.1.3 *
+- support for custom range for rendering instead of the grid's size
+- from now on all files should install in the right place on their own, no more moving scripts manually
+
+* Version 1.1.2 *
+- integration into the menu bar
+- Vectrosity support
+- documentation split into a separate user manual and a scripting reference
+
+* Version 1.1.1 *
+- line width for rendering now possible
+
+* Version 1.1.0 *
+- introducing grid rendering
+- new inspector panel for RectGrid
+
+------------------------------------------------------------------------
+
+* Version 1.0.1 *
+- fixed rotation for cube shaped debug gizmos
+
+* Version 1.0.0 *
+- initial release
